@@ -72,7 +72,7 @@ dElevators_world:
             #        - define matchFlag true
             #        - foreach stop
             #- if <[matchFlag]>:
-            - if <[targetLocation].is_occluding.not>:
+            - if <[targetLocation].material.is_occluding.not>:
                 - teleport <player> <[targetLocation]>
             - else:
                 - narrate "<&c>The next elevator destination is unsafe!"
@@ -101,7 +101,7 @@ dElevators_world:
             #        - define matchFlag true
             #        - foreach stop
             #- if <[matchFlag]>:
-            - if <[targetLocation].is_occluding.not>:
+            - if <[targetLocation].material.is_occluding.not>:
                 - teleport <[targetLocation]>
             - else:
                 - narrate "<&c>The previous elevator destination is unsafe!"
