@@ -37,7 +37,7 @@ dResPack_command:
           - flag <player> dResPack:true
         - ratelimit <player> 1m
         - ~webget https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/hash.txt save:hash
-        - resourcepack url:https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/KalvaraMC.zip hash:<entry[hash].result>
+        - resourcepack url:https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/KalvaraMC.zip#<entry[hash].result> hash:<entry[hash].result>
       - case false:
         - flag <player> dResPack:false
         - narrate "<red>Resource pack will no longer be sent when you join"

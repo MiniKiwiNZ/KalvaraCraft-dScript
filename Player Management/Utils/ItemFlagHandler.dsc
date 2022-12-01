@@ -7,3 +7,7 @@ dUtils_common_item_flags:
         ## Prevent flagged items from being dispensed
         on block dispenses item_flagged:block_dispense:
         - determine cancelled
+        on player prepares item_flagged:no_enchant enchant:
+        - determine cancelled
+        #on player prepares grindstone craft item_flagged:no_grindstone:
+        #- determine cancelled

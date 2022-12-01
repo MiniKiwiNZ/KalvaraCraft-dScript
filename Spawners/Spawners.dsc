@@ -54,7 +54,7 @@ AR_SpawnerConfig:
       # Multiplier increases by 1 for each level
       LootMultiplier:
         Material: hopper
-        Name: "&2&lLoot Multiplier"
+        Name: "&2&lLoot Upgrade"
         Description:
         - "&7Increase the amount of"
         - "&7loot that mobs from this"
