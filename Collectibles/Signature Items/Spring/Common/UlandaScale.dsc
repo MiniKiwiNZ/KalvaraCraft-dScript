@@ -3,6 +3,7 @@ dCollectibles_scale_Ulanda:
   material: bat_spawn_egg
   display name: <white><bold>Scale of Ulanda
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>Curiously warm. You
   - <dark_purple><italic>weren't expecting that.

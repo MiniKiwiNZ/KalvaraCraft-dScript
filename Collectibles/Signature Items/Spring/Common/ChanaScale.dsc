@@ -3,6 +3,7 @@ dCollectibles_scale_Chana:
   material: ghast_spawn_egg
   display name: <white><bold>Scale of Chana
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>Ripples pulse over the scale
   - <dark_purple><italic>like waves. You feel lighter

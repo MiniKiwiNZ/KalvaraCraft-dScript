@@ -3,6 +3,7 @@ dCollectibles_scale_Lyra:
   material: shulker_spawn_egg
   display name: <white><bold>Scale of Lyra
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>The solidified essence of a
   - <dark_purple><italic>bolt of lightning. Sharp-edged

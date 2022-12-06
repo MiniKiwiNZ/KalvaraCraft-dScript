@@ -3,6 +3,7 @@ dCollectibles_scale_Alida:
   material: spider_spawn_egg
   display name: <white><bold>Scale of Alida
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>The scale smoulders slightly
   - <dark_purple><italic>as it cools. There is still

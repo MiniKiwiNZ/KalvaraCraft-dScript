@@ -3,6 +3,7 @@ dCollectibles_scale_Valis:
   material: allay_spawn_egg
   display name: <white><bold>Scale of Valis
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>Water presses in around you
   - <dark_purple><italic>and the air feels sharp and

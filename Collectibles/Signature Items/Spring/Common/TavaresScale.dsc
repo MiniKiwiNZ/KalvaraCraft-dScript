@@ -3,6 +3,7 @@ dCollectibles_scale_Tavares:
   material: donkey_spawn_egg
   display name: <white><bold>Scale of Tavares
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>The scale weight you down and
   - <dark_purple><italic>smells of freshly watered soil.

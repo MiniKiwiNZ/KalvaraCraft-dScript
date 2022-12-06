@@ -3,6 +3,7 @@ dCollectibles_scale_Tanisha:
   material: elder_guardian_spawn_egg
   display name: <white><bold>Scale of Tanisha
   lore:
+  - <white><bold>Common
   - <empty>
   - <dark_purple><italic><&dq>A firm breeze emanates
   - <dark_purple><italic>from the scale, stirring
