@@ -23,8 +23,8 @@ dUtils_invsee_cmd:
     - flag <player> dutils.temp.invseePlayer:<[targetPlayer]>
     - inventory open d:<proc[dUtils_invsee_helper_proc].context[<[targetPlayer]>|<player>]>
     - wait 1s
-    - while <player.open_inventory.advanced_matches[dUtils_invsee_helper_proc].if_null[false]>:
-        - inventory open d:<proc[dUtils_invsee_helper_proc].context[<[targetPlayer]>|<player>]>
+    - while <player.has_flag[dutils.temp.invseePlayer]>:
+        - adjust <player.open_inventory> contents:<proc[dUtils_invsee_contents_proc].context[<[targetPlayer]>|<player>]>
         - wait 1s
 
 ##########################################
@@ -179,6 +179,21 @@ dUtils_invsee_helper_proc:
     type: procedure
     definitions: targetPlayer|originPlayer
     script:
+    # Get the items for the inventory
+    - define items <proc[dUtils_invsee_contents_proc].context[<[targetPlayer]>|<[originPlayer]>]>
+    # Create a new instance of the inventory
+    - define inv <inventory[dUtils_invsee_gui]>
+    # Set the contents of the created inventory
+    - adjust def:inv contents:<[items]>
+    # Change the name of the created inventory
+    - adjust def:inv "title:Inventory: <[targetPlayer].name>"
+    # Send the inventory back to the caller
+    - determine <[inv]>
+
+dUtils_invsee_contents_proc:
+    type: procedure
+    definitions: targetPlayer|originPlayer
+    script:
     # Define an empty list of items to start with
     - define items <list>
     # Get the equipment that the target player currently has equipped
@@ -215,14 +230,7 @@ dUtils_invsee_helper_proc:
     # Then put the hotbar items in the bottom row of the inventory
     - repeat 9 as:slot:
         - define items:->:<[targetPlayer].inventory.slot[<[slot]>]>
-    # Create a new instance of the inventory
-    - define inv <inventory[dUtils_invsee_gui]>
-    # Set the contents of the created inventory
-    - adjust def:inv contents:<[items]>
-    # Change the name of the created inventory
-    - adjust def:inv "title:Inventory: <[targetPlayer].name>"
-    # Send the inventory back to the caller
-    - determine <[inv]>
+    - determine <[items]>
 
 dUtils_invsee_component_proc:
     type: procedure
