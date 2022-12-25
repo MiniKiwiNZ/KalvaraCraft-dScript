@@ -1,8 +1,8 @@
-AR_SpawnerConfig:
+dSpawners_SpawnerConfig:
   debug: false
   type: world
   data:
-    Prefix: <&6><&l>ApeironSpawner ► <&a>
+    Prefix: <&6><&l>dSpawner ► <&a>
     Upgrades:
       # Speed upgrade makes spawning faster by 0.5 seconds per level
       Speed:
@@ -68,22 +68,22 @@ AR_SpawnerConfig:
           - define xp <[xp].mul[<[level].add[1]>]>
     NaturalDrops:
       BLAZE:
-      - AR_SpawnerShard_1[quantity=2]
+      - dSpawners_SpawnerShard_1[quantity=2]
       - money:150
       ZOMBIE:
-      - AR_SpawnerShard_2[quantity=2]
+      - dSpawners_SpawnerShard_2[quantity=2]
       - money:200
       CAVE_SPIDER:
-      - AR_SpawnerShard_2
+      - dSpawners_SpawnerShard_2
       - money:200
       MAGMA_CUBE:
-      - AR_SpawnerShard_3[quantity=2]
+      - dSpawners_SpawnerShard_3[quantity=2]
       - money:500
       SKELETON:
-      - AR_SpawnerShard_2[quantity=2]
+      - dSpawners_SpawnerShard_2[quantity=2]
       - money:200
       SPIDER:
-      - AR_SpawnerShard_2[quantity=2]
+      - dSpawners_SpawnerShard_2[quantity=2]
       - money:200
     DefaultStats:
       spawner_max_nearby_entities: 1
@@ -96,16 +96,16 @@ AR_SpawnerConfig:
     ## When the scripts reload, ask all spawner components to register themselves
     after reload scripts:
       - flag server dSpawners.SubModules:!
-      - customevent id:ar_register_spawner_modules
-      - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
-      - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
-      - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
+      - customevent id:dspawners_register_spawner_modules
+      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
+      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
+      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
     after server start:
       - flag server dSpawners.SubModules:!
-      - customevent id:ar_register_spawner_modules
-      - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
-      - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
-      - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
+      - customevent id:dspawners_register_spawner_modules
+      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
+      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
+      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
     ## Listen for players placing a spawner
     on player places spawner:
       - if <context.item_in_hand.script.data_key[data.Placeable].if_null[false]>:
@@ -132,7 +132,7 @@ AR_SpawnerConfig:
       # Check whether this was a natural spawner or not
       - if <context.location.has_flag[spawner]>:
         # Get the base item to drop
-        - define dropitem <proc[AR_Spawners_getSpawnerItem].context[<context.location>]>
+        - define dropitem <proc[dSpawners_Spawners_getSpawnerItem].context[<context.location>]>
         - flag <context.location> Upgrades:!
         - flag <context.location> spawner:!
         - flag <context.location> script:!
@@ -140,9 +140,9 @@ AR_SpawnerConfig:
         - determine passively 0
         - determine <[dropitem]>
       - else:
-        - if <script[AR_SpawnerConfig].list_keys[data.NaturalDrops].contains[<context.location.spawner_type.entity_type>]>:
+        - if <script[dSpawners_SpawnerConfig].list_keys[data.NaturalDrops].contains[<context.location.spawner_type.entity_type>]>:
           - define dropsresult <list>
-          - foreach <script[AR_SpawnerConfig].data_key[data.NaturalDrops.<context.location.spawner_type.entity_type>]> as:drop:
+          - foreach <script[dSpawners_SpawnerConfig].data_key[data.NaturalDrops.<context.location.spawner_type.entity_type>]> as:drop:
             - if <[drop].starts_with[money:]>:
               - define moneyAmount <[drop].substring[<[drop].index_of[:].add[1]>]>
               - actionbar "Earned <server.economy.format[<[moneyAmount]>]> for breaking a natural <context.location.spawner_type.entity_type.to_lowercase.replace_text[_].with[ ]> spawner"
@@ -198,16 +198,16 @@ AR_SpawnerConfig:
     ## Listen for upgrade clicks
     on player clicks spawner with:item_flagged:UpgradeSpawner:
       - stop if:<context.location.has_flag[spawner].not>
-      - inventory open d:<proc[AR_Spawners_getUpgradeGui].context[<context.location>|<player>]>
+      - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<context.location>|<player>]>
     ## Listen for clicks in the upgrade GUI
-    on player clicks item_flagged:Upgrade in AR_SpawnerGUI:
+    on player clicks item_flagged:Upgrade in dSpawners_SpawnerGUI:
       - ratelimit <player> 5t
       # Get the cost of the upgrade
       - define location <context.inventory.list_contents.get[5].flag[location].as[location]>
       - define currentlevel <[location].flag[Upgrades.<context.item.flag[Upgrade]>].if_null[0]>
       - define itemcost <[location].flag[script].as[script].data_key[data.Upgrades.<context.item.flag[Upgrade]>.Cost.<[currentlevel].add[1]>]>
       # Check if the player has all the items
-      - if <proc[AR_Spawners_hasAllItems].context[<list[<player>].include_single[<[itemcost]>]>]>:
+      - if <proc[dSpawners_Spawners_hasAllItems].context[<list[<player>].include_single[<[itemcost]>]>]>:
         - foreach <[itemcost]> as:item:
           - if <[item].starts_with[money:]>:
             - money take quantity:<[item].substring[<[item].last_index_of[:].add[1]>]>
@@ -218,17 +218,17 @@ AR_SpawnerConfig:
             - else:
               - take raw_exact:<[itagitem]> quantity:<[itagitem].quantity>
         - flag <[location]> Upgrades.<context.item.flag[Upgrade]>:<[location].flag[Upgrades.<context.item.flag[Upgrade]>].if_null[0].add[1]>
-        - run AR_Spawners_reapplyUpgrades def:<[location]>|<player>
-        - inventory open d:<proc[AR_Spawners_getUpgradeGui].context[<[location]>|<player>]>
+        - run dSpawners_Spawners_reapplyUpgrades def:<[location]>|<player>
+        - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[location]>|<player>]>
       - else:
         - narrate "<script.data_key[data.Prefix].parse_color><&c>Missing resources for upgrade"
-    on player left clicks item_flagged:recharge in AR_SpawnerGUI:
+    on player left clicks item_flagged:recharge in dSpawners_SpawnerGUI:
       - ratelimit <player> 5t
       # Get the recharge information
       - define location <context.inventory.list_contents.get[5].flag[location].as[location]>
       - define rechargeData <[location].flag[script].as[script].data_key[data.Recharge]>
       # See whether the player has the items to perform the recharge
-      - define hasItems <proc[AR_Spawners_hasAllItems].context[<player>|<[rechargeData].get[Cost]>]>
+      - define hasItems <proc[dSpawners_Spawners_hasAllItems].context[<player>|<[rechargeData].get[Cost]>]>
       - define canRecharge <[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>].is_less_than[<[rechargeData].get[MaxDuration]>]>
       - if <[canRecharge].not>:
         - narrate "<script.data_key[data.Prefix].parse_color><&c>This spawner is already nearly fully charged"
@@ -248,7 +248,7 @@ AR_SpawnerConfig:
             - take raw_exact:<[itagitem]> quantity:<[itagitem].quantity>
       # Increase the duration
       - flag <[location]> rechargeduration expire:<[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>]>
-      - inventory open d:<proc[AR_Spawners_getUpgradeGui].context[<[location]>|<player>]>
+      - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[location]>|<player>]>
       - narrate "<script.data_key[data.Prefix].parse_color>Recharged spawner - <&7><[location].flag_expiration[rechargeduration].from_now.formatted><&f> remaining"
     ## Stop the player eating things that can't be eaten
     on player consumes item_flagged:PreventEat priority:-1:
@@ -269,7 +269,7 @@ AR_SpawnerConfig:
     on player right clicks spawner with:*_spawn_egg:
       - narrate "<&4>Spawners can not be changed using spawn eggs"
       - determine cancelled
-AR_SpawnerGUI:
+dSpawners_SpawnerGUI:
   type: inventory
   gui: true
   inventory: chest
@@ -280,7 +280,7 @@ AR_SpawnerGUI:
   - [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane]
   - [gray_stained_glass_pane] [air] [air] [air] [air] [air] [air] [air] [gray_stained_glass_pane]
   - [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane] [gray_stained_glass_pane]
-AR_Spawners_getSpawnerItem:
+dSpawners_Spawners_getSpawnerItem:
   type: procedure
   debug: false
   definitions: location
@@ -293,12 +293,12 @@ AR_Spawners_getSpawnerItem:
         - adjust def:dropitem lore:<[dropitem].lore.include_single[]>
         - foreach <[location].flag[Upgrades].keys.alphanumeric> as:upgrade:
           - define level <[location].flag[Upgrades.<[upgrade]>]>
-          - adjust def:dropitem "lore:<[dropitem].lore.include_single[<script[AR_SpawnerConfig].data_key[data.Upgrades.<[upgrade]>.Name].parse_color><&f>: <&6><[level]>]>"
+          - adjust def:dropitem "lore:<[dropitem].lore.include_single[<script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[upgrade]>.Name].parse_color><&f>: <&6><[level]>]>"
           - adjust def:dropitem flag:Upgrades.<[upgrade]>:<[level]>
       - determine <[dropitem]>
     - else:
       - determine null
-AR_Spawners_getUpgradeItems:
+dSpawners_Spawners_getUpgradeItems:
   type: procedure
   debug: false
   definitions: location|player
@@ -306,16 +306,16 @@ AR_Spawners_getUpgradeItems:
     - define upgradeIds <[location].flag[script].as[script].data_key[data.Upgrades].keys>
     - define result <list>
     - foreach <[upgradeIds]> as:id:
-      - define result:->:<proc[AR_Spawners_getUpgradeItemSingle].context[<[location]>|<[player]>|<[id]>]>
+      - define result:->:<proc[dSpawners_Spawners_getUpgradeItemSingle].context[<[location]>|<[player]>|<[id]>]>
     - determine <[result]>
-AR_Spawners_getUpgradeItemSingle:
+dSpawners_Spawners_getUpgradeItemSingle:
   type: procedure
   debug: false
   definitions: location|player|id
   script:
-  - define item <script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Material].as[item]>
-  - adjust def:item display_name:<script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Name].parse_color>
-  - adjust def:item lore:<script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Description].parse[parse_color]>
+  - define item <script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Material].as[item]>
+  - adjust def:item display_name:<script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Name].parse_color>
+  - adjust def:item lore:<script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Description].parse[parse_color]>
   - define maxlevel <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.MaxLevel]>
   - define currentlevel <[location].flag[Upgrades.<[id]>].if_null[0]>
   - adjust def:item lore:<[item].lore.include_single[<empty>]>
@@ -346,7 +346,7 @@ AR_Spawners_getUpgradeItemSingle:
       - adjust def:item hides:ENCHANTS
       - adjust def:item "lore:<[item].lore.include_single[<&6>--- Click to upgrade ---]>"
   - determine <[item]>
-AR_Spawners_hasAllItems:
+dSpawners_Spawners_hasAllItems:
   type: procedure
   debug: false
   definitions: player|items
@@ -362,12 +362,12 @@ AR_Spawners_hasAllItems:
       - else:
         - determine false if:<[player].inventory.contains_item[raw_exact:<[costitem]>].quantity[<[costitem].quantity>].not>
   - determine true
-AR_Spawners_getUpgradeGui:
+dSpawners_Spawners_getUpgradeGui:
   type: procedure
   debug: false
   definitions: location|player
   script:
-    - define spawnerItem <proc[AR_Spawners_getSpawnerItem].context[<[location]>].with_flag[location:<[location]>]>
+    - define spawnerItem <proc[dSpawners_Spawners_getSpawnerItem].context[<[location]>].with_flag[location:<[location]>]>
     # If this spawner type needs recharging, add the information about recharging to the lore
     - if <[location].flag[script].as[script].data_key[data].contains[Recharge]>:
       - adjust def:spawnerItem flag:recharge
@@ -395,60 +395,60 @@ AR_Spawners_getUpgradeGui:
       - if <[canRecharge]>:
         # Add action lore if the player has all the items
         - adjust def:spawnerItem flag:recharge:true
-        - if <proc[AR_Spawners_hasAllItems].context[<[player]>|<[rechargeData].get[Cost]>]>:
+        - if <proc[dSpawners_Spawners_hasAllItems].context[<[player]>|<[rechargeData].get[Cost]>]>:
           - define "addedLore:->:<&6>--- Click to add charge ---"
         - else:
           - define "addedLore:->:<&4>Missing resources"
       - else:
         - define "addedLore:->:<&4>Spawner is near max charge"
       - adjust def:spawnerItem lore:<[spawnerItem].lore.include[<[addedLore]>]>
-    - define upgradeIcons <proc[AR_Spawners_getUpgradeItems].context[<[location]>|<[player]>]>
-    - determine <inventory[AR_SpawnerGUI].include[<list[<[spawnerItem]>].include[<[upgradeIcons]>]>]>
-AR_Spawners_reapplyUpgrades:
+    - define upgradeIcons <proc[dSpawners_Spawners_getUpgradeItems].context[<[location]>|<[player]>]>
+    - determine <inventory[dSpawners_SpawnerGUI].include[<list[<[spawnerItem]>].include[<[upgradeIcons]>]>]>
+dSpawners_Spawners_reapplyUpgrades:
   type: task
   debug: false
   definitions: location|player
   script:
   # Collect the base stats of the spawner and apply them
-  - define default <script[AR_SpawnerConfig].data_key[data.DefaultStats]>
+  - define default <script[dSpawners_SpawnerConfig].data_key[data.DefaultStats]>
   - define defaultType <[location].flag[script].as[script].data_key[data.BaseStats]>
   - adjust <[location]> <[default].include[<[defaultType]>]>
   # For any upgrades, perform their OnPlace event
   - if <[location].has_flag[Upgrades]>:
     - foreach <[location].flag[Upgrades].keys> as:upgrade:
       - define level <[location].flag[Upgrades.<[upgrade]>]>
-      - if <script[AR_SpawnerConfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnPlace]>:
-        - run <script[AR_SpawnerConfig]> path:data.Upgrades.<[upgrade]>.Actions.OnPlace def.location:<[location]> def.level:<[level]> def.player:<[player]>
-AR_Spawners_registerShard:
+      - if <script[dSpawners_SpawnerConfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnPlace]>:
+        - run <script[dSpawners_SpawnerConfig]> path:data.Upgrades.<[upgrade]>.Actions.OnPlace def.location:<[location]> def.level:<[level]> def.player:<[player]>
+dSpawners_Spawners_registerShard:
   type: task
   debug: false
   definitions: tier|scriptname
   script:
   # Check whether this shard type is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Shards.<[tier]>]>:
-    - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner shard with tier <[tier]> (<server.flag[dSpawners.SubModules.Shards.<[tier]>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner shard with tier <[tier]> (<server.flag[dSpawners.SubModules.Shards.<[tier]>]>) is being overwritten by item <[scriptname]>"
   #- else:
-    #- announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner shard tier <[tier]> with item <[scriptname]>"
+    #- announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner shard tier <[tier]> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Shards.<[tier]>:<[scriptname]>
-AR_Spawners_registerSpawner:
+dSpawners_Spawners_registerSpawner:
   type: task
   debug: false
   definitions: entitytype|scriptname
   script:
   # Check whether this entity type is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Spawner.<[entitytype]>]>:
-    - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner for entity <[entitytype]> (<server.flag[dSpawners.SubModules.Spawner.<[entitytype]>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner for entity <[entitytype]> (<server.flag[dSpawners.SubModules.Spawner.<[entitytype]>]>) is being overwritten by item <[scriptname]>"
   #- else:
-    #- announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner for entity <[entitytype]> with item <[scriptname]>"
+    #- announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner for entity <[entitytype]> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Spawner.<[entitytype]>:<[scriptname]>
-AR_Spawners_registerCore:
+dSpawners_Spawners_registerCore:
   type: task
   debug: false
   definitions: entitytype|scriptname
   script:
   # Check whether this entity's spawner core is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Core.<[entitytype]>]>:
-    - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner core for entity <[entitytype].to_uppercase> (<server.flag[dSpawners.SubModules.Core.<[entitytype].to_uppercase>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner core for entity <[entitytype].to_uppercase> (<server.flag[dSpawners.SubModules.Core.<[entitytype].to_uppercase>]>) is being overwritten by item <[scriptname]>"
   #- else:
-    #- announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner core for entity <[entitytype].to_uppercase> with item <[scriptname]>"
+    #- announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner core for entity <[entitytype].to_uppercase> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Core.<[entitytype].to_uppercase>:<[scriptname]>

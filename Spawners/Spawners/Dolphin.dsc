@@ -1,4 +1,4 @@
-AR_Spawner_Dolphin:
+dSpawners_Spawner_Dolphin:
   debug: false
   type: item
   material: spawner
@@ -7,7 +7,7 @@ AR_Spawner_Dolphin:
     Recharge:
       MaxDuration: 7d
       Cost:
-      - AR_SpawnerShard_1
+      - dSpawners_SpawnerShard_1
       CostDuration: 1d
     BaseStats:
       # How many entities can be in range before spawner stops spawning
@@ -28,95 +28,95 @@ AR_Spawner_Dolphin:
         MaxLevel: 15
         Cost:
           1:
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=2]
           2:
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=2]
           3:
-          - AR_SpawnerShard_1[quantity=3]
+          - dSpawners_SpawnerShard_1[quantity=3]
           4:
-          - AR_SpawnerShard_1[quantity=3]
+          - dSpawners_SpawnerShard_1[quantity=3]
           5:
-          - AR_SpawnerShard_1[quantity=4]
+          - dSpawners_SpawnerShard_1[quantity=4]
           6:
-          - AR_SpawnerShard_1[quantity=4]
+          - dSpawners_SpawnerShard_1[quantity=4]
           7:
-          - AR_SpawnerShard_1[quantity=4]
+          - dSpawners_SpawnerShard_1[quantity=4]
           8:
-          - AR_SpawnerShard_1[quantity=5]
+          - dSpawners_SpawnerShard_1[quantity=5]
           9:
-          - AR_SpawnerShard_1[quantity=5]
+          - dSpawners_SpawnerShard_1[quantity=5]
           10:
-          - AR_SpawnerShard_1[quantity=5]
+          - dSpawners_SpawnerShard_1[quantity=5]
           11:
-          - AR_SpawnerShard_1[quantity=6]
+          - dSpawners_SpawnerShard_1[quantity=6]
           12:
-          - AR_SpawnerShard_2[quantity=6]
+          - dSpawners_SpawnerShard_2[quantity=6]
           13:
-          - AR_SpawnerShard_2[quantity=6]
+          - dSpawners_SpawnerShard_2[quantity=6]
           14:
-          - AR_SpawnerShard_2[quantity=7]
+          - dSpawners_SpawnerShard_2[quantity=7]
           15:
-          - AR_SpawnerShard_2[quantity=8]
+          - dSpawners_SpawnerShard_2[quantity=8]
           16:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           17:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           18:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           19:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           20:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
       # Activation range increases required player distance by one block
       ActivationRange:
         MaxLevel: 7
         Cost:
           1:
-          - AR_SpawnerShard_1[quantity=3]
+          - dSpawners_SpawnerShard_1[quantity=3]
           2:
-          - AR_SpawnerShard_1[quantity=3]
+          - dSpawners_SpawnerShard_1[quantity=3]
           3:
-          - AR_SpawnerShard_1[quantity=4]
+          - dSpawners_SpawnerShard_1[quantity=4]
           4:
-          - AR_SpawnerShard_1[quantity=4]
+          - dSpawners_SpawnerShard_1[quantity=4]
           5:
-          - AR_SpawnerShard_1[quantity=6]
+          - dSpawners_SpawnerShard_1[quantity=6]
           6:
-          - AR_SpawnerShard_1[quantity=6]
+          - dSpawners_SpawnerShard_1[quantity=6]
           7:
-          - AR_SpawnerShard_1[quantity=8]
+          - dSpawners_SpawnerShard_1[quantity=8]
       # Allows one additional mob to be within range of the spawner before it stops
       EntityCap:
         MaxLevel: 3
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           2:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           3:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           4:
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=1]
       # Multiply loot drops from entities spawned from this spawner - each level
       #  adds 1 to the multiplier
       LootMultiplier:
         MaxLevel: 4
         Cost:
           1:
-          - AR_SpawnerShard_4[quantity=1]
-          - AR_SpawnerCore_Dolphin
+          - dSpawners_SpawnerShard_4[quantity=1]
+          - dSpawners_SpawnerCore_Dolphin
           - cod[quantity=64]
           2:
-          - AR_SpawnerShard_4[quantity=1]
-          - AR_SpawnerCore_Dolphin
+          - dSpawners_SpawnerShard_4[quantity=1]
+          - dSpawners_SpawnerCore_Dolphin
           - cod[quantity=128]
           3:
-          - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Dolphin
+          - dSpawners_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerCore_Dolphin
           - cod[quantity=256]
           4:
-          - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Dolphin
+          - dSpawners_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerCore_Dolphin
           - cod[quantity=512]
   display name: <&e>Dolphin <&a>Spawner
   lore:
@@ -127,12 +127,12 @@ AR_Spawner_Dolphin:
     1:
       type: shaped
       input:
-      - AR_SpawnerShard_1|AR_SpawnerShard_1|AR_SpawnerShard_1
-      - AR_SpawnerShard_1|AR_SpawnerCore_Dolphin|AR_SpawnerShard_1
-      - AR_SpawnerShard_1|AR_SpawnerShard_1|AR_SpawnerShard_1
-AR_Spawner_Dolphin_Register:
+      - dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1
+      - dSpawners_SpawnerShard_1|dSpawners_SpawnerCore_Dolphin|dSpawners_SpawnerShard_1
+      - dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1
+dSpawners_Spawner_Dolphin_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerSpawner def:DOLPHIN|AR_Spawner_Dolphin
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerSpawner def:DOLPHIN|dSpawners_Spawner_Dolphin

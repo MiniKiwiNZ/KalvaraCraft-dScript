@@ -1,4 +1,4 @@
-AR_Spawner_Guardian:
+dSpawners_Spawner_Guardian:
   debug: false
   type: item
   material: spawner
@@ -7,7 +7,7 @@ AR_Spawner_Guardian:
     Recharge:
       MaxDuration: 7d
       Cost:
-      - AR_SpawnerShard_3
+      - dSpawners_SpawnerShard_3
       CostDuration: 1d
     BaseStats:
       # How many entities can be in range before spawner stops spawning
@@ -28,104 +28,104 @@ AR_Spawner_Guardian:
         MaxLevel: 15
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           2:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           3:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           4:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           5:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           6:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           7:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
           8:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
           9:
-          - AR_SpawnerShard_3[quantity=3]
+          - dSpawners_SpawnerShard_3[quantity=3]
           10:
-          - AR_SpawnerShard_3[quantity=3]
+          - dSpawners_SpawnerShard_3[quantity=3]
           11:
-          - AR_SpawnerShard_3[quantity=4]
+          - dSpawners_SpawnerShard_3[quantity=4]
           12:
-          - AR_SpawnerShard_3[quantity=4]
+          - dSpawners_SpawnerShard_3[quantity=4]
           13:
-          - AR_SpawnerShard_3[quantity=5]
+          - dSpawners_SpawnerShard_3[quantity=5]
           14:
-          - AR_SpawnerShard_3[quantity=5]
+          - dSpawners_SpawnerShard_3[quantity=5]
           15:
-          - AR_SpawnerShard_3[quantity=6]
+          - dSpawners_SpawnerShard_3[quantity=6]
           16:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           17:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=2]
           18:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
           19:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_1[quantity=2]
           20:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
       # Activation range increases required player distance by one block
       ActivationRange:
         MaxLevel: 7
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           2:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           3:
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=1]
           4:
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=1]
           5:
-          - AR_SpawnerShard_3[quantity=1]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
           6:
-          - AR_SpawnerShard_3[quantity=1]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
           7:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
       # Allows one additional mob to be within range of the spawner before it stops
       EntityCap:
         MaxLevel: 3
         Cost:
           1:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           2:
-          - AR_SpawnerShard_3[quantity=3]
+          - dSpawners_SpawnerShard_3[quantity=3]
           3:
-          - AR_SpawnerShard_3[quantity=4]
+          - dSpawners_SpawnerShard_3[quantity=4]
           4:
-          - AR_SpawnerShard_3[quantity=4]
+          - dSpawners_SpawnerShard_3[quantity=4]
       # Multiply loot drops from entities spawned from this spawner - each level
       #  adds 1 to the multiplier
       LootMultiplier:
         MaxLevel: 4
         Cost:
           1:
-          - AR_SpawnerShard_4[quantity=3]
-          - AR_SpawnerCore_Guardian
+          - dSpawners_SpawnerShard_4[quantity=3]
+          - dSpawners_SpawnerCore_Guardian
           - prismarine_shard[quantity=64]
           2:
-          - AR_SpawnerShard_4[quantity=3]
-          - AR_SpawnerCore_Guardian
+          - dSpawners_SpawnerShard_4[quantity=3]
+          - dSpawners_SpawnerCore_Guardian
           - prismarine_shard[quantity=128]
           3:
-          - AR_SpawnerShard_4[quantity=6]
-          - AR_SpawnerCore_Guardian
+          - dSpawners_SpawnerShard_4[quantity=6]
+          - dSpawners_SpawnerCore_Guardian
           - prismarine_shard[quantity=256]
           4:
-          - AR_SpawnerShard_4[quantity=6]
-          - AR_SpawnerCore_Guardian
+          - dSpawners_SpawnerShard_4[quantity=6]
+          - dSpawners_SpawnerCore_Guardian
           - prismarine_shard[quantity=512]
   display name: <&e>Guardian <&a>Spawner
   lore:
@@ -136,12 +136,12 @@ AR_Spawner_Guardian:
     1:
       type: shaped
       input:
-      - air|AR_SpawnerShard_3|air
-      - AR_SpawnerShard_3|AR_SpawnerCore_Guardian|AR_SpawnerShard_3
-      - air|AR_SpawnerShard_3|air
-AR_Spawner_Guardian_Register:
+      - air|dSpawners_SpawnerShard_3|air
+      - dSpawners_SpawnerShard_3|dSpawners_SpawnerCore_Guardian|dSpawners_SpawnerShard_3
+      - air|dSpawners_SpawnerShard_3|air
+dSpawners_Spawner_Guardian_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerSpawner def:GUARDIAN|AR_Spawner_Guardian
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerSpawner def:GUARDIAN|dSpawners_Spawner_Guardian

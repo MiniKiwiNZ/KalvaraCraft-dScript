@@ -1,4 +1,4 @@
-AR_Spawners_Command:
+dSpawners_Spawners_Command:
   debug: false
   type: command
   name: spawner
@@ -101,7 +101,7 @@ AR_Spawners_Command:
       - if <[upgradeBlock].has_flag[spawner].not>:
         - narrate "<&c>Natural spawners cannot be upgraded"
         - stop
-      - inventory open d:<proc[AR_Spawners_getUpgradeGui].context[<[upgradeBlock]>|<player>]>
+      - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[upgradeBlock]>|<player>]>
     ## /spawner give <player> <type> [quantity]
     - case give:
       - if <context.source_type> == PLAYER && <player.has_permission[ApeironSpawners.Admin].not>:
@@ -127,12 +127,12 @@ AR_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[spawnerType]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
-          - narrate "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]>"
+          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]>"
       - else:
-        - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]>"
+        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]>"
     ## /spawner giveshards <player> [tier] [quantity]
     - case giveshards:
       - if <context.source_type> == PLAYER && <player.has_permission[ApeironSpawners.Admin].not>:
@@ -157,12 +157,12 @@ AR_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[shardScript]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
-          - narrate "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]>"
+          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]>"
       - else:
-        - announce to_console "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]>"
+        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]>"
     ## /spawner boost [<player|-global> <all|cores|shards> <multiplier> <duration>]
     - case boost:
       # The second argument is always either a player or -global
@@ -180,7 +180,7 @@ AR_Spawners_Command:
           - inject <script> path:data.Injects.InvalidPlayer
           - stop
         # Global boosts
-        - narrate "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Global Boost Info:"
+        - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Global Boost Info:"
         # Shards
         - if <server.has_flag[Spawners.ActiveBoosts.Shards].not>:
           - narrate " Shard Drops: Not Active"
@@ -192,7 +192,7 @@ AR_Spawners_Command:
         - else:
           - narrate " Core Drops: <server.flag[Spawners.ActiveBoosts.Cores]>x (<server.flag_expiration[Spawners.ActiveBoosts.Cores].from_now.formatted>)"
         # Player boosts
-        - narrate "<script[AR_SpawnerConfig].data_key[data.Prefix].parse_color>Player Boost Info:"
+        - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Player Boost Info:"
         # Shards
         - if <[targetPlayer].has_flag[Spawners.Boosts.Shards]>:
           - narrate " Shard Drops: <[targetPlayer].flag[Spawners.Boosts.Shards].get[1]>x (<[targetPlayer].flag_expiration[Spawners.Boosts.Shards].from_now.formatted>)"
@@ -232,7 +232,7 @@ AR_Spawners_Command:
         - else:
           - announce to_console "<&c>Type must be 'all', 'cores', or 'shards"
       # Queue up the boost
-      - ~run AR_Spawners_queueOrActivateBoost def:<context.args.get[3]>|<[duration]>|<context.args.get[4]>|<[targetPlayer].if_null[-global]>
+      - ~run dSpawners_Spawners_queueOrActivateBoost def:<context.args.get[3]>|<[duration]>|<context.args.get[4]>|<[targetPlayer].if_null[-global]>
     ## /spawner recipe <type>
     - case recipe:
       # This command cannot be run from the console
@@ -248,7 +248,7 @@ AR_Spawners_Command:
     ## Default path
     - default:
       - inject <script> path:data.Injects.Help
-AR_Spawners_queueOrActivateBoost:
+dSpawners_Spawners_queueOrActivateBoost:
   type: task
   debug: false
   definitions: type|duration|multiplier|player
@@ -279,7 +279,7 @@ AR_Spawners_queueOrActivateBoost:
       - flag <[player]> Spawners.Boosts.Shards:<list[<[multiplier]>|<[duration]>]> expire:<[duration]>
     - if <[type]> == all || <[type]> == cores:
       - flag <[player]> Spawners.Boosts.Cores:<list[<[multiplier]>|<[duration]>]> expire:<[duration]>
-AR_Spawners_BoostWatcher:
+dSpawners_Spawners_BoostWatcher:
   type: world
   debug: false
   events:
@@ -290,15 +290,15 @@ AR_Spawners_BoostWatcher:
         - define nextDuration <server.flag[Spawners.QueuedBoosts.Shards.<[nextMultiplier]>]>
         - flag server Spawners.QueuedBoosts.Shards.<[nextMultiplier]>:!
         - flag server Spawners.ActiveBoosts.Shards:<[nextMultiplier]> expire:<[nextDuration]>
-        - run AR_Spawners_BoostBar def.players:<server.online_players> "def.message:Spawner shard drop chances are increased by <[nextMultiplier]>x for the next <[nextDuration].formatted>"
+        - run dSpawners_Spawners_BoostBar def.players:<server.online_players> "def.message:Spawner shard drop chances are increased by <[nextMultiplier]>x for the next <[nextDuration].formatted>"
       # If there's no active core boost, check for a queued one
       - if <server.has_flag[Spawners.ActiveBoosts.Cores].not> && <server.flag[Spawners.QueuedBoosts.Cores].size.if_null[0]> > 0:
         - define nextMultiplier <server.flag[Spawners.QueuedBoosts.Cores].keys.first>
         - define nextDuration <server.flag[Spawners.QueuedBoosts.Cores.<[nextMultiplier]>]>
         - flag server Spawners.QueuedBoosts.Cores.<[nextMultiplier]>:!
         - flag server Spawners.ActiveBoosts.Cores:<[nextMultiplier]> expire:<[nextDuration]>
-        - run AR_Spawners_BoostBar def.players:<server.online_players> "def.message:Spawner core drop chances are increased by <[nextMultiplier]>x for the next <[nextDuration].formatted>"
-AR_Spawners_BoostBar:
+        - run dSpawners_Spawners_BoostBar def.players:<server.online_players> "def.message:Spawner core drop chances are increased by <[nextMultiplier]>x for the next <[nextDuration].formatted>"
+dSpawners_Spawners_BoostBar:
   type: task
   debug: false
   definitions: players|message|color
@@ -310,7 +310,7 @@ AR_Spawners_BoostBar:
       - bossbar update <[bossbar]> progress:<[value].div[150]>
       - wait 0.1s
     - bossbar remove <[bossbar]>
-AR_Spawners_BoostThreshold:
+dSpawners_Spawners_BoostThreshold:
   type: procedure
   debug: false
   definitions: inputChance|type|player

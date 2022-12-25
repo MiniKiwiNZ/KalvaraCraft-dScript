@@ -1,4 +1,4 @@
-AR_SpawnerShard_2:
+dSpawners_SpawnerShard_2:
   debug: false
   type: item
   material: prismarine_shard
@@ -20,14 +20,14 @@ AR_SpawnerShard_2:
   recipes:
     1:
       type: shapeless
-      input: AR_SpawnerShard_3
+      input: dSpawners_SpawnerShard_3
       output_quantity: 2
     2:
       type: shapeless
-      input: AR_SpawnerShard_1|AR_SpawnerShard_1
-AR_SpawnerShard_2_Register:
+      input: dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1
+dSpawners_SpawnerShard_2_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerShard def:2|AR_SpawnerShard_2
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerShard def:2|dSpawners_SpawnerShard_2

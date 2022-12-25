@@ -1,5 +1,5 @@
 # Parrots can drop feathers
-AR_SpawnerCore_Parrot:
+dSpawners_SpawnerCore_Parrot:
   debug: false
   type: item
   material: cookie
@@ -19,22 +19,22 @@ AR_SpawnerCore_Parrot:
   - <empty>
   - Used to craft a Parrot spawner
   - <&f>[<&a>Uncommon<&f>]
-AR_SpawnerCore_Parrot_Register:
+dSpawners_SpawnerCore_Parrot_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerCore def:PARROT|AR_SpawnerCore_Parrot
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerCore def:PARROT|dSpawners_SpawnerCore_Parrot
     on player right clicks PARROT with:COOKIE:
       - flag <context.entity> cookied:<player>
     on PARROT dies:
       - stop if:<context.entity.has_flag[from_spawner]>
       - stop if:<context.entity.has_flag[cookied].not>
-      - if <util.random.int[1].to[128]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<context.entity.flag[cookied]>]>:
+      - if <util.random.int[1].to[128]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<context.entity.flag[cookied]>]>:
         - flag server SpawnerDrops.Cores.Parrot:++
-        - determine <context.drops.include_single[AR_SpawnerCore_Parrot]>
+        - determine <context.drops.include_single[dSpawners_SpawnerCore_Parrot]>
     on player tames PARROT:
       - stop if:<context.entity.has_flag[from_spawner]>
-      - if <util.random.int[1].to[80]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[80]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Parrot:++
-        - drop AR_SpawnerCore_Parrot <context.entity.location>
+        - drop dSpawners_SpawnerCore_Parrot <context.entity.location>

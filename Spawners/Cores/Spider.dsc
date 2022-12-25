@@ -1,4 +1,4 @@
-AR_SpawnerCore_Spider:
+dSpawners_SpawnerCore_Spider:
   type: item
   debug: false
   material: spider_eye
@@ -17,20 +17,20 @@ AR_SpawnerCore_Spider:
   - <empty>
   - Used to craft a Spider spawner
   - <&f>[<&9>Rare<&f>]
-AR_SpawnerCore_Spider_Register:
+dSpawners_SpawnerCore_Spider_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerCore def:SPIDER|AR_SpawnerCore_Spider
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerCore def:SPIDER|dSpawners_SpawnerCore_Spider
     on player kills SPIDER:
       - stop if:<context.entity.has_flag[from_spawner]>
-      - if <util.random.int[1].to[300]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[300]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Spider:++
-        - drop AR_SpawnerCore_Spider <context.entity.location>
+        - drop dSpawners_SpawnerCore_Spider <context.entity.location>
     on player breaks spawner:
       - stop if:<context.location.has_flag[spawner]>
       - stop if:<context.location.spawner_type.advanced_matches[SPIDER].not>
-      - if <util.random.int[1].to[164]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[164]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Spider:++
-        - drop AR_SpawnerCore_Spider <context.location>
+        - drop dSpawners_SpawnerCore_Spider <context.location>

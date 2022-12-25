@@ -1,5 +1,5 @@
 # Slimes drop slimeballs which are useful in redstone machines
-AR_SpawnerCore_Slime:
+dSpawners_SpawnerCore_Slime:
   debug: false
   type: item
   material: slime_ball
@@ -16,21 +16,21 @@ AR_SpawnerCore_Slime:
   - <empty>
   - Used to craft a Slime spawner
   - <&f>[<&d>Epic<&f>]
-AR_SpawnerCore_Slime_Register:
+dSpawners_SpawnerCore_Slime_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerCore def:SLIME|AR_SpawnerCore_Slime
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerCore def:SLIME|dSpawners_SpawnerCore_Slime
     on SLIME spawns because SLIME_SPLIT:
       - flag <context.entity> from_spawner
     on SLIME dies by:player:
       - stop if:<context.entity.has_flag[from_spawner]>
-      - if <util.random.int[1].to[256]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<context.damager>]>:
+      - if <util.random.int[1].to[256]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<context.damager>]>:
         - flag server SpawnerDrops.Cores.Slime:++
-        - determine <context.drops.include_single[AR_SpawnerCore_Slime]>
+        - determine <context.drops.include_single[dSpawners_SpawnerCore_Slime]>
     on loot generates:
       - stop if:<context.loot_table_id.equals[minecraft:chests/abandoned_mineshaft].not>
-      - if <util.random.int[1].to[512]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[512]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Slime:++
-        - determine LOOT:<context.items.include_single[AR_SpawnerCore_Slime]>
+        - determine LOOT:<context.items.include_single[dSpawners_SpawnerCore_Slime]>

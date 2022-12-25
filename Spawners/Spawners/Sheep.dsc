@@ -1,4 +1,4 @@
-AR_Spawner_Sheep:
+dSpawners_Spawner_Sheep:
   debug: false
   type: item
   material: spawner
@@ -7,7 +7,7 @@ AR_Spawner_Sheep:
     Recharge:
       MaxDuration: 7d
       Cost:
-      - AR_SpawnerShard_2
+      - dSpawners_SpawnerShard_2
       CostDuration: 1d
     BaseStats:
       spawner_max_nearby_entities: 2
@@ -20,101 +20,101 @@ AR_Spawner_Sheep:
         MaxLevel: 15
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           2:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           3:
-          - AR_SpawnerShard_2[quantity=2]
-          - AR_SpawnerShard_1[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=1]
           4:
-          - AR_SpawnerShard_2[quantity=2]
-          - AR_SpawnerShard_1[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=1]
           5:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           6:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           7:
-          - AR_SpawnerShard_2[quantity=3]
-          - AR_SpawnerShard_1[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_1[quantity=1]
           8:
-          - AR_SpawnerShard_2[quantity=3]
-          - AR_SpawnerShard_1[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_1[quantity=1]
           9:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           10:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           11:
-          - AR_SpawnerShard_2[quantity=5]
+          - dSpawners_SpawnerShard_2[quantity=5]
           12:
-          - AR_SpawnerShard_2[quantity=5]
+          - dSpawners_SpawnerShard_2[quantity=5]
           13:
-          - AR_SpawnerShard_2[quantity=6]
+          - dSpawners_SpawnerShard_2[quantity=6]
           14:
-          - AR_SpawnerShard_2[quantity=6]
+          - dSpawners_SpawnerShard_2[quantity=6]
           15:
-          - AR_SpawnerShard_2[quantity=8]
+          - dSpawners_SpawnerShard_2[quantity=8]
           16:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           17:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=2]
           18:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
           19:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_1[quantity=2]
           20:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
       ActivationRange:
         MaxLevel: 7
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           2:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           3:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           4:
-          - AR_SpawnerShard_2[quantity=3]
+          - dSpawners_SpawnerShard_2[quantity=3]
           5:
-          - AR_SpawnerShard_2[quantity=4]
+          - dSpawners_SpawnerShard_2[quantity=4]
           6:
-          - AR_SpawnerShard_3[quantity=1]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
           7:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
       EntityCap:
         MaxLevel: 3
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=8]
+          - dSpawners_SpawnerShard_2[quantity=8]
           2:
-          - AR_SpawnerShard_2[quantity=8]
+          - dSpawners_SpawnerShard_2[quantity=8]
           3:
-          - AR_SpawnerShard_2[quantity=8]
+          - dSpawners_SpawnerShard_2[quantity=8]
           4:
-          - AR_SpawnerShard_2[quantity=8]
+          - dSpawners_SpawnerShard_2[quantity=8]
       LootMultiplier:
         MaxLevel: 4
         Cost:
           1:
-          - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Sheep
+          - dSpawners_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerCore_Sheep
           - white_wool[quantity=64]
           2:
-          - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Sheep
+          - dSpawners_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerCore_Sheep
           - white_wool[quantity=128]
           3:
-          - AR_SpawnerShard_4[quantity=4]
-          - AR_SpawnerCore_Sheep
+          - dSpawners_SpawnerShard_4[quantity=4]
+          - dSpawners_SpawnerCore_Sheep
           - white_wool[quantity=256]
           4:
-          - AR_SpawnerShard_4[quantity=4]
-          - AR_SpawnerCore_Sheep
+          - dSpawners_SpawnerShard_4[quantity=4]
+          - dSpawners_SpawnerCore_Sheep
           - white_wool[quantity=512]
   display name: <&e>Sheep <&a>Spawner
   lore:
@@ -125,18 +125,18 @@ AR_Spawner_Sheep:
     1:
       type: shaped
       input:
-      - AR_SpawnerShard_2|air|AR_SpawnerShard_2
-      - AR_SpawnerShard_2|AR_SpawnerCore_Sheep|AR_SpawnerShard_2
-      - AR_SpawnerShard_2|air|AR_SpawnerShard_2
+      - dSpawners_SpawnerShard_2|air|dSpawners_SpawnerShard_2
+      - dSpawners_SpawnerShard_2|dSpawners_SpawnerCore_Sheep|dSpawners_SpawnerShard_2
+      - dSpawners_SpawnerShard_2|air|dSpawners_SpawnerShard_2
     2:
       type: shaped
       input:
-      - AR_SpawnerShard_2|AR_SpawnerShard_2|AR_SpawnerShard_2
-      - air|AR_SpawnerCore_Sheep|air
-      - AR_SpawnerShard_2|AR_SpawnerShard_2|AR_SpawnerShard_2
-AR_Spawner_Sheep_Register:
+      - dSpawners_SpawnerShard_2|dSpawners_SpawnerShard_2|dSpawners_SpawnerShard_2
+      - air|dSpawners_SpawnerCore_Sheep|air
+      - dSpawners_SpawnerShard_2|dSpawners_SpawnerShard_2|dSpawners_SpawnerShard_2
+dSpawners_Spawner_Sheep_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerSpawner def:SHEEP|AR_Spawner_Sheep
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerSpawner def:SHEEP|dSpawners_Spawner_Sheep

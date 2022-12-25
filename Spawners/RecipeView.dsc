@@ -1,4 +1,4 @@
-AR_SpawnerGui_Recipe:
+dSpawners_SpawnerGui_Recipe:
   type: inventory
   inventory: chest
   gui: true

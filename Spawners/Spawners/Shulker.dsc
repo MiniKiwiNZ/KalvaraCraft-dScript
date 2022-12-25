@@ -1,4 +1,4 @@
-AR_Spawner_Shulker:
+dSpawners_Spawner_Shulker:
   debug: false
   type: item
   material: spawner
@@ -7,7 +7,7 @@ AR_Spawner_Shulker:
     Recharge:
       MaxDuration: 7d
       Cost:
-      - AR_SpawnerShard_4
+      - dSpawners_SpawnerShard_4
       CostDuration: 1d
     BaseStats:
       # How many entities can be in range before spawner stops spawning
@@ -28,104 +28,104 @@ AR_Spawner_Shulker:
         MaxLevel: 15
         Cost:
           1:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           2:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           3:
-          - AR_SpawnerShard_3[quantity=3]
+          - dSpawners_SpawnerShard_3[quantity=3]
           4:
-          - AR_SpawnerShard_3[quantity=3]
+          - dSpawners_SpawnerShard_3[quantity=3]
           5:
-          - AR_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerShard_4[quantity=2]
           6:
-          - AR_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerShard_4[quantity=2]
           7:
-          - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
           8:
-          - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
           9:
-          - AR_SpawnerShard_4[quantity=3]
+          - dSpawners_SpawnerShard_4[quantity=3]
           10:
-          - AR_SpawnerShard_4[quantity=3]
+          - dSpawners_SpawnerShard_4[quantity=3]
           11:
-          - AR_SpawnerShard_4[quantity=4]
+          - dSpawners_SpawnerShard_4[quantity=4]
           12:
-          - AR_SpawnerShard_4[quantity=4]
+          - dSpawners_SpawnerShard_4[quantity=4]
           13:
-          - AR_SpawnerShard_4[quantity=5]
+          - dSpawners_SpawnerShard_4[quantity=5]
           14:
-          - AR_SpawnerShard_4[quantity=5]
+          - dSpawners_SpawnerShard_4[quantity=5]
           15:
-          - AR_SpawnerShard_4[quantity=6]
+          - dSpawners_SpawnerShard_4[quantity=6]
           16:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
           17:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_1[quantity=2]
           18:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
           19:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=1]
-          - AR_SpawnerShard_1[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=1]
+          - dSpawners_SpawnerShard_1[quantity=2]
           20:
-          - AR_SpawnerShard_3[quantity=2]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
       # Activation range increases required player distance by one block
       ActivationRange:
         MaxLevel: 7
         Cost:
           1:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           2:
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_2[quantity=2]
           3:
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=1]
           4:
-          - AR_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_3[quantity=1]
           5:
-          - AR_SpawnerShard_3[quantity=1]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
           6:
-          - AR_SpawnerShard_3[quantity=1]
-          - AR_SpawnerShard_2[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=1]
+          - dSpawners_SpawnerShard_2[quantity=2]
           7:
-          - AR_SpawnerShard_3[quantity=2]
+          - dSpawners_SpawnerShard_3[quantity=2]
       # Allows one additional mob to be within range of the spawner before it stops
       EntityCap:
         MaxLevel: 3
         Cost:
           1:
-          - AR_SpawnerShard_4[quantity=2]
+          - dSpawners_SpawnerShard_4[quantity=2]
           2:
-          - AR_SpawnerShard_4[quantity=3]
+          - dSpawners_SpawnerShard_4[quantity=3]
           3:
-          - AR_SpawnerShard_4[quantity=4]
+          - dSpawners_SpawnerShard_4[quantity=4]
           4:
-          - AR_SpawnerShard_4[quantity=4]
+          - dSpawners_SpawnerShard_4[quantity=4]
       # Multiply loot drops from entities spawned from this spawner - each level
       #  adds 1 to the multiplier
       LootMultiplier:
         MaxLevel: 4
         Cost:
           1:
-          - AR_SpawnerShard_4[quantity=15]
-          - AR_SpawnerCore_Shulker
+          - dSpawners_SpawnerShard_4[quantity=15]
+          - dSpawners_SpawnerCore_Shulker
           - shulker_shell[quantity=64]
           2:
-          - AR_SpawnerShard_4[quantity=15]
-          - AR_SpawnerCore_Shulker
+          - dSpawners_SpawnerShard_4[quantity=15]
+          - dSpawners_SpawnerCore_Shulker
           - shulker_shell[quantity=128]
           3:
-          - AR_SpawnerShard_4[quantity=30]
-          - AR_SpawnerCore_Shulker
+          - dSpawners_SpawnerShard_4[quantity=30]
+          - dSpawners_SpawnerCore_Shulker
           - shulker_shell[quantity=256]
           4:
-          - AR_SpawnerShard_4[quantity=30]
-          - AR_SpawnerCore_Shulker
+          - dSpawners_SpawnerShard_4[quantity=30]
+          - dSpawners_SpawnerCore_Shulker
           - shulker_shell[quantity=512]
   display name: <&e>Shulker <&a>Spawner
   lore:
@@ -137,17 +137,17 @@ AR_Spawner_Shulker:
       type: shaped
       input:
       - air|air|air
-      - AR_SpawnerShard_4|AR_SpawnerCore_Shulker|AR_SpawnerShard_4
+      - dSpawners_SpawnerShard_4|dSpawners_SpawnerCore_Shulker|dSpawners_SpawnerShard_4
       - air|air|air
     2:
       type: shaped
       input:
-      - air|AR_SpawnerShard_4|air
-      - air|AR_SpawnerCore_Shulker|air
-      - air|AR_SpawnerShard_4|air
-AR_Spawner_Shulker_Register:
+      - air|dSpawners_SpawnerShard_4|air
+      - air|dSpawners_SpawnerCore_Shulker|air
+      - air|dSpawners_SpawnerShard_4|air
+dSpawners_Spawner_Shulker_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerSpawner def:SHULKER|AR_Spawner_Shulker
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerSpawner def:SHULKER|dSpawners_Spawner_Shulker

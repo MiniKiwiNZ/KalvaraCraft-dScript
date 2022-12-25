@@ -1,5 +1,5 @@
 # Sheep can be used to obtain wool, but without awareness they won't be infinite wool
-AR_SpawnerCore_Sheep:
+dSpawners_SpawnerCore_Sheep:
   type: item
   material: white_wool
   display name: <&e>Sheep Essence
@@ -17,16 +17,16 @@ AR_SpawnerCore_Sheep:
   - <empty>
   - Used to craft a Sheep spawner
   - <&f>[<&9>Rare<&f>]
-AR_SpawnerCore_Sheep_Register:
+dSpawners_SpawnerCore_Sheep_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerCore def:SHEEP|AR_SpawnerCore_Sheep
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerCore def:SHEEP|dSpawners_SpawnerCore_Sheep
     on player kills sheep:
       - stop if:<context.entity.has_flag[from_spawner]>
-      - if <util.random.int[1].to[512]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[512]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Sheep:++
-        - drop AR_SpawnerCore_Sheep <context.entity.location>
+        - drop dSpawners_SpawnerCore_Sheep <context.entity.location>
     on sheep spawns because BREEDING:
       - flag <context.entity> from_spawner

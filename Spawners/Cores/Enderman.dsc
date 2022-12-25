@@ -1,5 +1,5 @@
 # Enderman drop ender pearls, but alone ender pearls aren't that useful
-AR_SpawnerCore_Enderman:
+dSpawners_SpawnerCore_Enderman:
   debug: false
   type: item
   material: ender_eye
@@ -18,19 +18,19 @@ AR_SpawnerCore_Enderman:
   - <empty>
   - Used to craft an Enderman spawner
   - <&f>[<&9>Rare<&f>]
-AR_SpawnerCore_Enderman_Register:
+dSpawners_SpawnerCore_Enderman_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerCore def:ENDERMAN|AR_SpawnerCore_Enderman
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerCore def:ENDERMAN|dSpawners_SpawnerCore_Enderman
     on player kills ENDERMAN:
       - stop if:<context.entity.has_flag[from_spawner]>
-      - if <util.random.int[1].to[512]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[512]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Enderman:++
-        - drop AR_SpawnerCore_Enderman <context.entity.location>
+        - drop dSpawners_SpawnerCore_Enderman <context.entity.location>
     on loot generates:
       - stop if:<context.loot_table_id.equals[minecraft:chests/end_city_treasure].not>
-      - if <util.random.int[1].to[256]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[256]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Enderman:++
-        - determine LOOT:<context.items.include_single[AR_SpawnerCore_Enderman]>
+        - determine LOOT:<context.items.include_single[dSpawners_SpawnerCore_Enderman]>

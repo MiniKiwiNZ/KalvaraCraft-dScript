@@ -1,5 +1,5 @@
 # Polar bears can drop cod or salmon
-AR_SpawnerCore_PolarBear:
+dSpawners_SpawnerCore_PolarBear:
   debug: false
   type: item
   material: snowball
@@ -18,15 +18,15 @@ AR_SpawnerCore_PolarBear:
   - <empty>
   - Used to craft a Polar Bear spawner
   - <&f>[<&a>Uncommon<&f>]
-AR_SpawnerCore_PolarBear_Register:
+dSpawners_SpawnerCore_PolarBedspawners_Register:
   type: world
   debug: false
   events:
-    on custom event id:ar_register_spawner_modules:
-      - run AR_Spawners_registerCore def:POLAR_BEAR|AR_SpawnerCore_PolarBear
-      - run AR_Spawners_registerCore def:POLARBEAR|AR_SpawnerCore_PolarBear
-    on player kills POLAR_BEAR:
+    on custom event id:dspawners_register_spawner_modules:
+      - run dSpawners_Spawners_registerCore def:POLdSpawners_BEAR|dSpawners_SpawnerCore_PolarBear
+      - run dSpawners_Spawners_registerCore def:POLARBEAR|dSpawners_SpawnerCore_PolarBear
+    on player kills POLdSpawners_BEAR:
       - stop if:<context.entity.has_flag[from_spawner]>
-      - if <util.random.int[1].to[128]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
+      - if <util.random.int[1].to[128]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.PolarBear:++
-        - drop AR_SpawnerCore_PolarBear <context.entity.location>
+        - drop dSpawners_SpawnerCore_PolarBear <context.entity.location>
