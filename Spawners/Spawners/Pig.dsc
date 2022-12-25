@@ -104,19 +104,19 @@ AR_Spawner_Pig:
         Cost:
           1:
           - AR_SpawnerShard_4[quantity=1]
-          - AR_SpawnerCore_Pig2
+          - AR_SpawnerCore_Pig
           - porkchop[quantity=64]
           2:
           - AR_SpawnerShard_4[quantity=1]
-          - AR_SpawnerCore_Pig2
+          - AR_SpawnerCore_Pig
           - porkchop[quantity=128]
           3:
           - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Pig2
+          - AR_SpawnerCore_Pig
           - porkchop[quantity=256]
           4:
           - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Pig2
+          - AR_SpawnerCore_Pig
           - porkchop[quantity=512]
   display name: <&e>Pig <&a>Spawner
   lore:
@@ -128,7 +128,7 @@ AR_Spawner_Pig:
       type: shaped
       input:
       - AR_SpawnerShard_1|AR_SpawnerShard_1|AR_SpawnerShard_1
-      - AR_SpawnerShard_1|AR_SpawnerCore_Pig2|AR_SpawnerShard_1
+      - AR_SpawnerShard_1|AR_SpawnerCore_Pig|AR_SpawnerShard_1
       - AR_SpawnerShard_1|AR_SpawnerShard_1|AR_SpawnerShard_1
 AR_Spawner_Pig_Register:
   type: world

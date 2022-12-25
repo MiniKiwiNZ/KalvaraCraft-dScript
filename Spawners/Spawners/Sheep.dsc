@@ -102,19 +102,19 @@ AR_Spawner_Sheep:
         Cost:
           1:
           - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Sheep2
+          - AR_SpawnerCore_Sheep
           - white_wool[quantity=64]
           2:
           - AR_SpawnerShard_4[quantity=2]
-          - AR_SpawnerCore_Sheep2
+          - AR_SpawnerCore_Sheep
           - white_wool[quantity=128]
           3:
           - AR_SpawnerShard_4[quantity=4]
-          - AR_SpawnerCore_Sheep2
+          - AR_SpawnerCore_Sheep
           - white_wool[quantity=256]
           4:
           - AR_SpawnerShard_4[quantity=4]
-          - AR_SpawnerCore_Sheep2
+          - AR_SpawnerCore_Sheep
           - white_wool[quantity=512]
   display name: <&e>Sheep <&a>Spawner
   lore:
@@ -126,13 +126,13 @@ AR_Spawner_Sheep:
       type: shaped
       input:
       - AR_SpawnerShard_2|air|AR_SpawnerShard_2
-      - AR_SpawnerShard_2|AR_SpawnerCore_Sheep2|AR_SpawnerShard_2
+      - AR_SpawnerShard_2|AR_SpawnerCore_Sheep|AR_SpawnerShard_2
       - AR_SpawnerShard_2|air|AR_SpawnerShard_2
     2:
       type: shaped
       input:
       - AR_SpawnerShard_2|AR_SpawnerShard_2|AR_SpawnerShard_2
-      - air|AR_SpawnerCore_Sheep2|air
+      - air|AR_SpawnerCore_Sheep|air
       - AR_SpawnerShard_2|AR_SpawnerShard_2|AR_SpawnerShard_2
 AR_Spawner_Sheep_Register:
   type: world
