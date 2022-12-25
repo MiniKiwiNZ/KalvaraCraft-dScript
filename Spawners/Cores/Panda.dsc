@@ -38,3 +38,6 @@ AR_SpawnerCore_Panda_Register:
       - if <util.random.int[1].to[86]> <= <proc[AR_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Panda:++
         - drop AR_SpawnerCore_Panda <context.child.location>
+    # The core for pandas is bamboo. They will try and eat it.
+    on PANDA picks up AR_SpawnerCore_Panda:
+    - determine cancelled
