@@ -2,15 +2,15 @@ AR_SpawnerConfig:
   debug: false
   type: world
   data:
-    Prefix: "&6&lApeironSpawner ► &a"
+    Prefix: <&6><&l>ApeironSpawner ► <&a>
     Upgrades:
       # Speed upgrade makes spawning faster by 0.5 seconds per level
       Speed:
         Material: GOLD_INGOT
-        Name: "&6&lSpawning Speed"
+        Name: <&6><&l>Spawning Speed
         Description:
-        - "&7Decreases delay between"
-        - "&7spawns by 0.5 seconds"
+        - <&7>Decreases delay between
+        - <&7>spawns by 0.5 seconds
         Actions:
           OnPlace:
           - define delay <[location].spawner_maximum_spawn_delay.sub[<[level].mul[10]>]>
@@ -18,11 +18,11 @@ AR_SpawnerConfig:
       # Activation range lets players be one block further away from the spawner per level
       ActivationRange:
         Material: tripwire_hook
-        Name: "&b&lActivation Range"
+        Name: <&b><&l>Activation Range
         Description:
-        - "&7Increases distance to player"
-        - "&7at which mobs will spawn by"
-        - "&7one block"
+        - <&7>Increases distance to player
+        - <&7>at which mobs will spawn by
+        - <&7>one block
         Actions:
           OnPlace:
           - adjust <[location]> spawner_player_range:<[location].spawner_player_range.add[<[level]>]>
@@ -30,23 +30,23 @@ AR_SpawnerConfig:
       # This range is also used when checking the entity cap so smaller range = better spawning
       SpawnRange:
         Material: beacon
-        Name: "&c&lSpawn Range"
+        Name: <&c><&l>Spawn Range
         Description:
-        - "&7Decreases distance that"
-        - "&7mobs spawn away from the"
-        - "&7spawner by one block"
+        - <&7>Decreases distance that
+        - <&7>mobs spawn away from the
+        - <&7>spawner by one block
         Actions:
           OnPlace:
           - adjust <[location]> spawner_range:<[location].spawner_range.sub[<[level]>]>
       # Entity cap controls how many mobs can be near the spawner before it won't spawn any more
       EntityCap:
         Material: bat_spawn_egg
-        Name: "&d&lMax Entities"
+        Name: <&d><&l>Max Entities
         Description:
-        - "&7Increase the number of mobs"
-        - "&7that can be near this"
-        - "&7spawner before it stops"
-        - "&7spawning by one"
+        - <&7>Increase the number of mobs
+        - <&7>that can be near this
+        - <&7>spawner before it stops
+        - <&7>spawning by one
         Actions:
           OnPlace:
           - adjust <[location]> spawner_max_nearby_entities:<[location].spawner_max_nearby_entities.add[<[level]>]>
@@ -54,11 +54,11 @@ AR_SpawnerConfig:
       # Multiplier increases by 1 for each level
       LootMultiplier:
         Material: hopper
-        Name: "&2&lLoot Upgrade"
+        Name: <&2><&l>Loot Upgrade
         Description:
-        - "&7Increase the amount of"
-        - "&7loot that mobs from this"
-        - "&7spawner will drop"
+        - <&7>Increase the amount of
+        - <&7>loot that mobs from this
+        - <&7>spawner will drop
         Actions:
           OnSpawn:
           - adjust <[entity]> health_data:<[entity].health_max.mul[<[level].add[1]>]>/<[entity].health_max.mul[<[level].add[1]>]>
@@ -148,13 +148,13 @@ AR_SpawnerConfig:
               - actionbar "Earned <server.economy.format[<[moneyAmount]>]> for breaking a natural <context.location.spawner_type.entity_type.to_lowercase.replace_text[_].with[ ]> spawner"
               - money give quantity:<[moneyAmount]>
             - else:
-              - define dropsresult:->:<[drop].as_item>
+              - define dropsresult:->:<[drop].as[item]>
           - determine <[dropsresult]>
     ## Listen for entities spawning from a custom spawner
     on spawner spawns entity:
       - if <context.spawner_location.has_flag[spawner]> && <context.spawner_location.has_flag[rechargeduration].not>:
         # Check if this spawner actually needs recharging and cancel the spawn if it does
-        - determine cancelled if:<context.spawner_location.flag[script].as_script.data_key[data].contains[Recharge]>
+        - determine cancelled if:<context.spawner_location.flag[script].as[script].data_key[data].contains[Recharge]>
       - flag <context.entity> from_spawner
       - stop if:<context.spawner_location.has_flag[spawner].not>
       # Remove the entity's awareness
@@ -203,16 +203,16 @@ AR_SpawnerConfig:
     on player clicks item_flagged:Upgrade in AR_SpawnerGUI:
       - ratelimit <player> 5t
       # Get the cost of the upgrade
-      - define location <context.inventory.list_contents.get[5].flag[location].as_location>
+      - define location <context.inventory.list_contents.get[5].flag[location].as[location]>
       - define currentlevel <[location].flag[Upgrades.<context.item.flag[Upgrade]>].if_null[0]>
-      - define itemcost <[location].flag[script].as_script.data_key[data.Upgrades.<context.item.flag[Upgrade]>.Cost.<[currentlevel].add[1]>]>
+      - define itemcost <[location].flag[script].as[script].data_key[data.Upgrades.<context.item.flag[Upgrade]>.Cost.<[currentlevel].add[1]>]>
       # Check if the player has all the items
       - if <proc[AR_Spawners_hasAllItems].context[<list[<player>].include_single[<[itemcost]>]>]>:
         - foreach <[itemcost]> as:item:
           - if <[item].starts_with[money:]>:
             - money take quantity:<[item].substring[<[item].last_index_of[:].add[1]>]>
           - else:
-            - define itagitem <[item].as_item>
+            - define itagitem <[item].as[item]>
             - if <[itagitem].script.exists>:
               - take item:<[itagitem].script.name> quantity:<[itagitem].quantity>
             - else:
@@ -225,8 +225,8 @@ AR_SpawnerConfig:
     on player left clicks item_flagged:recharge in AR_SpawnerGUI:
       - ratelimit <player> 5t
       # Get the recharge information
-      - define location <context.inventory.list_contents.get[5].flag[location].as_location>
-      - define rechargeData <[location].flag[script].as_script.data_key[data.Recharge]>
+      - define location <context.inventory.list_contents.get[5].flag[location].as[location]>
+      - define rechargeData <[location].flag[script].as[script].data_key[data.Recharge]>
       # See whether the player has the items to perform the recharge
       - define hasItems <proc[AR_Spawners_hasAllItems].context[<player>|<[rechargeData].get[Cost]>]>
       - define canRecharge <[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>].is_less_than[<[rechargeData].get[MaxDuration]>]>
@@ -241,7 +241,7 @@ AR_SpawnerConfig:
         - if <[item].starts_with[money:]>:
           - money take quantity:<[item].substring[<[item].last_index_of[:].add[1]>]>
         - else:
-          - define itagitem <[item].as_item>
+          - define itagitem <[item].as[item]>
           - if <[itagitem].script.exists>:
             - take item:<[itagitem].script.name> quantity:<[itagitem].quantity>
           - else:
@@ -287,7 +287,7 @@ AR_Spawners_getSpawnerItem:
   script:
     - if <[location].has_flag[spawner]>:
       # Get the base item to drop
-      - define dropitem <[location].flag[script].as_item>
+      - define dropitem <[location].flag[script].as[item]>
       # If there are upgrades, add the correct flags, and also add lore
       - if <[location].has_flag[Upgrades]>:
         - adjust def:dropitem lore:<[dropitem].lore.include_single[]>
@@ -303,7 +303,7 @@ AR_Spawners_getUpgradeItems:
   debug: false
   definitions: location|player
   script:
-    - define upgradeIds <[location].flag[script].as_script.data_key[data.Upgrades].keys>
+    - define upgradeIds <[location].flag[script].as[script].data_key[data.Upgrades].keys>
     - define result <list>
     - foreach <[upgradeIds]> as:id:
       - define result:->:<proc[AR_Spawners_getUpgradeItemSingle].context[<[location]>|<[player]>|<[id]>]>
@@ -313,23 +313,23 @@ AR_Spawners_getUpgradeItemSingle:
   debug: false
   definitions: location|player|id
   script:
-  - define item <script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Material].as_item>
+  - define item <script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Material].as[item]>
   - adjust def:item display_name:<script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Name].parse_color>
   - adjust def:item lore:<script[AR_SpawnerConfig].data_key[data.Upgrades.<[id]>.Description].parse[parse_color]>
-  - define maxlevel <[location].flag[script].as_script.data_key[data.Upgrades.<[id]>.MaxLevel]>
+  - define maxlevel <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.MaxLevel]>
   - define currentlevel <[location].flag[Upgrades.<[id]>].if_null[0]>
   - adjust def:item lore:<[item].lore.include_single[<empty>]>
   - adjust def:item "lore:<[item].lore.include_single[<&7>Level <&b><[currentlevel]><&7>/<&b><[maxlevel]>]>"
   - if <[currentlevel].is_less_than[<[maxlevel]>]>:
     - adjust def:item lore:<[item].lore.include_single[<empty>]>
     - adjust def:item "lore:<[item].lore.include_single[<&f>Upgrade Cost:]>"
-    - foreach <[location].flag[script].as_script.data_key[data.Upgrades.<[id]>.Cost.<[currentlevel].add[1]>]> as:cost:
+    - foreach <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.Cost.<[currentlevel].add[1]>]> as:cost:
       - if <[cost].starts_with[money:]>:
         - define moneyamount <[cost].substring[<[cost].last_index_of[:].add[1]>]>
         - define has <[player].money.is_more_than_or_equal_to[<[moneyamount]>]>
         - adjust def:item "lore:<[item].lore.include_single[<tern[<[has]>].pass[<&2><&l>✓].fail[<&4><&l>✗]> <&7><server.economy.format[<[moneyamount]>]>]>"
       - else:
-        - define costitem <[cost].as_item>
+        - define costitem <[cost].as[item]>
         - if <[costitem].script.exists>:
           - define has <[player].inventory.contains_item[<[costitem].script.name>].quantity[<[costitem].quantity>]>
         - else:
@@ -356,7 +356,7 @@ AR_Spawners_hasAllItems:
       - define moneyamount <[item].substring[<[item].last_index_of[:].add[1]>]>
       - determine false if:<[player].money.is_less_than[<[moneyamount]>]>
     - else:
-      - define costitem <[item].as_item>
+      - define costitem <[item].as[item]>
       - if <[costitem].script.exists>:
         - determine false if:<[player].inventory.contains_item[<[costitem].script.name>].quantity[<[costitem].quantity>].not>
       - else:
@@ -369,21 +369,21 @@ AR_Spawners_getUpgradeGui:
   script:
     - define spawnerItem <proc[AR_Spawners_getSpawnerItem].context[<[location]>].with_flag[location:<[location]>]>
     # If this spawner type needs recharging, add the information about recharging to the lore
-    - if <[location].flag[script].as_script.data_key[data].contains[Recharge]>:
+    - if <[location].flag[script].as[script].data_key[data].contains[Recharge]>:
       - adjust def:spawnerItem flag:recharge
-      - define rechargeData <[location].flag[script].as_script.data_key[data.Recharge]>
+      - define rechargeData <[location].flag[script].as[script].data_key[data.Recharge]>
       - define addedLore <list[<&sp>|<&8>--------------------]>
       - define addedLore:->:<&6><&l>Recharge
-      - define "addedLore:->:<&f>Charge: <&7><tern[<[location].has_flag[rechargeduration]>].pass[<[location].flag_expiration[rechargeduration].from_now.formatted>].fail[0s]> / <[rechargeData].get[MaxDuration].as_duration.formatted>"
+      - define "addedLore:->:<&f>Charge: <&7><tern[<[location].has_flag[rechargeduration]>].pass[<[location].flag_expiration[rechargeduration].from_now.formatted>].fail[0s]> / <[rechargeData].get[MaxDuration].as[duration].formatted>"
       - define canRecharge <[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>].is_less_than[<[rechargeData].get[MaxDuration]>]>
-      - define "addedLore:->:<&f>Cost: <&7>(per <[rechargeData].get[CostDuration].as_duration.formatted>)" if:<[canRecharge]>
+      - define "addedLore:->:<&f>Cost: <&7>(per <[rechargeData].get[CostDuration].as[duration].formatted>)" if:<[canRecharge]>
       - foreach <[rechargeData].get[Cost]> as:cost if:<[canRecharge]>:
         - if <[cost].starts_with[money:]>:
           - define moneyamount <[cost].substring[<[cost].last_index_of[:].add[1]>]>
           - define has <[player].money.is_more_than_or_equal_to[<[moneyamount]>]>
           - define "addedLore:->:<tern[<[has]>].pass[<&2><&l>✓].fail[<&4><&l>✗]> <&7><server.economy.format[<[moneyamount]>]>"
         - else:
-          - define costitem <[cost].as_item>
+          - define costitem <[cost].as[item]>
           - if <[costitem].script.exists>:
             - define has <[player].inventory.contains_item[<[costitem].script.name>].quantity[<[costitem].quantity>]>
           - else:
@@ -404,10 +404,6 @@ AR_Spawners_getUpgradeGui:
       - adjust def:spawnerItem lore:<[spawnerItem].lore.include[<[addedLore]>]>
     - define upgradeIcons <proc[AR_Spawners_getUpgradeItems].context[<[location]>|<[player]>]>
     - determine <inventory[AR_SpawnerGUI].include[<list[<[spawnerItem]>].include[<[upgradeIcons]>]>]>
-    #- define upgrades <list[air|<[spawnerItem]>|air]>
-    #- define inv <inventory[AR_SpawnerGUI]>
-    #- adjust def:inv contents:<[upgrades].include[<[upgradeIcons]>]>
-    #- determine <[inv]>
 AR_Spawners_reapplyUpgrades:
   type: task
   debug: false
@@ -415,7 +411,7 @@ AR_Spawners_reapplyUpgrades:
   script:
   # Collect the base stats of the spawner and apply them
   - define default <script[AR_SpawnerConfig].data_key[data.DefaultStats]>
-  - define defaultType <[location].flag[script].as_script.data_key[data.BaseStats]>
+  - define defaultType <[location].flag[script].as[script].data_key[data.BaseStats]>
   - adjust <[location]> <[default].include[<[defaultType]>]>
   # For any upgrades, perform their OnPlace event
   - if <[location].has_flag[Upgrades]>:
