@@ -9,6 +9,7 @@ dElevators_world:
     type: world
     debug: false
     data:
+        # Set to -1 to disable limits
         MaxDistance: -1
         MaxPerChunk: -1
     events:
@@ -72,7 +73,10 @@ dElevators_world:
         - if <[currentIndex]> != <[sorted].size>:
             # Store the next location so we can check that it's clear
             - define targetLocation <player.location.with_y[<[sorted].get[<[currentIndex].add[1]>].add[1]>]>
-            - define matchFlag false
+            # Check that the distance between the elevators is acceptable
+            - if <script.data_key[data.MaxDistance]> > 1 && <[targetLocation].distance[<[sourceElevator]>]> > <script.data_key[data.MaxDistance]>:
+                - narrate "<&c>The next elevator is too far away!"
+                - stop
             - if <[targetLocation].material.is_occluding.not>:
                 - teleport <player> <[targetLocation]>
             - else:
@@ -96,12 +100,10 @@ dElevators_world:
         - if <[currentIndex]> != 1:
             # Store the previous location so we can check that it's clear
             - define targetLocation <player.location.with_y[<[sorted].get[<[currentIndex].sub[1]>].add[1]>]>
-            - define matchFlag false
-            #- foreach <script.data_key[data.SafeBlocks]> as:testMatch:
-            #    - if <[targetLocation].material.advanced_matches[<[testMatch]>]>:
-            #        - define matchFlag true
-            #        - foreach stop
-            #- if <[matchFlag]>:
+            # Check that the distance between the elevators is acceptable
+            - if <script.data_key[data.MaxDistance]> > 1 && <[targetLocation].distance[<[sourceElevator]>]> > <script.data_key[data.MaxDistance]>:
+                - narrate "<&c>The next elevator is too far away!"
+                - stop
             - if <[targetLocation].material.is_occluding.not>:
                 - teleport <[targetLocation]>
             - else:
