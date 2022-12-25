@@ -116,9 +116,9 @@ AR_Spawner_Chicken:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Chicken
           - egg[quantity=512]
-  display name: "<&e>Chicken <&a>Spawner"
+  display name: <&e>Chicken <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Chicken"
+  - <&f>Mob Type: <&6> Chicken
   mechanisms:
     spawner_type: Chicken
   recipes:

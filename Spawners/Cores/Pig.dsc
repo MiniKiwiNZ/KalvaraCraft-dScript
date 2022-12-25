@@ -3,7 +3,7 @@ AR_SpawnerCore_Pig:
   debug: false
   type: item
   material: porkchop
-  display name: "<&e>Pig Essence"
+  display name: <&e>Pig Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,16 +13,16 @@ AR_SpawnerCore_Pig:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Pig"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Pig spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Pig
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Pig spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Pig2:
   debug: false
   type: item
   material: porkchop
-  display name: "<&e>Pig Essence"
+  display name: <&e>Pig Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -32,11 +32,11 @@ AR_SpawnerCore_Pig2:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Pig"
-  - "<&f>Shard Tier: <&6>1"
-  - ""
-  - "Used to craft a Pig spawner"
-  - "<&f>[<&a>Uncommon<&f>]"
+  - <&f>Mob Type: <&6>Pig
+  - <&f>Shard Tier: <&6>1
+  - <empty>
+  - Used to craft a Pig spawner
+  - <&f>[<&a>Uncommon<&f>]
   recipes:
     1:
       type: shapeless

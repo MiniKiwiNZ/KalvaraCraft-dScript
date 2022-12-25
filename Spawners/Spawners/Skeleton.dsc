@@ -116,9 +116,9 @@ AR_Spawner_Skeleton:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Skeleton
           - bone[quantity=512]
-  display name: "<&e>Skeleton <&a>Spawner"
+  display name: <&e>Skeleton <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Skeleton"
+  - <&f>Mob Type: <&6> Skeleton
   mechanisms:
     spawner_type: Skeleton
   recipes:

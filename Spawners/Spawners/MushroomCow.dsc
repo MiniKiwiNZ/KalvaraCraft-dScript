@@ -127,9 +127,9 @@ AR_Spawner_MushroomCow:
           - AR_SpawnerShard_4[quantity=6]
           - AR_SpawnerCore_MushroomCow
           - leather[quantity=512]
-  display name: "<&e>Mooshroom <&a>Spawner"
+  display name: <&e>Mooshroom <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Mooshroom"
+  - <&f>Mob Type: <&6>Mooshroom
   mechanisms:
     spawner_type: Mushroom_Cow
   recipes:

@@ -2,7 +2,7 @@ AR_SpawnerCore_Spider:
   type: item
   debug: false
   material: spider_eye
-  display name: "<&e>Spider Essence"
+  display name: <&e>Spider Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ AR_SpawnerCore_Spider:
   flags:
     PreventEat: true
   lore:
-  - "<&f>Mob Type: <&6>Spider"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Spider spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Spider
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Spider spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Spider_Register:
   type: world
   debug: false

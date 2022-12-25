@@ -127,9 +127,9 @@ AR_Spawner_Guardian:
           - AR_SpawnerShard_4[quantity=6]
           - AR_SpawnerCore_Guardian
           - prismarine_shard[quantity=512]
-  display name: "<&e>Guardian <&a>Spawner"
+  display name: <&e>Guardian <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Guardian"
+  - <&f>Mob Type: <&6>Guardian
   mechanisms:
     spawner_type: Guardian
   recipes:

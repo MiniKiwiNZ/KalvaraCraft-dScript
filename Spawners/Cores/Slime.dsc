@@ -3,7 +3,7 @@ AR_SpawnerCore_Slime:
   debug: false
   type: item
   material: slime_ball
-  display name: "<&e>Slime Essence"
+  display name: <&e>Slime Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ AR_SpawnerCore_Slime:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Slime"
-  - "<&f>Shard Tier: <&6>3"
-  - ""
-  - "Used to craft a Slime spawner"
-  - "<&f>[<&d>Epic<&f>]"
+  - <&f>Mob Type: <&6>Slime
+  - <&f>Shard Tier: <&6>3
+  - <empty>
+  - Used to craft a Slime spawner
+  - <&f>[<&d>Epic<&f>]
 AR_SpawnerCore_Slime_Register:
   type: world
   debug: false

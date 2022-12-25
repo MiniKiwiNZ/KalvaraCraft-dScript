@@ -127,9 +127,9 @@ AR_Spawner_Creeper:
           - AR_SpawnerShard_4[quantity=6]
           - AR_SpawnerCore_Creeper
           - gunpowder[quantity=512]
-  display name: "<&e>Creeper <&a>Spawner"
+  display name: <&e>Creeper <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Creeper"
+  - <&f>Mob Type: <&6>Creeper
   mechanisms:
     spawner_type: Creeper
   recipes:

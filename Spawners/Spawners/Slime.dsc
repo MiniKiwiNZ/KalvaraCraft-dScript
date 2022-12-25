@@ -127,9 +127,9 @@ AR_Spawner_Slime:
           - AR_SpawnerShard_4[quantity=6]
           - AR_SpawnerCore_Slime
           - slime_ball[quantity=512]
-  display name: "<&e>Slime <&a>Spawner"
+  display name: <&e>Slime <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Slime"
+  - <&f>Mob Type: <&6>Slime
   mechanisms:
     spawner_type: Slime
   recipes:

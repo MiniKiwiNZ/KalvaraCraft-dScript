@@ -116,9 +116,9 @@ AR_Spawner_Mule:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Mule
           - leather[quantity=512]
-  display name: "<&e>Mule <&a>Spawner"
+  display name: <&e>Mule <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Mule"
+  - <&f>Mob Type: <&6> Mule
   mechanisms:
     spawner_type: Mule
   recipes:

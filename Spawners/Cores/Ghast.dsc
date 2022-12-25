@@ -3,7 +3,7 @@ AR_SpawnerCore_Ghast:
   debug: false
   type: item
   material: ghast_tear
-  display name: "<&e>Ghast Essence"
+  display name: <&e>Ghast Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ AR_SpawnerCore_Ghast:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Ghast"
-  - "<&f>Shard Tier: <&6>4"
-  - ""
-  - "Used to craft a Ghast spawner"
-  - "<&f>[<&6><&l>Legendary<&f>]"
+  - <&f>Mob Type: <&6>Ghast
+  - <&f>Shard Tier: <&6>4
+  - <empty>
+  - Used to craft a Ghast spawner
+  - <&f>[<&6><&l>Legendary<&f>]
 AR_SpawnerCore_Ghast_Register:
   type: world
   debug: false

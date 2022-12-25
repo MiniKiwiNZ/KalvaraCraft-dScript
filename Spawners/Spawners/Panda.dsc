@@ -118,9 +118,9 @@ AR_Spawner_Panda:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_Panda
           - bamboo[quantity=512]
-  display name: "<&e>Panda <&a>Spawner"
+  display name: <&e>Panda <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Panda"
+  - <&f>Mob Type: <&6>Panda
   mechanisms:
     spawner_type: Panda
   recipes:

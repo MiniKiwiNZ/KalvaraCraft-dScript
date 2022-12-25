@@ -2,7 +2,7 @@ AR_SpawnerCore_Creeper:
   debug: false
   type: item
   material: gunpowder
-  display name: "<&e>Creeper Essence"
+  display name: <&e>Creeper Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -10,11 +10,11 @@ AR_SpawnerCore_Creeper:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Creeper"
-  - "<&f>Shard Tier: <&6>3"
-  - ""
-  - "Used to craft a Creeper spawner"
-  - "<&f>[<&d>Epic<&f>]"
+  - <&f>Mob Type: <&6>Creeper
+  - <&f>Shard Tier: <&6>3
+  - <empty>
+  - Used to craft a Creeper spawner
+  - <&f>[<&d>Epic<&f>]
 AR_SpawnerCore_Creeper_Register:
   type: world
   debug: false

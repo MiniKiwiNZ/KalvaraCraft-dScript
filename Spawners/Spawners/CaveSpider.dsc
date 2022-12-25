@@ -127,9 +127,9 @@ AR_Spawner_CaveSpider:
           - AR_SpawnerShard_4[quantity=6]
           - AR_SpawnerCore_CaveSpider
           - spider_eye[quantity=512]
-  display name: "<&e>Cave Spider <&a>Spawner"
+  display name: <&e>Cave Spider <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Cave Spider"
+  - <&f>Mob Type: <&6>Cave Spider
   mechanisms:
     spawner_type: Cave_Spider
   recipes:

@@ -2,13 +2,13 @@ AR_SpawnerShard_1:
   debug: false
   type: item
   material: prismarine_shard
-  display name: "<&e>Spawner Shard (<&7>Tier 1<&e>)"
+  display name: <&e>Spawner Shard (<&7>Tier 1<&e>)
   lore:
-  - "<&f>A <&7>Tier 1<&f> spawner shard"
-  - ""
-  - "<&7>Used to craft and upgrade"
-  - "<&7>common mob spawners"
-  - "<&f>[<&7>Common<&f>]"
+  - <&f>A <&7>Tier 1<&f> spawner shard
+  - <empty>
+  - <&7>Used to craft and upgrade
+  - <&7>common mob spawners
+  - <&f>[<&7>Common<&f>]
   enchantments:
   - luck_of_the_sea:2
   flags:

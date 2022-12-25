@@ -2,7 +2,7 @@ AR_SpawnerCore_Chicken:
   debug: false
   type: item
   material: feather
-  display name: "<&e>Chicken Essence"
+  display name: <&e>Chicken Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -10,11 +10,11 @@ AR_SpawnerCore_Chicken:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Chicken"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Chicken spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Chicken
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Chicken spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Chicken_Register:
   type: world
   debug: false

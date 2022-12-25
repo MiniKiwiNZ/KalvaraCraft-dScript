@@ -116,9 +116,9 @@ AR_Spawner_Spider:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Spider
           - string[quantity=512]
-  display name: "<&e>Spider <&a>Spawner"
+  display name: <&e>Spider <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Spider"
+  - <&f>Mob Type: <&6> Spider
   mechanisms:
     spawner_type: SPIDER
   recipes:

@@ -118,9 +118,9 @@ AR_Spawner_Pig:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_Pig2
           - porkchop[quantity=512]
-  display name: "<&e>Pig <&a>Spawner"
+  display name: <&e>Pig <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Pig"
+  - <&f>Mob Type: <&6>Pig
   mechanisms:
     spawner_type: Pig
   recipes:

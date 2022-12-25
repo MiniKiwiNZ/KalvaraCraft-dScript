@@ -3,7 +3,7 @@ AR_SpawnerCore_PolarBear:
   debug: false
   type: item
   material: snowball
-  display name: "<&e>Polar Bear Essence"
+  display name: <&e>Polar Bear Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ AR_SpawnerCore_PolarBear:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Polar Bear"
-  - "<&f>Shard Tier: <&6>1"
-  - ""
-  - "Used to craft a Polar Bear spawner"
-  - "<&f>[<&a>Uncommon<&f>]"
+  - <&f>Mob Type: <&6>Polar Bear
+  - <&f>Shard Tier: <&6>1
+  - <empty>
+  - Used to craft a Polar Bear spawner
+  - <&f>[<&a>Uncommon<&f>]
 AR_SpawnerCore_PolarBear_Register:
   type: world
   debug: false

@@ -97,9 +97,9 @@ AR_Spawner_Ocelot:
           - AR_SpawnerShard_2[quantity=4]
           4:
           - AR_SpawnerShard_3[quantity=1]
-  display name: "<&e>Ocelot <&a>Spawner"
+  display name: <&e>Ocelot <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Ocelot"
+  - <&f>Mob Type: <&6>Ocelot
   mechanisms:
     spawner_type: Ocelot
   recipes:

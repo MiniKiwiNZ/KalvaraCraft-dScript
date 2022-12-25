@@ -116,9 +116,9 @@ AR_Spawner_Sheep:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Sheep2
           - white_wool[quantity=512]
-  display name: "<&e>Sheep <&a>Spawner"
+  display name: <&e>Sheep <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Sheep"
+  - <&f>Mob Type: <&6>Sheep
   mechanisms:
     spawner_type: SHEEP
   recipes:

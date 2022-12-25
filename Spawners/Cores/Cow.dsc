@@ -2,7 +2,7 @@ AR_SpawnerCore_Cow:
   debug: false
   type: item
   material: beef
-  display name: "<&e>Cow Essence"
+  display name: <&e>Cow Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ AR_SpawnerCore_Cow:
   flags:
     PreventEat: true
   lore:
-  - "<&f>Mob Type: <&6>Cow"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Cow spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Cow
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Cow spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Cow_Register:
   type: world
   debug: false

@@ -2,7 +2,7 @@ AR_SpawnerCore_Cod:
   type: item
   debug: false
   material: cod
-  display name: "<&e>Cod Essence"
+  display name: <&e>Cod Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ AR_SpawnerCore_Cod:
   flags:
     PreventEat: true
   lore:
-  - "<&f>Mob Type: <&6>Cod"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Cod spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Cod
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Cod spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Cod_Register:
   type: world
   debug: false

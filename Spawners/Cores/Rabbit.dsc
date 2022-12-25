@@ -2,7 +2,7 @@
 AR_SpawnerCore_Rabbit:
   type: item
   material: rabbit_foot
-  display name: "<&e>Rabbit Essence"
+  display name: <&e>Rabbit Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ AR_SpawnerCore_Rabbit:
   flags:
     PreventPlace: true
   lore:
-  - "<&f>Mob Type: <&6>Rabbit"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Rabbit spawner"
-  - "<&f>[<&a>Rare<&f>]"
+  - <&f>Mob Type: <&6>Rabbit
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Rabbit spawner
+  - <&f>[<&a>Rare<&f>]
 AR_SpawnerCore_Rabbit_Register:
   type: world
   debug: false

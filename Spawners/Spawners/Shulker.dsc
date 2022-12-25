@@ -127,9 +127,9 @@ AR_Spawner_Shulker:
           - AR_SpawnerShard_4[quantity=30]
           - AR_SpawnerCore_Shulker
           - shulker_shell[quantity=512]
-  display name: "<&e>Shulker <&a>Spawner"
+  display name: <&e>Shulker <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Shulker"
+  - <&f>Mob Type: <&6>Shulker
   mechanisms:
     spawner_type: Shulker
   recipes:

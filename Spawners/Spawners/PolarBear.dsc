@@ -118,9 +118,9 @@ AR_Spawner_PolarBear:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_PolarBear
           - cod[quantity=512]
-  display name: "<&e>Polar Bear <&a>Spawner"
+  display name: <&e>Polar Bear <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Polar Bear"
+  - <&f>Mob Type: <&6>Polar Bear
   mechanisms:
     spawner_type: POLAR_BEAR
   recipes:

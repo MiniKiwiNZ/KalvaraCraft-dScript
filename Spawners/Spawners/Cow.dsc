@@ -116,9 +116,9 @@ AR_Spawner_Cow:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Cow
           - leather[quantity=512]
-  display name: "<&e>Cow <&a>Spawner"
+  display name: <&e>Cow <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Cow"
+  - <&f>Mob Type: <&6> Cow
   mechanisms:
     spawner_type: Cow
   recipes:

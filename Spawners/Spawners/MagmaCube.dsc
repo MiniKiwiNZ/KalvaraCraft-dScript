@@ -116,9 +116,9 @@ AR_Spawner_MagmaCube:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_MagmaCube
           - magma_cream[quantity=512]
-  display name: "<&e>Magma Cube <&a>Spawner"
+  display name: <&e>Magma Cube <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Magma Cube"
+  - <&f>Mob Type: <&6> Magma Cube
   mechanisms:
     spawner_type: Magma_Cube
   recipes:

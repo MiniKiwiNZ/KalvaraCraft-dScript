@@ -127,9 +127,9 @@ AR_Spawner_Blaze:
           - AR_SpawnerShard_4[quantity=6]
           - AR_SpawnerCore_Blaze
           - blaze_rod[quantity=512]
-  display name: "<&e>Blaze <&a>Spawner"
+  display name: <&e>Blaze <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Blaze"
+  - <&f>Mob Type: <&6>Blaze
   mechanisms:
     spawner_type: BLAZE
   recipes:

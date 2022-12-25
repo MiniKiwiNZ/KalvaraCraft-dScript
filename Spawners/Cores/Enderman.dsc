@@ -3,7 +3,7 @@ AR_SpawnerCore_Enderman:
   debug: false
   type: item
   material: ender_eye
-  display name: "<&e>Enderman Essence"
+  display name: <&e>Enderman Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ AR_SpawnerCore_Enderman:
   flags:
     PreventUse: true
   lore:
-  - "<&f>Mob Type: <&6>Enderman"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft an Enderman spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Enderman
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft an Enderman spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Enderman_Register:
   type: world
   debug: false

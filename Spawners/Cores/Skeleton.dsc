@@ -2,7 +2,7 @@ AR_SpawnerCore_Skeleton:
   debug: false
   type: item
   material: bone
-  display name: "<&e>Skeleton Essence"
+  display name: <&e>Skeleton Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -10,11 +10,11 @@ AR_SpawnerCore_Skeleton:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Skeleton"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Skeleton spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Skeleton
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Skeleton spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Skeleton_Register:
   type: world
   debug: false

@@ -118,9 +118,9 @@ AR_Spawner_Zombie:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_Zombie
           - rotten_flesh[quantity=512]
-  display name: "<&e>Zombie <&a>Spawner"
+  display name: <&e>Zombie <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Zombie"
+  - <&f>Mob Type: <&6>Zombie
   mechanisms:
     spawner_type: ZOMBIE
   recipes:

@@ -118,9 +118,9 @@ AR_Spawner_Dolphin:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_Dolphin
           - cod[quantity=512]
-  display name: "<&e>Dolphin <&a>Spawner"
+  display name: <&e>Dolphin <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Dolphin"
+  - <&f>Mob Type: <&6>Dolphin
   mechanisms:
     spawner_type: DOLPHIN
   recipes:

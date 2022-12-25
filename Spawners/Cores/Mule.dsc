@@ -3,7 +3,7 @@ AR_SpawnerCore_Mule:
   debug: false
   type: item
   material: mule_spawn_egg
-  display name: "<&e>Mule Essence"
+  display name: <&e>Mule Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ AR_SpawnerCore_Mule:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Mule"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Mule spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Mule
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Mule spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_Mule_Register:
   type: world
   debug: false

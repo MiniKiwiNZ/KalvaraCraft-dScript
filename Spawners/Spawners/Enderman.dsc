@@ -116,9 +116,9 @@ AR_Spawner_Enderman:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Enderman
           - ender_pearl[quantity=512]
-  display name: "<&e>Enderman <&a>Spawner"
+  display name: <&e>Enderman <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Enderman"
+  - <&f>Mob Type: <&6> Enderman
   mechanisms:
     spawner_type: Enderman
   recipes:

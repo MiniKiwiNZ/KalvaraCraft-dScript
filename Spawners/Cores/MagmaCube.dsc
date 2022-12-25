@@ -3,7 +3,7 @@ AR_SpawnerCore_MagmaCube:
   debug: false
   type: item
   material: magma_cream
-  display name: "<&e>Magma Cube Essence"
+  display name: <&e>Magma Cube Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ AR_SpawnerCore_MagmaCube:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Magma Cube"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Magma Cube spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Magma Cube
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Magma Cube spawner
+  - <&f>[<&9>Rare<&f>]
 AR_SpawnerCore_MagmaCube_Register:
   type: world
   debug: false

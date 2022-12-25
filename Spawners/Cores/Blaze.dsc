@@ -12,11 +12,11 @@ AR_SpawnerCore_Blaze:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Blaze"
-  - "<&f>Shard Tier: <&6>3"
-  - ""
-  - "Used to craft a Blaze spawner"
-  - "<&f>[<&d>Epic<&f>]"
+  - <&f>Mob Type: <&6>Blaze
+  - <&f>Shard Tier: <&6>3
+  - <empty>
+  - Used to craft a Blaze spawner
+  - <&f>[<&d>Epic<&f>]
 AR_SpawnerCore_Blaze_Register:
   type: world
   debug: false

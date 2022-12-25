@@ -118,9 +118,9 @@ AR_Spawner_Cod:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_Cod
           - cod[quantity=512]
-  display name: "<&e>Cod <&a>Spawner"
+  display name: <&e>Cod <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Cod"
+  - <&f>Mob Type: <&6>Cod
   mechanisms:
     spawner_type: Cod
   recipes:

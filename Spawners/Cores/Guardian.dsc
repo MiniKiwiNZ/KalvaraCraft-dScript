@@ -3,7 +3,7 @@ AR_SpawnerCore_Guardian:
   debug: false
   type: item
   material: prismarine_crystals
-  display name: "<&e>Guardian Essence"
+  display name: <&e>Guardian Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ AR_SpawnerCore_Guardian:
   enchantments:
   - unbreaking:10
   lore:
-  - "<&f>Mob Type: <&6>Guardian"
-  - "<&f>Shard Tier: <&6>3"
-  - ""
-  - "Used to craft a Guardian spawner"
-  - "<&f>[<&d>Epic<&f>]"
+  - <&f>Mob Type: <&6>Guardian
+  - <&f>Shard Tier: <&6>3
+  - <empty>
+  - Used to craft a Guardian spawner
+  - <&f>[<&d>Epic<&f>]
 AR_SpawnerCore_Guardian_Register:
   type: world
   debug: false

@@ -116,9 +116,9 @@ AR_Spawner_Horse:
           - AR_SpawnerShard_4[quantity=4]
           - AR_SpawnerCore_Horse
           - leather[quantity=512]
-  display name: "<&e>Horse <&a>Spawner"
+  display name: <&e>Horse <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6> Horse"
+  - <&f>Mob Type: <&6> Horse
   mechanisms:
     spawner_type: Horse
   recipes:

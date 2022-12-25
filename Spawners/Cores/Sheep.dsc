@@ -2,7 +2,7 @@
 AR_SpawnerCore_Sheep:
   type: item
   material: white_wool
-  display name: "<&e>Sheep Essence"
+  display name: <&e>Sheep Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,15 +12,15 @@ AR_SpawnerCore_Sheep:
   flags:
     PreventPlace: true
   lore:
-  - "<&f>Mob Type: <&6>Sheep"
-  - "<&f>Shard Tier: <&6>1"
-  - ""
-  - "Used to craft a Sheep spawner"
-  - "<&f>[<&a>Uncommon<&f>]"
+  - <&f>Mob Type: <&6>Sheep
+  - <&f>Shard Tier: <&6>1
+  - <empty>
+  - Used to craft a Sheep spawner
+  - <&f>[<&a>Uncommon<&f>]
 AR_SpawnerCore_Sheep2:
   type: item
   material: white_wool
-  display name: "<&e>Sheep Essence"
+  display name: <&e>Sheep Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -30,11 +30,11 @@ AR_SpawnerCore_Sheep2:
   flags:
     PreventPlace: true
   lore:
-  - "<&f>Mob Type: <&6>Sheep"
-  - "<&f>Shard Tier: <&6>2"
-  - ""
-  - "Used to craft a Sheep spawner"
-  - "<&f>[<&9>Rare<&f>]"
+  - <&f>Mob Type: <&6>Sheep
+  - <&f>Shard Tier: <&6>2
+  - <empty>
+  - Used to craft a Sheep spawner
+  - <&f>[<&9>Rare<&f>]
   recipes:
     1:
       type: shapeless

@@ -118,9 +118,9 @@ AR_Spawner_Parrot:
           - AR_SpawnerShard_4[quantity=2]
           - AR_SpawnerCore_Parrot
           - feather[quantity=512]
-  display name: "<&e>Parrot <&a>Spawner"
+  display name: <&e>Parrot <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Parrot"
+  - <&f>Mob Type: <&6>Parrot
   mechanisms:
     spawner_type: Parrot
   recipes:

@@ -127,9 +127,9 @@ AR_Spawner_Ghast:
           - AR_SpawnerShard_4[quantity=30]
           - AR_SpawnerCore_Ghast
           - ghast_tear[quantity=512]
-  display name: "<&e>Ghast <&a>Spawner"
+  display name: <&e>Ghast <&a>Spawner
   lore:
-  - "<&f>Mob Type: <&6>Ghast"
+  - <&f>Mob Type: <&6>Ghast
   mechanisms:
     spawner_type: Ghast
   recipes:
