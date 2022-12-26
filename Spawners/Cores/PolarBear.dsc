@@ -18,14 +18,14 @@ dSpawners_SpawnerCore_PolarBear:
   - <empty>
   - Used to craft a Polar Bear spawner
   - <&f>[<&a>Uncommon<&f>]
-dSpawners_SpawnerCore_PolarBedspawners_Register:
+dSpawners_SpawnerCore_PolarBear_Register:
   type: world
   debug: false
   events:
     on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:POLdSpawners_BEAR|dSpawners_SpawnerCore_PolarBear
+      - run dSpawners_Spawners_registerCore def:POLAR_BEAR|dSpawners_SpawnerCore_PolarBear
       - run dSpawners_Spawners_registerCore def:POLARBEAR|dSpawners_SpawnerCore_PolarBear
-    on player kills POLdSpawners_BEAR:
+    on player kills POLAR_BEAR:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[128]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.PolarBear:++

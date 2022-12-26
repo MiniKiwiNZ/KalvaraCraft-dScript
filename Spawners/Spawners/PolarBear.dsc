@@ -122,7 +122,7 @@ dSpawners_Spawner_PolarBear:
   lore:
   - <&f>Mob Type: <&6>Polar Bear
   mechanisms:
-    spawner_type: POLdSpawners_BEAR
+    spawner_type: POLAR_BEAR
   recipes:
     1:
       type: shaped
@@ -130,10 +130,10 @@ dSpawners_Spawner_PolarBear:
       - dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1
       - dSpawners_SpawnerShard_1|dSpawners_SpawnerCore_PolarBear|dSpawners_SpawnerShard_1
       - dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1|dSpawners_SpawnerShard_1
-dSpawners_Spawner_PolarBedspawners_Register:
+dSpawners_Spawner_PolarBear_Register:
   type: world
   debug: false
   events:
     on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:POLdSpawners_BEAR|dSpawners_Spawner_PolarBear
+      - run dSpawners_Spawners_registerSpawner def:POLAR_BEAR|dSpawners_Spawner_PolarBear
       - run dSpawners_Spawners_registerSpawner def:POLARBEAR|dSpawners_Spawner_PolarBear

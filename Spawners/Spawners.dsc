@@ -97,15 +97,15 @@ dSpawners_SpawnerConfig:
     after reload scripts:
       - flag server dSpawners.SubModules:!
       - customevent id:dspawners_register_spawner_modules
-      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
-      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
-      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
+      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
+      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
+      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
     after server start:
       - flag server dSpawners.SubModules:!
       - customevent id:dspawners_register_spawner_modules
-      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
-      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
-      - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
+      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
+      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
+      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
     ## Listen for players placing a spawner
     on player places spawner:
       - if <context.item_in_hand.script.data_key[data.Placeable].if_null[false]>:
@@ -123,10 +123,10 @@ dSpawners_SpawnerConfig:
         # If the player hasn't placed a spawner in a while, remind them to charge it up
         - if <player.has_flag[SpawnerChargeReminder].not>:
           - flag <player> SpawnerChargeReminder expire:1d
-          - narrate "<script.data_key[data.Prefix].parse_color>Don't forget to charge your spawners so they can spawn mobs! <&c>Any remaining charge will be lost if you break a spawner."
+          - narrate "<script.parsed_key[data.Prefix]>Don't forget to charge your spawners so they can spawn mobs! <&c>Any remaining charge will be lost if you break a spawner."
       - else:
         - determine passively cancelled
-        - narrate "<script.data_key[data.Prefix].parse_color><&c>This spawner item is not valid"
+        - narrate "<script.parsed_key[data.Prefix]><&c>This spawner item is not valid"
     ## Listen for players breaking a spawner
     on player breaks spawner:
       # Check whether this was a natural spawner or not
@@ -221,7 +221,7 @@ dSpawners_SpawnerConfig:
         - run dSpawners_Spawners_reapplyUpgrades def:<[location]>|<player>
         - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[location]>|<player>]>
       - else:
-        - narrate "<script.data_key[data.Prefix].parse_color><&c>Missing resources for upgrade"
+        - narrate "<script.parsed_key[data.Prefix]><&c>Missing resources for upgrade"
     on player left clicks item_flagged:recharge in dSpawners_SpawnerGUI:
       - ratelimit <player> 5t
       # Get the recharge information
@@ -231,10 +231,10 @@ dSpawners_SpawnerConfig:
       - define hasItems <proc[dSpawners_Spawners_hasAllItems].context[<player>|<[rechargeData].get[Cost]>]>
       - define canRecharge <[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>].is_less_than[<[rechargeData].get[MaxDuration]>]>
       - if <[canRecharge].not>:
-        - narrate "<script.data_key[data.Prefix].parse_color><&c>This spawner is already nearly fully charged"
+        - narrate "<script.parsed_key[data.Prefix]><&c>This spawner is already nearly fully charged"
         - stop
       - if <[hasItems].not>:
-        - narrate "<script.data_key[data.Prefix].parse_color><&c>You are missing items to recharge this spawner"
+        - narrate "<script.parsed_key[data.Prefix]><&c>You are missing items to recharge this spawner"
         - stop
       # Take the items
       - foreach <[rechargeData].get[Cost]> as:item:
@@ -249,7 +249,7 @@ dSpawners_SpawnerConfig:
       # Increase the duration
       - flag <[location]> rechargeduration expire:<[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>]>
       - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[location]>|<player>]>
-      - narrate "<script.data_key[data.Prefix].parse_color>Recharged spawner - <&7><[location].flag_expiration[rechargeduration].from_now.formatted><&f> remaining"
+      - narrate "<script.parsed_key[data.Prefix]>Recharged spawner - <&7><[location].flag_expiration[rechargeduration].from_now.formatted><&f> remaining"
     ## Stop the player eating things that can't be eaten
     on player consumes item_flagged:PreventEat priority:-1:
       - determine cancelled
@@ -293,7 +293,7 @@ dSpawners_Spawners_getSpawnerItem:
         - adjust def:dropitem lore:<[dropitem].lore.include_single[]>
         - foreach <[location].flag[Upgrades].keys.alphanumeric> as:upgrade:
           - define level <[location].flag[Upgrades.<[upgrade]>]>
-          - adjust def:dropitem "lore:<[dropitem].lore.include_single[<script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[upgrade]>.Name].parse_color><&f>: <&6><[level]>]>"
+          - adjust def:dropitem "lore:<[dropitem].lore.include_single[<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[upgrade]>.Name]><&f>: <&6><[level]>]>"
           - adjust def:dropitem flag:Upgrades.<[upgrade]>:<[level]>
       - determine <[dropitem]>
     - else:
@@ -314,8 +314,8 @@ dSpawners_Spawners_getUpgradeItemSingle:
   definitions: location|player|id
   script:
   - define item <script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Material].as[item]>
-  - adjust def:item display_name:<script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Name].parse_color>
-  - adjust def:item lore:<script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Description].parse[parse_color]>
+  - adjust def:item display_name:<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[id]>.Name]>
+  - adjust def:item lore:<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[id]>.Description]>
   - define maxlevel <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.MaxLevel]>
   - define currentlevel <[location].flag[Upgrades.<[id]>].if_null[0]>
   - adjust def:item lore:<[item].lore.include_single[<empty>]>
@@ -426,9 +426,9 @@ dSpawners_Spawners_registerShard:
   script:
   # Check whether this shard type is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Shards.<[tier]>]>:
-    - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner shard with tier <[tier]> (<server.flag[dSpawners.SubModules.Shards.<[tier]>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&e>Spawner shard with tier <[tier]> (<server.flag[dSpawners.SubModules.Shards.<[tier]>]>) is being overwritten by item <[scriptname]>"
   #- else:
-    #- announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner shard tier <[tier]> with item <[scriptname]>"
+    #- announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered spawner shard tier <[tier]> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Shards.<[tier]>:<[scriptname]>
 dSpawners_Spawners_registerSpawner:
   type: task
@@ -437,9 +437,9 @@ dSpawners_Spawners_registerSpawner:
   script:
   # Check whether this entity type is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Spawner.<[entitytype]>]>:
-    - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner for entity <[entitytype]> (<server.flag[dSpawners.SubModules.Spawner.<[entitytype]>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&e>Spawner for entity <[entitytype]> (<server.flag[dSpawners.SubModules.Spawner.<[entitytype]>]>) is being overwritten by item <[scriptname]>"
   #- else:
-    #- announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner for entity <[entitytype]> with item <[scriptname]>"
+    #- announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered spawner for entity <[entitytype]> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Spawner.<[entitytype]>:<[scriptname]>
 dSpawners_Spawners_registerCore:
   type: task
@@ -448,7 +448,7 @@ dSpawners_Spawners_registerCore:
   script:
   # Check whether this entity's spawner core is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Core.<[entitytype]>]>:
-    - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&e>Spawner core for entity <[entitytype].to_uppercase> (<server.flag[dSpawners.SubModules.Core.<[entitytype].to_uppercase>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&e>Spawner core for entity <[entitytype].to_uppercase> (<server.flag[dSpawners.SubModules.Core.<[entitytype].to_uppercase>]>) is being overwritten by item <[scriptname]>"
   #- else:
-    #- announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Registered spawner core for entity <[entitytype].to_uppercase> with item <[scriptname]>"
+    #- announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered spawner core for entity <[entitytype].to_uppercase> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Core.<[entitytype].to_uppercase>:<[scriptname]>
