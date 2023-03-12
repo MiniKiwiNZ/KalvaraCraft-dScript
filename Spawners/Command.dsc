@@ -127,12 +127,12 @@ dSpawners_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[spawnerType]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&a>Received <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
-          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
+          - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
       - else:
-        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
+        - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
     ## /spawner giveshards <player> [tier] [quantity]
     - case giveshards:
       - if <context.source_type> == PLAYER && <player.has_permission[ApeironSpawners.Admin].not>:
@@ -157,12 +157,12 @@ dSpawners_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[shardScript]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&a>Received <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
-          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"
+          - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"
       - else:
-        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"
+        - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"
     ## /spawner boost [<player|-global> <all|cores|shards> <multiplier> <&lt>duration<&gt>]
     - case boost:
       # The second argument is always either a player or -global
@@ -180,7 +180,7 @@ dSpawners_Spawners_Command:
           - inject <script> path:data.Injects.InvalidPlayer
           - stop
         # Global boosts
-        - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Global Boost Info:"
+        - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Global Boost Info:"
         # Shards
         - if <server.has_flag[Spawners.ActiveBoosts.Shards].not>:
           - narrate " Shard Drops: Not Active"
@@ -192,7 +192,7 @@ dSpawners_Spawners_Command:
         - else:
           - narrate " Core Drops: <server.flag[Spawners.ActiveBoosts.Cores]>x (<server.flag_expiration[Spawners.ActiveBoosts.Cores].from_now.formatted>)"
         # Player boosts
-        - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Player Boost Info:"
+        - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Player Boost Info:"
         # Shards
         - if <[targetPlayer].has_flag[Spawners.Boosts.Shards]>:
           - narrate " Shard Drops: <[targetPlayer].flag[Spawners.Boosts.Shards].get[1]>x (<[targetPlayer].flag_expiration[Spawners.Boosts.Shards].from_now.formatted>)"
