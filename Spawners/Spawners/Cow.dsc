@@ -116,9 +116,9 @@ dSpawners_Spawner_Cow:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Cow
           - leather[quantity=512]
-  display name: <&e>Cow <&a>Spawner
+  display name: <yellow>Cow <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Cow
+  - <white>Mob Type: <gold> Cow
   mechanisms:
     spawner_type: Cow
   recipes:

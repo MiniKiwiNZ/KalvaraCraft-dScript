@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Mule:
   debug: false
   type: item
   material: mule_spawn_egg
-  display name: <&e>Mule Essence
+  display name: <yellow>Mule Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ dSpawners_SpawnerCore_Mule:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Mule
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Mule
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Mule spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Mule_Register:
   type: world
   debug: false

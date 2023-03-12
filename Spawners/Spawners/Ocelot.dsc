@@ -97,9 +97,9 @@ dSpawners_Spawner_Ocelot:
           - dSpawners_SpawnerShard_2[quantity=4]
           4:
           - dSpawners_SpawnerShard_3[quantity=1]
-  display name: <&e>Ocelot <&a>Spawner
+  display name: <yellow>Ocelot <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Ocelot
+  - <white>Mob Type: <gold>Ocelot
   mechanisms:
     spawner_type: Ocelot
   recipes:

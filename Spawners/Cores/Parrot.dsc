@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Parrot:
   debug: false
   type: item
   material: cookie
-  display name: <&e>Parrot Essence
+  display name: <yellow>Parrot Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -14,11 +14,11 @@ dSpawners_SpawnerCore_Parrot:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Parrot
-  - <&f>Shard Tier: <&6>1
+  - <white>Mob Type: <gold>Parrot
+  - <white>Shard Tier: <gold>1
   - <empty>
   - Used to craft a Parrot spawner
-  - <&f>[<&a>Uncommon<&f>]
+  - <white>[<green>Uncommon<white>]
 dSpawners_SpawnerCore_Parrot_Register:
   type: world
   debug: false

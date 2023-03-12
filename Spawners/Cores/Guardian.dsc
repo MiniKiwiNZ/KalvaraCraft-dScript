@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Guardian:
   debug: false
   type: item
   material: prismarine_crystals
-  display name: <&e>Guardian Essence
+  display name: <yellow>Guardian Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ dSpawners_SpawnerCore_Guardian:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Guardian
-  - <&f>Shard Tier: <&6>3
+  - <white>Mob Type: <gold>Guardian
+  - <white>Shard Tier: <gold>3
   - <empty>
   - Used to craft a Guardian spawner
-  - <&f>[<&d>Epic<&f>]
+  - <white>[<light_purple>Epic<white>]
 dSpawners_SpawnerCore_Guardian_Register:
   type: world
   debug: false

@@ -118,9 +118,9 @@ dSpawners_Spawner_Dolphin:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_Dolphin
           - cod[quantity=512]
-  display name: <&e>Dolphin <&a>Spawner
+  display name: <yellow>Dolphin <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Dolphin
+  - <white>Mob Type: <gold>Dolphin
   mechanisms:
     spawner_type: DOLPHIN
   recipes:

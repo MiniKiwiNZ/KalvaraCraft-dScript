@@ -1,7 +1,7 @@
 dSpawners_SpawnerCore_Shulker:
   type: item
   material: shulker_spawn_egg
-  display name: <&e>Shulker Essence
+  display name: <yellow>Shulker Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ dSpawners_SpawnerCore_Shulker:
   flags:
     PreventUse: true
   lore:
-  - <&f>Mob Type: <&6>Shulker
-  - <&f>Shard Tier: <&6>4
+  - <white>Mob Type: <gold>Shulker
+  - <white>Shard Tier: <gold>4
   - <empty>
   - Used to craft a Shulker spawner
-  - <&f>[<&6><&l>Legendary<&f>]
+  - <white>[<gold><bold>Legendary<white>]
 dSpawners_SpawnerCore_Shulker_Register:
   type: world
   debug: false

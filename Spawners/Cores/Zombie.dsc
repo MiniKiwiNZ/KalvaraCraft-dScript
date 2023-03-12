@@ -2,7 +2,7 @@ dSpawners_SpawnerCore_Zombie:
   debug: false
   type: item
   material: rotten_flesh
-  display name: <&e>Zombie Essence
+  display name: <yellow>Zombie Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ dSpawners_SpawnerCore_Zombie:
   flags:
     PreventEat: true
   lore:
-  - <&f>Mob Type: <&6>Zombie
-  - <&f>Shard Tier: <&6>1
+  - <white>Mob Type: <gold>Zombie
+  - <white>Shard Tier: <gold>1
   - <empty>
   - Used to craft a Zombie spawner
-  - <&f>[<&a>Uncommon<&f>]
+  - <white>[<green>Uncommon<white>]
 dSpawners_SpawnerCore_Zombie_Register:
   type: world
   debug: false

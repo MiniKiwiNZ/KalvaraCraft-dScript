@@ -116,9 +116,9 @@ dSpawners_Spawner_MagmaCube:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_MagmaCube
           - magma_cream[quantity=512]
-  display name: <&e>Magma Cube <&a>Spawner
+  display name: <yellow>Magma Cube <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Magma Cube
+  - <white>Mob Type: <gold> Magma Cube
   mechanisms:
     spawner_type: Magma_Cube
   recipes:

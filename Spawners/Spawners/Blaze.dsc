@@ -127,9 +127,9 @@ dSpawners_Spawner_Blaze:
           - dSpawners_SpawnerShard_4[quantity=6]
           - dSpawners_SpawnerCore_Blaze
           - blaze_rod[quantity=512]
-  display name: <&e>Blaze <&a>Spawner
+  display name: <yellow>Blaze <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Blaze
+  - <white>Mob Type: <gold>Blaze
   mechanisms:
     spawner_type: BLAZE
   recipes:

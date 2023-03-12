@@ -127,9 +127,9 @@ dSpawners_Spawner_Slime:
           - dSpawners_SpawnerShard_4[quantity=6]
           - dSpawners_SpawnerCore_Slime
           - slime_ball[quantity=512]
-  display name: <&e>Slime <&a>Spawner
+  display name: <yellow>Slime <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Slime
+  - <white>Mob Type: <gold>Slime
   mechanisms:
     spawner_type: Slime
   recipes:

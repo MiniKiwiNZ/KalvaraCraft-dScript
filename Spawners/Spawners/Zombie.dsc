@@ -118,9 +118,9 @@ dSpawners_Spawner_Zombie:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_Zombie
           - rotten_flesh[quantity=512]
-  display name: <&e>Zombie <&a>Spawner
+  display name: <yellow>Zombie <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Zombie
+  - <white>Mob Type: <gold>Zombie
   mechanisms:
     spawner_type: ZOMBIE
   recipes:

@@ -116,9 +116,9 @@ dSpawners_Spawner_Enderman:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Enderman
           - ender_pearl[quantity=512]
-  display name: <&e>Enderman <&a>Spawner
+  display name: <yellow>Enderman <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Enderman
+  - <white>Mob Type: <gold> Enderman
   mechanisms:
     spawner_type: Enderman
   recipes:

@@ -2,7 +2,7 @@ dSpawners_SpawnerCore_Chicken:
   debug: false
   type: item
   material: feather
-  display name: <&e>Chicken Essence
+  display name: <yellow>Chicken Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -10,11 +10,11 @@ dSpawners_SpawnerCore_Chicken:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Chicken
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Chicken
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Chicken spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Chicken_Register:
   type: world
   debug: false

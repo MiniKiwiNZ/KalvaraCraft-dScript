@@ -116,9 +116,9 @@ dSpawners_Spawner_Skeleton:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Skeleton
           - bone[quantity=512]
-  display name: <&e>Skeleton <&a>Spawner
+  display name: <yellow>Skeleton <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Skeleton
+  - <white>Mob Type: <gold> Skeleton
   mechanisms:
     spawner_type: Skeleton
   recipes:

@@ -116,9 +116,9 @@ dSpawners_Spawner_Rabbit:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Rabbit
           - rabbit_hide[quantity=512]
-  display name: <&e>Rabbit <&a>Spawner
+  display name: <yellow>Rabbit <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Rabbit
+  - <white>Mob Type: <gold>Rabbit
   mechanisms:
     spawner_type: RABBIT
   recipes:

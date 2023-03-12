@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Dolphin:
   debug: false
   type: item
   material: cod
-  display name: <&e>Dolphin Essence
+  display name: <yellow>Dolphin Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -11,11 +11,11 @@ dSpawners_SpawnerCore_Dolphin:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Dolphin
-  - <&f>Shard Tier: <&6>1
+  - <white>Mob Type: <gold>Dolphin
+  - <white>Shard Tier: <gold>1
   - <empty>
   - Used to craft a Dolphin spawner
-  - <&f>[<&a>Uncommon<&f>]
+  - <white>[<green>Uncommon<white>]
 dSpawners_SpawnerCore_Dolphin_Register:
   type: world
   debug: false

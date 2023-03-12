@@ -127,7 +127,7 @@ dSpawners_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[spawnerType]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&a>Received <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><green>Received <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]><green>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
           - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
@@ -157,7 +157,7 @@ dSpawners_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[shardScript]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&a>Received <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><green>Received <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]><green>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
           - narrate "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"

@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Ocelot:
   debug: false
   type: item
   material: ocelot_spawn_egg
-  display name: <&e>Ocelot Essence
+  display name: <yellow>Ocelot Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ dSpawners_SpawnerCore_Ocelot:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Ocelot
-  - <&f>Shard Tier: <&6>1
+  - <white>Mob Type: <gold>Ocelot
+  - <white>Shard Tier: <gold>1
   - <empty>
   - Used to craft an Ocelot spawner
-  - <&f>[<&a>Uncommon<&f>]
+  - <white>[<green>Uncommon<white>]
 dSpawners_SpawnerCore_Ocelot_Register:
   type: world
   debug: false

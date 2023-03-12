@@ -127,9 +127,9 @@ dSpawners_Spawner_Shulker:
           - dSpawners_SpawnerShard_4[quantity=30]
           - dSpawners_SpawnerCore_Shulker
           - shulker_shell[quantity=512]
-  display name: <&e>Shulker <&a>Spawner
+  display name: <yellow>Shulker <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Shulker
+  - <white>Mob Type: <gold>Shulker
   mechanisms:
     spawner_type: Shulker
   recipes:

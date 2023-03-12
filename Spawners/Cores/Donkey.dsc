@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Donkey:
   debug: false
   type: item
   material: donkey_spawn_egg
-  display name: <&e>Donkey Essence
+  display name: <yellow>Donkey Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ dSpawners_SpawnerCore_Donkey:
   flags:
     PreventUse: true
   lore:
-  - <&f>Mob Type: <&6>Donkey
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Donkey
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Donkey spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Donkey_Register:
   type: world
   debug: false

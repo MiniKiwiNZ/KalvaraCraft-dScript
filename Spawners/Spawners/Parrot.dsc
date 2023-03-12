@@ -118,9 +118,9 @@ dSpawners_Spawner_Parrot:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_Parrot
           - feather[quantity=512]
-  display name: <&e>Parrot <&a>Spawner
+  display name: <yellow>Parrot <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Parrot
+  - <white>Mob Type: <gold>Parrot
   mechanisms:
     spawner_type: Parrot
   recipes:

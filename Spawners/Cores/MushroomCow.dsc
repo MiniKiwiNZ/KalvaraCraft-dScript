@@ -4,7 +4,7 @@ dSpawners_SpawnerCore_MushroomCow:
   debug: false
   type: item
   material: mooshroom_spawn_egg
-  display name: <&e>Mooshroom Essence
+  display name: <yellow>Mooshroom Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -14,11 +14,11 @@ dSpawners_SpawnerCore_MushroomCow:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Mooshroom
-  - <&f>Shard Tier: <&6>3
+  - <white>Mob Type: <gold>Mooshroom
+  - <white>Shard Tier: <gold>3
   - <empty>
   - Used to craft a Mooshroom spawner
-  - <&f>[<&d>Epic<&f>]
+  - <white>[<light_purple>Epic<white>]
 dSpawners_SpawnerCore_MushroomCow_Register:
   type: world
   debug: false

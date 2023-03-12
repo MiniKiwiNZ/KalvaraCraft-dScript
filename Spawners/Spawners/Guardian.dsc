@@ -127,9 +127,9 @@ dSpawners_Spawner_Guardian:
           - dSpawners_SpawnerShard_4[quantity=6]
           - dSpawners_SpawnerCore_Guardian
           - prismarine_shard[quantity=512]
-  display name: <&e>Guardian <&a>Spawner
+  display name: <yellow>Guardian <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Guardian
+  - <white>Mob Type: <gold>Guardian
   mechanisms:
     spawner_type: Guardian
   recipes:

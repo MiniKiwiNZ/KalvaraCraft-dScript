@@ -127,9 +127,9 @@ dSpawners_Spawner_Ghast:
           - dSpawners_SpawnerShard_4[quantity=30]
           - dSpawners_SpawnerCore_Ghast
           - ghast_tear[quantity=512]
-  display name: <&e>Ghast <&a>Spawner
+  display name: <yellow>Ghast <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Ghast
+  - <white>Mob Type: <gold>Ghast
   mechanisms:
     spawner_type: Ghast
   recipes:

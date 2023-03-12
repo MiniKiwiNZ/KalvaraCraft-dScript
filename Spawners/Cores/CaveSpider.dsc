@@ -4,7 +4,7 @@
 dSpawners_SpawnerCore_CaveSpider:
   type: item
   material: cobweb
-  display name: <&e>Cave Spider Essence
+  display name: <yellow>Cave Spider Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -14,11 +14,11 @@ dSpawners_SpawnerCore_CaveSpider:
   flags:
     PreventPlace: true
   lore:
-  - <&f>Mob Type: <&6>Cave Spider
-  - <&f>Shard Tier: <&6>3
+  - <white>Mob Type: <gold>Cave Spider
+  - <white>Shard Tier: <gold>3
   - <empty>
   - Used to craft a Cave Spider spawner
-  - <&f>[<&d>Epic<&f>]
+  - <white>[<light_purple>Epic<white>]
 dSpawners_SpawnerCore_CaveSpider_Register:
   type: world
   debug: false

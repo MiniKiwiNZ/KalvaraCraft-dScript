@@ -4,7 +4,7 @@ dSpawners_SpawnerCore_Blaze:
   debug: false
   type: item
   material: blaze_powder
-  display name: "<&e>Blaze Essence"
+  display name: "<yellow>Blaze Essence"
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ dSpawners_SpawnerCore_Blaze:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Blaze
-  - <&f>Shard Tier: <&6>3
+  - <white>Mob Type: <gold>Blaze
+  - <white>Shard Tier: <gold>3
   - <empty>
   - Used to craft a Blaze spawner
-  - <&f>[<&d>Epic<&f>]
+  - <white>[<light_purple>Epic<white>]
 dSpawners_SpawnerCore_Blaze_Register:
   type: world
   debug: false

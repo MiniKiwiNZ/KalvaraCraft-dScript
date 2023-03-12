@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_PolarBear:
   debug: false
   type: item
   material: snowball
-  display name: <&e>Polar Bear Essence
+  display name: <yellow>Polar Bear Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ dSpawners_SpawnerCore_PolarBear:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Polar Bear
-  - <&f>Shard Tier: <&6>1
+  - <white>Mob Type: <gold>Polar Bear
+  - <white>Shard Tier: <gold>1
   - <empty>
   - Used to craft a Polar Bear spawner
-  - <&f>[<&a>Uncommon<&f>]
+  - <white>[<green>Uncommon<white>]
 dSpawners_SpawnerCore_PolarBear_Register:
   type: world
   debug: false

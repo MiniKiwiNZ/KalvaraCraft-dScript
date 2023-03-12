@@ -118,9 +118,9 @@ dSpawners_Spawner_Panda:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_Panda
           - bamboo[quantity=512]
-  display name: <&e>Panda <&a>Spawner
+  display name: <yellow>Panda <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Panda
+  - <white>Mob Type: <gold>Panda
   mechanisms:
     spawner_type: Panda
   recipes:

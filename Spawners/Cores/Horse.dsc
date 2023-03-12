@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Horse:
   debug: false
   type: item
   material: hay_block
-  display name: <&e>Horse Essence
+  display name: <yellow>Horse Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -14,11 +14,11 @@ dSpawners_SpawnerCore_Horse:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Horse
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Horse
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Horse spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Horse_Register:
   type: world
   debug: false

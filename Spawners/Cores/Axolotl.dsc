@@ -2,7 +2,7 @@ dSpawners_SpawnerCore_Axolotl:
   debug: false
   type: item
   material: axolotl_bucket
-  display name: <&e>Axolotl Essence
+  display name: <yellow>Axolotl Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ dSpawners_SpawnerCore_Axolotl:
   flags:
     PreventUse: true
   lore:
-  - <&f>Mob Type: <&6>Axolotl
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Axolotl
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft an Axolotl spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Axolotl_Register:
   type: world
   debug: false

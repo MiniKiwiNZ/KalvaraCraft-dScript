@@ -127,9 +127,9 @@ dSpawners_Spawner_CaveSpider:
           - dSpawners_SpawnerShard_4[quantity=6]
           - dSpawners_SpawnerCore_CaveSpider
           - spider_eye[quantity=512]
-  display name: <&e>Cave Spider <&a>Spawner
+  display name: <yellow>Cave Spider <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Cave Spider
+  - <white>Mob Type: <gold>Cave Spider
   mechanisms:
     spawner_type: Cave_Spider
   recipes:

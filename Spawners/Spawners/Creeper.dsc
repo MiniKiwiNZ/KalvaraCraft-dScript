@@ -127,9 +127,9 @@ dSpawners_Spawner_Creeper:
           - dSpawners_SpawnerShard_4[quantity=6]
           - dSpawners_SpawnerCore_Creeper
           - gunpowder[quantity=512]
-  display name: <&e>Creeper <&a>Spawner
+  display name: <yellow>Creeper <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Creeper
+  - <white>Mob Type: <gold>Creeper
   mechanisms:
     spawner_type: Creeper
   recipes:

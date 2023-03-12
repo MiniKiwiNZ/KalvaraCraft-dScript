@@ -116,9 +116,9 @@ dSpawners_Spawner_Spider:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Spider
           - string[quantity=512]
-  display name: <&e>Spider <&a>Spawner
+  display name: <yellow>Spider <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Spider
+  - <white>Mob Type: <gold> Spider
   mechanisms:
     spawner_type: SPIDER
   recipes:

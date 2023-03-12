@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Pig:
   debug: false
   type: item
   material: porkchop
-  display name: <&e>Pig Essence
+  display name: <yellow>Pig Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ dSpawners_SpawnerCore_Pig:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Pig
-  - <&f>Shard Tier: <&6>1
+  - <white>Mob Type: <gold>Pig
+  - <white>Shard Tier: <gold>1
   - <empty>
   - Used to craft a Pig spawner
-  - <&f>[<&a>Uncommon<&f>]
+  - <white>[<green>Uncommon<white>]
 dSpawners_SpawnerCore_Pig_Register:
   type: world
   debug: false

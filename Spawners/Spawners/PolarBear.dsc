@@ -118,9 +118,9 @@ dSpawners_Spawner_PolarBear:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_PolarBear
           - cod[quantity=512]
-  display name: <&e>Polar Bear <&a>Spawner
+  display name: <yellow>Polar Bear <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Polar Bear
+  - <white>Mob Type: <gold>Polar Bear
   mechanisms:
     spawner_type: POLAR_BEAR
   recipes:

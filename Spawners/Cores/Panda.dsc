@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Panda:
   debug: false
   type: item
   material: bamboo
-  display name: <&e>Panda Essence
+  display name: <yellow>Panda Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -14,11 +14,11 @@ dSpawners_SpawnerCore_Panda:
   enchantments:
   - unbreaking:10
   lore:
-  - <&f>Mob Type: <&6>Panda
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Panda
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Panda spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Panda_Register:
   type: world
   debug: false

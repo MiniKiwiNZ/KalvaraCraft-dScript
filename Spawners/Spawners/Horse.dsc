@@ -116,9 +116,9 @@ dSpawners_Spawner_Horse:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Horse
           - leather[quantity=512]
-  display name: <&e>Horse <&a>Spawner
+  display name: <yellow>Horse <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Horse
+  - <white>Mob Type: <gold> Horse
   mechanisms:
     spawner_type: Horse
   recipes:

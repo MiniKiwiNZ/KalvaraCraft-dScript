@@ -2,7 +2,7 @@ dSpawners_SpawnerCore_Cod:
   type: item
   debug: false
   material: cod
-  display name: <&e>Cod Essence
+  display name: <yellow>Cod Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ dSpawners_SpawnerCore_Cod:
   flags:
     PreventEat: true
   lore:
-  - <&f>Mob Type: <&6>Cod
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Cod
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Cod spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Cod_Register:
   type: world
   debug: false

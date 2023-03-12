@@ -2,7 +2,7 @@
 dSpawners_SpawnerCore_Sheep:
   type: item
   material: white_wool
-  display name: <&e>Sheep Essence
+  display name: <yellow>Sheep Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -12,11 +12,11 @@ dSpawners_SpawnerCore_Sheep:
   flags:
     PreventPlace: true
   lore:
-  - <&f>Mob Type: <&6>Sheep
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Sheep
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft a Sheep spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Sheep_Register:
   type: world
   debug: false

@@ -2,13 +2,13 @@ dSpawners_SpawnerShard_4:
   debug: false
   type: item
   material: prismarine_shard
-  display name: <&e>Spawner Shard (<&d>Tier 4<&e>)
+  display name: <yellow>Spawner Shard (<light_purple>Tier 4<yellow>)
   lore:
-  - <&f>A <&d>Tier 4<&f> spawner shard
+  - <white>A <light_purple>Tier 4<white> spawner shard
   - <empty>
   - <&7>Used to craft and upgrade
   - <&7>rare mob spawners
-  - <&f>[<&d>Epic<&f>]
+  - <white>[<light_purple>Epic<white>]
   enchantments:
   - luck_of_the_sea:2
   flags:

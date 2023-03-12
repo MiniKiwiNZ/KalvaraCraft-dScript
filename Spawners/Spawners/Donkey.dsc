@@ -116,9 +116,9 @@ dSpawners_Spawner_Donkey:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Donkey
           - leather[quantity=512]
-  display name: <&e>Donkey <&a>Spawner
+  display name: <yellow>Donkey <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Donkey
+  - <white>Mob Type: <gold> Donkey
   mechanisms:
     spawner_type: Donkey
   recipes:

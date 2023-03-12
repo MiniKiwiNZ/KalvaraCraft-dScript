@@ -41,7 +41,7 @@ dSpawners_SpawnerConfig:
       # Entity cap controls how many mobs can be near the spawner before it won't spawn any more
       EntityCap:
         Material: bat_spawn_egg
-        Name: <&d><&l>Max Entities
+        Name: <light_purple><bold>Max Entities
         Description:
         - <gray>Increase the number of mobs
         - <gray> that can be near this
@@ -219,7 +219,7 @@ dSpawners_SpawnerConfig:
         - run dSpawners_Spawners_reapplyUpgrades def:<[location]>|<player>
         - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[location]>|<player>]>
       - else:
-        - narrate "<script.parsed_key[data.Prefix]><&c>Missing resources for upgrade"
+        - narrate "<script.parsed_key[data.Prefix]><red>Missing resources for upgrade"
     on player left clicks item_flagged:recharge in dSpawners_SpawnerGUI:
       - ratelimit <player> 5t
       # Get the recharge information
@@ -229,10 +229,10 @@ dSpawners_SpawnerConfig:
       - define hasItems <proc[dSpawners_Spawners_hasAllItems].context[<player>|<[rechargeData].get[Cost]>]>
       - define canRecharge <[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>].is_less_than[<[rechargeData].get[MaxDuration]>]>
       - if <[canRecharge].not>:
-        - narrate "<script.parsed_key[data.Prefix]><&c>This spawner is already nearly fully charged"
+        - narrate "<script.parsed_key[data.Prefix]><red>This spawner is already nearly fully charged"
         - stop
       - if <[hasItems].not>:
-        - narrate "<script.parsed_key[data.Prefix]><&c>You are missing items to recharge this spawner"
+        - narrate "<script.parsed_key[data.Prefix]><red>You are missing items to recharge this spawner"
         - stop
       # Take the items
       - foreach <[rechargeData].get[Cost]> as:item:
@@ -247,7 +247,7 @@ dSpawners_SpawnerConfig:
       # Increase the duration
       - flag <[location]> rechargeduration expire:<[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>]>
       - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[location]>|<player>]>
-      - narrate "<script.parsed_key[data.Prefix]>Recharged spawner - <&7><[location].flag_expiration[rechargeduration].from_now.formatted><&f> remaining"
+      - narrate "<script.parsed_key[data.Prefix]>Recharged spawner - <gray><[location].flag_expiration[rechargeduration].from_now.formatted><white> remaining"
     ## Stop the player eating things that can't be eaten
     on player consumes item_flagged:PreventEat priority:-1:
       - determine cancelled
@@ -265,7 +265,7 @@ dSpawners_SpawnerConfig:
       - determine cancelled
     ## Prevent players from using spawn eggs on spawners
     on player right clicks spawner with:*_spawn_egg:
-      - narrate "<&4>Spawners can not be changed using spawn eggs"
+      - narrate "<dark_red>Spawners can not be changed using spawn eggs"
       - determine cancelled
 dSpawners_SpawnerGUI:
   type: inventory
@@ -332,7 +332,7 @@ dSpawners_Spawners_getUpgradeItemSingle:
           - define has <[player].inventory.contains_item[<[costitem].script.name>].quantity[<[costitem].quantity>]>
         - else:
           - define has <[player].inventory.contains_item[raw_exact:<[costitem]>].quantity[<[costitem].quantity>]>
-        - adjust def:item lore:<[item].lore.include_single[<tern[<[has]>].pass[<dark_green><bold>✓].fail[<dark_red><bold>✗]><&sp><&7><[costitem].display.strip_color.if_null[<[costitem].material.name.replace[_].with[<&sp>].to_titlecase>]> <white>x<[costitem].quantity>]>
+        - adjust def:item lore:<[item].lore.include_single[<tern[<[has]>].pass[<dark_green><bold>✓].fail[<dark_red><bold>✗]><&sp><gray><[costitem].display.strip_color.if_null[<[costitem].material.name.replace[_].with[<&sp>].to_titlecase>]> <white>x<[costitem].quantity>]>
       - define cantupgrade false if:<[has].not>
     - adjust def:item lore:<[item].lore.include_single[<empty>]>
     - adjust def:item flag:Upgrade:<[id]>
@@ -370,35 +370,35 @@ dSpawners_Spawners_getUpgradeGui:
     - if <[location].flag[script].as[script].data_key[data].contains[Recharge]>:
       - adjust def:spawnerItem flag:recharge
       - define rechargeData <[location].flag[script].as[script].data_key[data.Recharge]>
-      - define addedLore <list[<&sp>|<&8>--------------------]>
-      - define addedLore:->:<&6><&l>Recharge
-      - define "addedLore:->:<&f>Charge: <&7><tern[<[location].has_flag[rechargeduration]>].pass[<[location].flag_expiration[rechargeduration].from_now.formatted>].fail[0s]> / <[rechargeData].get[MaxDuration].as[duration].formatted>"
+      - define addedLore <list[<&sp>|<dark_gray>--------------------]>
+      - define addedLore:->:<gold><bold>Recharge
+      - define "addedLore:->:<white>Charge: <gray><tern[<[location].has_flag[rechargeduration]>].pass[<[location].flag_expiration[rechargeduration].from_now.formatted>].fail[0s]> / <[rechargeData].get[MaxDuration].as[duration].formatted>"
       - define canRecharge <[location].flag_expiration[rechargeduration].from_now.if_null[<duration[0]>].add[<[rechargeData].get[CostDuration]>].is_less_than[<[rechargeData].get[MaxDuration]>]>
-      - define "addedLore:->:<&f>Cost: <&7>(per <[rechargeData].get[CostDuration].as[duration].formatted>)" if:<[canRecharge]>
+      - define "addedLore:->:<white>Cost: <gray>(per <[rechargeData].get[CostDuration].as[duration].formatted>)" if:<[canRecharge]>
       - foreach <[rechargeData].get[Cost]> as:cost if:<[canRecharge]>:
         - if <[cost].starts_with[money:]>:
           - define moneyamount <[cost].substring[<[cost].last_index_of[:].add[1]>]>
           - define has <[player].money.is_more_than_or_equal_to[<[moneyamount]>]>
-          - define "addedLore:->:<tern[<[has]>].pass[<&2><&l>✓].fail[<&4><&l>✗]> <&7><server.economy.format[<[moneyamount]>]>"
+          - define "addedLore:->:<tern[<[has]>].pass[<dark_green><bold>✓].fail[<dark_red><bold>✗]> <gray><server.economy.format[<[moneyamount]>]>"
         - else:
           - define costitem <[cost].as[item]>
           - if <[costitem].script.exists>:
             - define has <[player].inventory.contains_item[<[costitem].script.name>].quantity[<[costitem].quantity>]>
           - else:
             - define has <[player].inventory.contains_item[raw_exact:<[costitem]>].quantity[<[costitem].quantity>]>
-          - define "addedLore:->:<tern[<[has]>].pass[<&2><&l>✓].fail[<&4><&l>✗]> <&7><[costitem].display.strip_color.if_null[<[costitem].material.name.replace[_].with[ ].to_titlecase>]> <&f>x<[costitem].quantity>"
+          - define "addedLore:->:<tern[<[has]>].pass[<dark_green><bold>✓].fail[<dark_red><bold>✗]> <gray><[costitem].display.strip_color.if_null[<[costitem].material.name.replace[_].with[ ].to_titlecase>]> <white>x<[costitem].quantity>"
       - define addedLore:->:<&8>--------------------
-      - define "addedLore:->:<&c>Breaking a spawner will destroy"
-      - define "addedLore:->:<&c> any remaining charge it has"
+      - define "addedLore:->:<red>Breaking a spawner will destroy"
+      - define "addedLore:->:<red> any remaining charge it has"
       - if <[canRecharge]>:
         # Add action lore if the player has all the items
         - adjust def:spawnerItem flag:recharge:true
         - if <proc[dSpawners_Spawners_hasAllItems].context[<[player]>|<[rechargeData].get[Cost]>]>:
-          - define "addedLore:->:<&6>--- Click to add charge ---"
+          - define "addedLore:->:<gold>--- Click to add charge ---"
         - else:
-          - define "addedLore:->:<&4>Missing resources"
+          - define "addedLore:->:<dark_red>Missing resources"
       - else:
-        - define "addedLore:->:<&4>Spawner is near max charge"
+        - define "addedLore:->:<dark_red>Spawner is near max charge"
       - adjust def:spawnerItem lore:<[spawnerItem].lore.include[<[addedLore]>]>
     - define upgradeIcons <proc[dSpawners_Spawners_getUpgradeItems].context[<[location]>|<[player]>]>
     - determine <inventory[dSpawners_SpawnerGUI].include[<list[<[spawnerItem]>].include[<[upgradeIcons]>]>]>
@@ -424,7 +424,7 @@ dSpawners_Spawners_registerShard:
   script:
   # Check whether this shard type is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Shards.<[tier]>]>:
-    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&e>Spawner shard with tier <[tier]> (<server.flag[dSpawners.SubModules.Shards.<[tier]>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><yellow>Spawner shard with tier <[tier]> (<server.flag[dSpawners.SubModules.Shards.<[tier]>]>) is being overwritten by item <[scriptname]>"
   #- else:
     #- announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered spawner shard tier <[tier]> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Shards.<[tier]>:<[scriptname]>
@@ -435,7 +435,7 @@ dSpawners_Spawners_registerSpawner:
   script:
   # Check whether this entity type is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Spawner.<[entitytype]>]>:
-    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&e>Spawner for entity <[entitytype]> (<server.flag[dSpawners.SubModules.Spawner.<[entitytype]>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><yellow>Spawner for entity <[entitytype]> (<server.flag[dSpawners.SubModules.Spawner.<[entitytype]>]>) is being overwritten by item <[scriptname]>"
   #- else:
     #- announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered spawner for entity <[entitytype]> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Spawner.<[entitytype]>:<[scriptname]>
@@ -446,7 +446,7 @@ dSpawners_Spawners_registerCore:
   script:
   # Check whether this entity's spawner core is already registered and emit a warning if it is
   - if <server.has_flag[dSpawners.SubModules.Core.<[entitytype]>]>:
-    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><&e>Spawner core for entity <[entitytype].to_uppercase> (<server.flag[dSpawners.SubModules.Core.<[entitytype].to_uppercase>]>) is being overwritten by item <[scriptname]>"
+    - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]><yellow>Spawner core for entity <[entitytype].to_uppercase> (<server.flag[dSpawners.SubModules.Core.<[entitytype].to_uppercase>]>) is being overwritten by item <[scriptname]>"
   #- else:
     #- announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered spawner core for entity <[entitytype].to_uppercase> with item <[scriptname]>"
   - flag server dSpawners.SubModules.Core.<[entitytype].to_uppercase>:<[scriptname]>

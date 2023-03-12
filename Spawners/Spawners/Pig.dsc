@@ -118,9 +118,9 @@ dSpawners_Spawner_Pig:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_Pig
           - porkchop[quantity=512]
-  display name: <&e>Pig <&a>Spawner
+  display name: <yellow>Pig <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Pig
+  - <white>Mob Type: <gold>Pig
   mechanisms:
     spawner_type: Pig
   recipes:

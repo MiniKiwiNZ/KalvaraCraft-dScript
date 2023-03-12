@@ -116,9 +116,9 @@ dSpawners_Spawner_Sheep:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Sheep
           - white_wool[quantity=512]
-  display name: <&e>Sheep <&a>Spawner
+  display name: <yellow>Sheep <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Sheep
+  - <white>Mob Type: <gold>Sheep
   mechanisms:
     spawner_type: SHEEP
   recipes:

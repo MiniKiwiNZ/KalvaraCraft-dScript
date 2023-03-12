@@ -3,7 +3,7 @@ dSpawners_SpawnerCore_Enderman:
   debug: false
   type: item
   material: ender_eye
-  display name: <&e>Enderman Essence
+  display name: <yellow>Enderman Essence
   mechanisms:
     custom_model_data: 1
     hides:
@@ -13,11 +13,11 @@ dSpawners_SpawnerCore_Enderman:
   flags:
     PreventUse: true
   lore:
-  - <&f>Mob Type: <&6>Enderman
-  - <&f>Shard Tier: <&6>2
+  - <white>Mob Type: <gold>Enderman
+  - <white>Shard Tier: <gold>2
   - <empty>
   - Used to craft an Enderman spawner
-  - <&f>[<&9>Rare<&f>]
+  - <white>[<blue>Rare<white>]
 dSpawners_SpawnerCore_Enderman_Register:
   type: world
   debug: false

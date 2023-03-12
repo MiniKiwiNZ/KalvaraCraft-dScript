@@ -118,9 +118,9 @@ dSpawners_Spawner_Cod:
           - dSpawners_SpawnerShard_4[quantity=2]
           - dSpawners_SpawnerCore_Cod
           - cod[quantity=512]
-  display name: <&e>Cod <&a>Spawner
+  display name: <yellow>Cod <green>Spawner
   lore:
-  - <&f>Mob Type: <&6>Cod
+  - <white>Mob Type: <gold>Cod
   mechanisms:
     spawner_type: Cod
   recipes:

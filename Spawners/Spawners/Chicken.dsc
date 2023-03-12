@@ -116,9 +116,9 @@ dSpawners_Spawner_Chicken:
           - dSpawners_SpawnerShard_4[quantity=4]
           - dSpawners_SpawnerCore_Chicken
           - egg[quantity=512]
-  display name: <&e>Chicken <&a>Spawner
+  display name: <yellow>Chicken <green>Spawner
   lore:
-  - <&f>Mob Type: <&6> Chicken
+  - <white>Mob Type: <gold> Chicken
   mechanisms:
     spawner_type: Chicken
   recipes:
