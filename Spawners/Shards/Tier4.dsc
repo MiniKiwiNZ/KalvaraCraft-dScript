@@ -6,8 +6,8 @@ dSpawners_SpawnerShard_4:
   lore:
   - <white>A <light_purple>Tier 4<white> spawner shard
   - <empty>
-  - <&7>Used to craft and upgrade
-  - <&7>rare mob spawners
+  - <gray>Used to craft and upgrade
+  - <gray>rare mob spawners
   - <white>[<light_purple>Epic<white>]
   enchantments:
   - luck_of_the_sea:2

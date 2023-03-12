@@ -4,7 +4,7 @@ dSpawners_SpawnerCore_Blaze:
   debug: false
   type: item
   material: blaze_powder
-  display name: "<yellow>Blaze Essence"
+  display name: <yellow>Blaze Essence
   mechanisms:
     custom_model_data: 1
     hides:

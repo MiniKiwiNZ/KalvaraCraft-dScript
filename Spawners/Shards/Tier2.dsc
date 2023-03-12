@@ -6,8 +6,8 @@ dSpawners_SpawnerShard_2:
   lore:
   - <white>A <green>Tier 2<white> spawner shard
   - <empty>
-  - <&7>Used to craft and upgrade
-  - <&7>uncommon mob spawners
+  - <gray>Used to craft and upgrade
+  - <gray>uncommon mob spawners
   - <white>[<green>Uncommon<white>]
   enchantments:
   - luck_of_the_sea:2

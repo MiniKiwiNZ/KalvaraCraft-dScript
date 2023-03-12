@@ -6,8 +6,8 @@ dSpawners_SpawnerShard_3:
   lore:
   - <white>A <&b>Tier 3<white> spawner shard
   - <empty>
-  - <&7>Used to craft and upgrade
-  - <&7>rare mob spawners
+  - <gray>Used to craft and upgrade
+  - <gray>rare mob spawners
   - <white>[<&b>Rare<white>]
   enchantments:
   - luck_of_the_sea:2
