@@ -2,15 +2,15 @@ dSpawners_SpawnerConfig:
   debug: false
   type: world
   data:
-    Prefix: <&6><&l>dSpawner ► <&a>
+    Prefix: <gold><bold>dSpawner ► <green>
     Upgrades:
       # Speed upgrade makes spawning faster by 0.5 seconds per level
       Speed:
         Material: GOLD_INGOT
-        Name: <&6><&l>Spawning Speed
+        Name: <gold><bold>Spawning Speed
         Description:
-        - <&7>Decreases delay between
-        - <&7>spawns by 0.5 seconds
+        - <gray>Decreases delay between
+        - <gray> spawns by 0.5 seconds
         Actions:
           OnPlace:
           - define delay <[location].spawner_maximum_spawn_delay.sub[<[level].mul[10]>]>
@@ -18,11 +18,11 @@ dSpawners_SpawnerConfig:
       # Activation range lets players be one block further away from the spawner per level
       ActivationRange:
         Material: tripwire_hook
-        Name: <&b><&l>Activation Range
+        Name: <aqua><bold>Activation Range
         Description:
-        - <&7>Increases distance to player
-        - <&7>at which mobs will spawn by
-        - <&7>one block
+        - <gray>Increases distance to player
+        - <gray> at which mobs will spawn by
+        - <gray> one block
         Actions:
           OnPlace:
           - adjust <[location]> spawner_player_range:<[location].spawner_player_range.add[<[level]>]>
@@ -30,11 +30,11 @@ dSpawners_SpawnerConfig:
       # This range is also used when checking the entity cap so smaller range = better spawning
       SpawnRange:
         Material: beacon
-        Name: <&c><&l>Spawn Range
+        Name: <red><bold>Spawn Range
         Description:
-        - <&7>Decreases distance that
-        - <&7>mobs spawn away from the
-        - <&7>spawner by one block
+        - <gray>Decreases distance that
+        - <gray> mobs spawn away from the
+        - <gray> spawner by one block
         Actions:
           OnPlace:
           - adjust <[location]> spawner_range:<[location].spawner_range.sub[<[level]>]>
@@ -43,10 +43,10 @@ dSpawners_SpawnerConfig:
         Material: bat_spawn_egg
         Name: <&d><&l>Max Entities
         Description:
-        - <&7>Increase the number of mobs
-        - <&7>that can be near this
-        - <&7>spawner before it stops
-        - <&7>spawning by one
+        - <gray>Increase the number of mobs
+        - <gray> that can be near this
+        - <gray> spawner before it stops
+        - <gray> spawning by one
         Actions:
           OnPlace:
           - adjust <[location]> spawner_max_nearby_entities:<[location].spawner_max_nearby_entities.add[<[level]>]>
@@ -54,11 +54,11 @@ dSpawners_SpawnerConfig:
       # Multiplier increases by 1 for each level
       LootMultiplier:
         Material: hopper
-        Name: <&2><&l>Loot Upgrade
+        Name: <dark_green><bold>Loot Upgrade
         Description:
-        - <&7>Increase the amount of
-        - <&7>loot that mobs from this
-        - <&7>spawner will drop
+        - <gray>Increase the amount of
+        - <gray> loot that mobs from this
+        - <gray> spawner will drop
         Actions:
           OnSpawn:
           - adjust <[entity]> health_data:<[entity].health_max.mul[<[level].add[1]>]>/<[entity].health_max.mul[<[level].add[1]>]>
@@ -123,10 +123,10 @@ dSpawners_SpawnerConfig:
         # If the player hasn't placed a spawner in a while, remind them to charge it up
         - if <player.has_flag[SpawnerChargeReminder].not>:
           - flag <player> SpawnerChargeReminder expire:1d
-          - narrate "<script.parsed_key[data.Prefix]>Don't forget to charge your spawners so they can spawn mobs! <&c>Any remaining charge will be lost if you break a spawner."
+          - narrate "<script.parsed_key[data.Prefix]>Don't forget to charge your spawners so they can spawn mobs! <red>Any remaining charge will be lost if you break a spawner."
       - else:
         - determine passively cancelled
-        - narrate "<script.parsed_key[data.Prefix]><&c>This spawner item is not valid"
+        - narrate "<script.parsed_key[data.Prefix]><red>This spawner item is not valid"
     ## Listen for players breaking a spawner
     on player breaks spawner:
       # Check whether this was a natural spawner or not
@@ -160,7 +160,6 @@ dSpawners_SpawnerConfig:
       # Remove the entity's awareness
       - adjust <context.entity> is_aware:false
       # Remove the entity's equipment
-      - adjust <context.entity> equipment:air|air|air|air
       - equip <context.entity> head:air chest:air legs:air boots:air hand:air offhand:air
       # If the entity is riding or being ridden, remove the mount or the rider
       - if <context.entity.is_inside_vehicle>:
@@ -173,18 +172,16 @@ dSpawners_SpawnerConfig:
         - flag <context.entity> Upgrades.<[upgrade]>:<[level]>
         - run <script> path:data.Upgrades.<[upgrade]>.Actions.OnSpawn def.entity:<context.entity> def.level:<[level]> if:<script.list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnSpawn]>
     ## Transformed entities from spawners are still from spawners
-    on entity transforms:
-      - if <context.entity.has_flag[from_spawner]>:
-        - flag <context.new_entities> from_spawner
-        - equip <context.new_entities> head:air chest:air legs:air boots:air hand:air offhand:air
-        - adjust <context.new_entities> is_aware:false
+    on entity_flagged:from_spawner transforms:
+      - flag <context.new_entities> from_spawner
+      - equip <context.new_entities> head:air chest:air legs:air boots:air hand:air offhand:air
+      - adjust <context.new_entities> is_aware:false
     ## Make sure spawner entities cannot pick up items
-    on entity picks up item:
-      - determine cancelled if:<context.pickup_entity.has_flag[from_spawner]>
+    on entity_flagged:from_spawner picks up item:
+      - determine cancelled
     ## Prevent endermen teleporting
-    on enderman teleports:
-      - if <context.entity.has_flag[from_spawner]>:
-        - determine cancelled
+    on entity_flagged:from_spawner teleports:
+      - determine cancelled
     ## Listen for the death of entities from custom spawners
     on entity_flagged:Upgrades dies:
       - define drops <context.drops>
@@ -197,6 +194,7 @@ dSpawners_SpawnerConfig:
       - determine passively <tern[<[xp].equals[0]>].pass[NO_XP].fail[<[xp]>]>
     ## Listen for upgrade clicks
     on player clicks spawner with:item_flagged:UpgradeSpawner:
+      - determine passively cancelled
       - stop if:<context.location.has_flag[spawner].not>
       - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<context.location>|<player>]>
     ## Listen for clicks in the upgrade GUI
