@@ -7,41 +7,41 @@ dSpawners_Spawners_Command:
   data:
     Messages:
       Help:
-      - "&6&lSpawners Help:"
-      - " &3&l/spawner [help] &b- &fShow this help menu"
-      - " &3&l/spawner upgrade &b- &fUpgrade the targeted spawner"
-      - " &3&l/spawner info &b- &fShow the upgrades of the"
-      - "   &fspawner you are looking at"
-      - " &3&l/spawner boost &b- &fShow the spawner related boosts"
-      - "   &fcurrently applied to you"
+      - <gold><bold>Spawners Help<&co>
+      - <&sp><dark_aqua><bold>/spawner [help] <aqua>- <white>Show this help menu
+      - <&sp><dark_aqua><bold>/spawner upgrade <aqua>- <white>Upgrade the targeted spawner
+      - <&sp><dark_aqua><bold>/spawner info <aqua>- <white>Show the upgrades of the
+      - <&sp><&sp><&sp><white>spawner you are looking at
+      - <&sp><dark_aqua><bold>/spawner boost <aqua>- <white>Show the spawner related boosts
+      - <&sp><&sp><&sp><white>currently applied to you
       HelpAdmin:
-      - " &3&l/spawner give &b<player> <type> [quantity] - &fGive a"
-      - "   &fspawner to the player"
-      - " &3&l/spawner giveshards &b<player> [tier] [amount] - &fGive"
-      - "   &fspawner shards to a player"
-      - " &3&l/spawner boost &b<player> <type> <amount> <duration>"
-      - "   &fGive the specified player a greater drop chance to"
-      - "   &fget the spawner drops specified by &b<type>&f. Using"
-      - "   &fa boost of the same type overrides the existing one"
-      - " &3&l/spawner boost &b-global <type> <amount> <duration>"
-      - "   &fGive all players a greater drop chance to get the"
-      - "   &fspawner drops specified by &b<type>&f. Activating"
-      - "   &fmultiple boosts will increase the duration."
-      - " &b<type>&f Can be &bcores&f, &bshards&f, or &ball&f."
+      - <&sp><dark_aqua><bold>/spawner give <aqua><&lt>player<&gt> <&lt>type<&gt> [quantity] - <white>Give a
+      - <&sp><&sp><&sp><white>spawner to the player
+      - <&sp><dark_aqua><bold>/spawner giveshards <aqua><&lt>player<&gt> [tier] [amount] - <white>Give
+      - <&sp><&sp><&sp><white>spawner shards to a player
+      - <&sp><dark_aqua><bold>/spawner boost <aqua><&lt>player<&gt> <&lt>type<&gt> <&lt>amount<&gt> <&lt>duration<&gt>
+      - <&sp><&sp><&sp><white>Give the specified player a greater drop chance to
+      - <&sp><&sp><&sp><white>get the spawner drops specified by <aqua><&lt>type<&gt><white>. Using
+      - <&sp><&sp><&sp><white>a boost of the same type overrides the existing one
+      - <&sp><dark_aqua><bold>/spawner boost <aqua>-global <&lt>type<&gt> <&lt>amount<&gt> <&lt>duration<&gt>
+      - <&sp><&sp><&sp><white>Give all players a greater drop chance to get the
+      - <&sp><&sp><&sp><white>spawner drops specified by <aqua><&lt>type<&gt><white>. Activating
+      - <&sp><&sp><&sp><white>multiple boosts will increase the duration.
+      - <&sp><aqua><&lt>type<&gt><white> Can be <aqua>cores<white>, <aqua>shards<white>, or <aqua>all<white>.
     Injects:
       Help:
       - choose <context.source_type>:
         - case PLAYER:
-          - foreach <script.data_key[data.Messages.Help]> as:msg:
-            - narrate <[msg].parse_color>
+          - foreach <script.parsed_key[data.Messages.Help]> as:msg:
+            - narrate <[msg]>
           - if <player.has_permission[ApeironSpawners.Admin]>:
-            - foreach <script.data_key[data.Messages.HelpAdmin]> as:msg:
-              - narrate <[msg].parse_color>
+            - foreach <script.parsed_key[data.Messages.HelpAdmin]> as:msg:
+              - narrate <[msg]>
         - default:
-          - foreach <script.data_key[data.Messages.Help]> as:msg:
-            - announce to_console <[msg].parse_color>
-          - foreach <script.data_key[data.Messages.HelpAdmin]> as:msg:
-            - announce to_console <[msg].parse_color>
+          - foreach <script.parsed_key[data.Messages.Help]> as:msg:
+            - announce to_console <[msg]>
+          - foreach <script.parsed_key[data.Messages.HelpAdmin]> as:msg:
+            - announce to_console <[msg]>
       InvalidPlayer:
       - choose <context.source_type>:
         - case PLAYER:
@@ -50,7 +50,7 @@ dSpawners_Spawners_Command:
           - announce to_console "<&c>The specified player is not online!"
   tab complete:
     - define result <list>
-    - choose "<tern[<context.raw_args.ends_with[ ]>].pass[<context.args.size.add[1]>].fail[<context.args.size.max[1]>]>":
+    - choose <tern[<context.raw_args.ends_with[<&sp>]>].pass[<context.args.size.add[1]>].fail[<context.args.size.max[1]>]>:
       - case 1:
         - define result <[result].include[help|upgrade|boost|recipe]>
         - if <context.server> || <player.has_permission[ApeironSpawners.Admin]>:
@@ -102,7 +102,7 @@ dSpawners_Spawners_Command:
         - narrate "<&c>Natural spawners cannot be upgraded"
         - stop
       - inventory open d:<proc[dSpawners_Spawners_getUpgradeGui].context[<[upgradeBlock]>|<player>]>
-    ## /spawner give <player> <type> [quantity]
+    ## /spawner give <player> <&lt>type<&gt> [quantity]
     - case give:
       - if <context.source_type> == PLAYER && <player.has_permission[ApeironSpawners.Admin].not>:
         - narrate "<&c>You do not have permission to perform this action"
@@ -127,12 +127,12 @@ dSpawners_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[spawnerType]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]><&a>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
-          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]>"
+          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
       - else:
-        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as_item.display.if_null[<[spawnerType]>]>"
+        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[spawnerType].as[item].display.if_null[<[spawnerType]>]>"
     ## /spawner giveshards <player> [tier] [quantity]
     - case giveshards:
       - if <context.source_type> == PLAYER && <player.has_permission[ApeironSpawners.Admin].not>:
@@ -157,13 +157,13 @@ dSpawners_Spawners_Command:
       # Set the quantity
       - define quantity <context.args.get[4].null_if_tag[<[null_if_value].is_integer.not>].if_null[1]>
       - give <[shardScript]> to:<[targetPlayer].inventory> quantity:<[quantity]>
-      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
+      - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color><&a>Received <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]><&a>!" targets:<[targetPlayer]>
       - if <context.source_type> == PLAYER:
         - if <player.equals[<[targetPlayer]>].not>:
-          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]>"
+          - narrate "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"
       - else:
-        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as_item.display.if_null[<[shardScript]>]>"
-    ## /spawner boost [<player|-global> <all|cores|shards> <multiplier> <duration>]
+        - announce to_console "<script[dSpawners_SpawnerConfig].data_key[data.Prefix].parse_color>Gave <[targetPlayer].name> <[quantity]>x <[shardScript].as[item].display.if_null[<[shardScript]>]>"
+    ## /spawner boost [<player|-global> <all|cores|shards> <multiplier> <&lt>duration<&gt>]
     - case boost:
       # The second argument is always either a player or -global
       - if <context.args.size> >= 2 && <context.args.get[2]> != -global:
@@ -213,7 +213,7 @@ dSpawners_Spawners_Command:
         - inject <script> path:data.Injects.Help
         - stop
       # Validate the duration
-      - define duration <context.args.get[5].as_duration.if_null[null]>
+      - define duration <context.args.get[5].as[duration].if_null[null]>
       - if <[duration]> == null:
         - if <context.source_type> == PLAYER:
           - narrate "<&c>Duration is not valid"
@@ -233,14 +233,14 @@ dSpawners_Spawners_Command:
           - announce to_console "<&c>Type must be 'all', 'cores', or 'shards"
       # Queue up the boost
       - ~run dSpawners_Spawners_queueOrActivateBoost def:<context.args.get[3]>|<[duration]>|<context.args.get[4]>|<[targetPlayer].if_null[-global]>
-    ## /spawner recipe <type>
+    ## /spawner recipe <&lt>type<&gt>
     - case recipe:
       # This command cannot be run from the console
       - if <context.source_type> != PLAYER:
           - announce to_console "<&c>This command must be run by a player"
           - stop
       # Validate the spawner type
-      - define spawnerType <server.flag[dSpawners.SubModules.Spawner.<context.args.get[2].to_uppercase>].as_item.recipe_ids||<list>>
+      - define spawnerType <server.flag[dSpawners.SubModules.Spawner.<context.args.get[2].to_uppercase>].as[item].recipe_ids||<list>>
       - if <[spawnerType].size> == 0:
         - narrate "<&c>The specified spawner type is not valid, has no recipe, or has not been configured correctly"
         - stop
@@ -303,7 +303,7 @@ dSpawners_Spawners_BoostBar:
   debug: false
   definitions: players|message|color
   script:
-    - define bossbar <util.random.uuid>
+    - define bossbar <util.random_uuid>
     - bossbar create <[bossbar]> players:<[players]> title:<[message]> style:SOLID color:<[color].if_null[<list[BLUE|GREEN|PINK|PURPLE|RED|WHITE|YELLOW].random>]> progress:0
     - wait 0.1s
     - repeat 150:
