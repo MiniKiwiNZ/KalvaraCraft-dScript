@@ -291,7 +291,7 @@ dSpawners_Spawners_getSpawnerItem:
         - adjust def:dropitem lore:<[dropitem].lore.include_single[]>
         - foreach <[location].flag[Upgrades].keys.alphanumeric> as:upgrade:
           - define level <[location].flag[Upgrades.<[upgrade]>]>
-          - adjust def:dropitem "lore:<[dropitem].lore.include_single[<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[upgrade]>.Name]><&f>: <&6><[level]>]>"
+          - adjust def:dropitem lore:<[dropitem].lore.include_single[<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[upgrade]>.Name]><white>:<&sp><gold><[level]>]>
           - adjust def:dropitem flag:Upgrades.<[upgrade]>:<[level]>
       - determine <[dropitem]>
     - else:
@@ -317,32 +317,32 @@ dSpawners_Spawners_getUpgradeItemSingle:
   - define maxlevel <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.MaxLevel]>
   - define currentlevel <[location].flag[Upgrades.<[id]>].if_null[0]>
   - adjust def:item lore:<[item].lore.include_single[<empty>]>
-  - adjust def:item "lore:<[item].lore.include_single[<&7>Level <&b><[currentlevel]><&7>/<&b><[maxlevel]>]>"
+  - adjust def:item lore:<[item].lore.include_single[<gray>Level<&sp><aqua><[currentlevel]><gray>/<aqua><[maxlevel]>]>
   - if <[currentlevel].is_less_than[<[maxlevel]>]>:
     - adjust def:item lore:<[item].lore.include_single[<empty>]>
-    - adjust def:item "lore:<[item].lore.include_single[<&f>Upgrade Cost:]>"
+    - adjust def:item lore:<[item].lore.include_single[<white>Upgrade<&sp>Cost:]>
     - foreach <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.Cost.<[currentlevel].add[1]>]> as:cost:
       - if <[cost].starts_with[money:]>:
         - define moneyamount <[cost].substring[<[cost].last_index_of[:].add[1]>]>
         - define has <[player].money.is_more_than_or_equal_to[<[moneyamount]>]>
-        - adjust def:item "lore:<[item].lore.include_single[<tern[<[has]>].pass[<&2><&l>✓].fail[<&4><&l>✗]> <&7><server.economy.format[<[moneyamount]>]>]>"
+        - adjust def:item lore:<[item].lore.include_single[<tern[<[has]>].pass[<dark_green><bold>✓].fail[<dark_red><bold>✗]><&sp><gray><server.economy.format[<[moneyamount]>]>]>
       - else:
         - define costitem <[cost].as[item]>
         - if <[costitem].script.exists>:
           - define has <[player].inventory.contains_item[<[costitem].script.name>].quantity[<[costitem].quantity>]>
         - else:
           - define has <[player].inventory.contains_item[raw_exact:<[costitem]>].quantity[<[costitem].quantity>]>
-        - adjust def:item "lore:<[item].lore.include_single[<tern[<[has]>].pass[<&2><&l>✓].fail[<&4><&l>✗]> <&7><[costitem].display.strip_color.if_null[<[costitem].material.name.replace[_].with[ ].to_titlecase>]> <&f>x<[costitem].quantity>]>"
+        - adjust def:item lore:<[item].lore.include_single[<tern[<[has]>].pass[<dark_green><bold>✓].fail[<dark_red><bold>✗]><&sp><&7><[costitem].display.strip_color.if_null[<[costitem].material.name.replace[_].with[<&sp>].to_titlecase>]> <white>x<[costitem].quantity>]>
       - define cantupgrade false if:<[has].not>
     - adjust def:item lore:<[item].lore.include_single[<empty>]>
     - adjust def:item flag:Upgrade:<[id]>
     - if <[cantupgrade].exists>:
-      - adjust def:item "lore:<[item].lore.include_single[<&4>Missing resources]>"
+      - adjust def:item lore:<[item].lore.include_single[<dark_red>Missing resources]>
       - adjust def:item flag:BlockUpgrade:true
     - else:
       - adjust def:item enchantments:luck_of_the_sea=2
       - adjust def:item hides:ENCHANTS
-      - adjust def:item "lore:<[item].lore.include_single[<&6>--- Click to upgrade ---]>"
+      - adjust def:item lore:<[item].lore.include_single[<gold>--- Click to upgrade ---]>
   - determine <[item]>
 dSpawners_Spawners_hasAllItems:
   type: procedure
