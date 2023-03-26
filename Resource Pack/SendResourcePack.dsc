@@ -5,7 +5,7 @@ dResPack_world:
       - wait 1t
       - if <player.is_online> && <player.flag[dResPack]>:
         - ~webget https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/hash.txt save:hash
-        - resourcepack url:https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/KalvaraMC.zip hash:<entry[hash].result>
+        - resourcepack url:https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/KalvaraMC.zip#<entry[hash].result> hash:<entry[hash].result>
     on player joins:
       - if <player.has_flag[dResPack].not>:
         #- ratelimit <player> 12h
@@ -14,7 +14,7 @@ dResPack_world:
         - narrate "<green><&click[/resourcepack true]><&hover[Woo! Let's party with the resource pack!]>[Yes please!]<&end_hover><&end_click> <red><&click[/resourcepack false]><&hover[It's okay - we understand! We'll be here if you change your mind!]>[No thank you!]<&end_hover><&end_click>"
       - else if <player.flag[dResPack]>:
         - ~webget https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/hash.txt save:hash
-        - resourcepack url:https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/KalvaraMC.zip hash:<entry[hash].result>
+        - resourcepack url:https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/KalvaraMC.zip#<entry[hash].result> hash:<entry[hash].result>
     on resource pack status:
       - if <context.status> == SUCCESSFULLY_LOADED:
         - flag <player> dResPack:active
