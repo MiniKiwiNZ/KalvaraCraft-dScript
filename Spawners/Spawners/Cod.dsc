@@ -140,5 +140,5 @@ dSpawners_Spawner_Cod_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:COD|dSpawners_Spawner_Cod
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[COD=dSpawners_Spawner_Cod]>

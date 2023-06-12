@@ -20,8 +20,8 @@ dSpawners_SpawnerCore_Shulker_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:SHULKER|dSpawners_SpawnerCore_Shulker
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[SHULKER=dSpawners_SpawnerCore_Shulker]>
     on player kills SHULKER:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[1024]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:

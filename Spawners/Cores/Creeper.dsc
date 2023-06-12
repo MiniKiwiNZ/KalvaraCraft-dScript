@@ -19,8 +19,8 @@ dSpawners_SpawnerCore_Creeper_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:CREEPER|dSpawners_SpawnerCore_Creeper
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[CREEPER=dSpawners_SpawnerCore_Creeper]>
     on player kills creeper:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <context.entity.powered>:

@@ -22,8 +22,8 @@ dSpawners_SpawnerCore_Mule_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:Mule|dSpawners_SpawnerCore_Mule
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[Mule=dSpawners_SpawnerCore_Mule]>
     on player tames MULE:
       - if <util.random.int[1].to[128]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Mule:++

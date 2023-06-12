@@ -134,6 +134,5 @@ dSpawners_Spawner_PolarBear_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:POLAR_BEAR|dSpawners_Spawner_PolarBear
-      - run dSpawners_Spawners_registerSpawner def:POLARBEAR|dSpawners_Spawner_PolarBear
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[POLARBEAR=dSpawners_Spawner_PolarBear;POLAR_BEAR=dSpawners_Spawner_PolarBear]>

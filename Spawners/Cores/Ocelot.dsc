@@ -22,8 +22,8 @@ dSpawners_SpawnerCore_Ocelot_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:OCELOT|dSpawners_SpawnerCore_Ocelot
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[OCELOT=dSpawners_SpawnerCore_Ocelot]>
     on player tames OCELOT:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[128]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:

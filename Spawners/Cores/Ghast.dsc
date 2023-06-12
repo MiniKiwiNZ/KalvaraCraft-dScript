@@ -20,8 +20,8 @@ dSpawners_SpawnerCore_Ghast_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:GHAST|dSpawners_SpawnerCore_Ghast
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[GHAST=dSpawners_SpawnerCore_Ghast]>
     on GHAST dies cause:projectile:
       - stop if:<context.entity.has_flag[from_spawner]>
       - stop if:<context.entity.has_flag[fireballed].not>

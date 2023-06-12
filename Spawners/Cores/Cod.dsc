@@ -21,8 +21,8 @@ dSpawners_SpawnerCore_Cod_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:COD|dSpawners_SpawnerCore_Cod
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[COD=dSpawners_SpawnerCore_Cod]>
     on player fishes COD while CAUGHT_FISH:
       - if <util.random.int[1].to[5120]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
         - flag server SpawnerDrops.Cores.Cod:++

@@ -3,69 +3,6 @@ dSpawners_SpawnerConfig:
   type: world
   data:
     Prefix: <gold><bold>dSpawner ► <green>
-    Upgrades:
-      # Speed upgrade makes spawning faster by 0.5 seconds per level
-      Speed:
-        Material: GOLD_INGOT
-        Name: <gold><bold>Spawning Speed
-        Description:
-        - <gray>Decreases delay between
-        - <gray> spawns by 0.5 seconds
-        Actions:
-          OnPlace:
-          - define delay <[location].spawner_maximum_spawn_delay.sub[<[level].mul[10]>]>
-          - adjust <[location]> spawner_delay_data:<[delay]>|<[delay]>|<[delay]>
-      # Activation range lets players be one block further away from the spawner per level
-      ActivationRange:
-        Material: tripwire_hook
-        Name: <aqua><bold>Activation Range
-        Description:
-        - <gray>Increases distance to player
-        - <gray> at which mobs will spawn by
-        - <gray> one block
-        Actions:
-          OnPlace:
-          - adjust <[location]> spawner_player_range:<[location].spawner_player_range.add[<[level]>]>
-      # Spawn range narrows the spawn range of spawners to make mobs spawn closer to the spawner
-      # This range is also used when checking the entity cap so smaller range = better spawning
-      SpawnRange:
-        Material: beacon
-        Name: <red><bold>Spawn Range
-        Description:
-        - <gray>Decreases distance that
-        - <gray> mobs spawn away from the
-        - <gray> spawner by one block
-        Actions:
-          OnPlace:
-          - adjust <[location]> spawner_range:<[location].spawner_range.sub[<[level]>]>
-      # Entity cap controls how many mobs can be near the spawner before it won't spawn any more
-      EntityCap:
-        Material: bat_spawn_egg
-        Name: <light_purple><bold>Max Entities
-        Description:
-        - <gray>Increase the number of mobs
-        - <gray> that can be near this
-        - <gray> spawner before it stops
-        - <gray> spawning by one
-        Actions:
-          OnPlace:
-          - adjust <[location]> spawner_max_nearby_entities:<[location].spawner_max_nearby_entities.add[<[level]>]>
-      # Loot multiplier increases both XP and item drops from mobs spawned by a spawner
-      # Multiplier increases by 1 for each level
-      LootMultiplier:
-        Material: hopper
-        Name: <dark_green><bold>Loot Upgrade
-        Description:
-        - <gray>Increase the amount of
-        - <gray> loot that mobs from this
-        - <gray> spawner will drop
-        Actions:
-          OnSpawn:
-          - adjust <[entity]> health_data:<[entity].health_max.mul[<[level].add[1]>]>/<[entity].health_max.mul[<[level].add[1]>]>
-          OnDeath:
-          - foreach <[drops]> as:drop:
-            - define drops[<[loop_index]>]:<[drop].with[quantity=<[drop].quantity.mul[<[level].add[1]>]>]>
-          - define xp <[xp].mul[<[level].add[1]>]>
     NaturalDrops:
       BLAZE:
       - dSpawners_SpawnerShard_1[quantity=2]
@@ -95,17 +32,21 @@ dSpawners_SpawnerConfig:
   events:
     ## When the scripts reload, ask all spawner components to register themselves
     after reload scripts:
+      - run dspawners_task_reloadmodules
+      - stop
       - flag server dSpawners.SubModules:!
       - customevent id:dspawners_register_spawner_modules
-      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
-      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
-      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
+      - announce to_console "<script.parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
+      - announce to_console "<script.parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
+      - announce to_console "<script.parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
     after server start:
+      - run dspawners_task_reloadmodules
+      - stop
       - flag server dSpawners.SubModules:!
       - customevent id:dspawners_register_spawner_modules
-      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
-      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
-      - announce to_console "<script[dSpawners_SpawnerConfig].parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
+      - announce to_console "<script.parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Shards].size.if_null[0]> spawner shards"
+      - announce to_console "<script.parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Core].size.if_null[0]> spawner cores"
+      - announce to_console "<script.parsed_key[data.Prefix]>Registered <server.flag[dSpawners.SubModules.Spawner].size.if_null[0]> spawners"
     ## Listen for players placing a spawner
     on player places spawner:
       - if <context.item_in_hand.script.data_key[data.Placeable].if_null[false]>:
@@ -119,7 +60,7 @@ dSpawners_SpawnerConfig:
           - foreach <context.item_in_hand.flag[Upgrades].keys> as:upgrade:
             - define level <context.item_in_hand.flag[Upgrades.<[upgrade]>]>
             - flag <context.location> Upgrades.<[upgrade]>:<[level]>
-            - run <script> path:data.Upgrades.<[upgrade]>.Actions.OnPlace def.location:<context.location> def.level:<[level]> def.player:<player> if:<script.list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnPlace]>
+            - run <script[dspawners_upgradeconfig]> path:data.Upgrades.<[upgrade]>.Actions.OnPlace def.location:<context.location> def.level:<[level]> def.player:<player> if:<script[dspawners_upgradeconfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnPlace]>
         # If the player hasn't placed a spawner in a while, remind them to charge it up
         - if <player.has_flag[SpawnerChargeReminder].not>:
           - flag <player> SpawnerChargeReminder expire:1d
@@ -170,7 +111,7 @@ dSpawners_SpawnerConfig:
       - foreach <context.spawner_location.flag[Upgrades].keys.if_null[<list>]> as:upgrade:
         - define level <context.spawner_location.flag[Upgrades.<[upgrade]>]>
         - flag <context.entity> Upgrades.<[upgrade]>:<[level]>
-        - run <script> path:data.Upgrades.<[upgrade]>.Actions.OnSpawn def.entity:<context.entity> def.level:<[level]> if:<script.list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnSpawn]>
+        - run <script[dspawners_upgradeconfig]> path:data.Upgrades.<[upgrade]>.Actions.OnSpawn def.entity:<context.entity> def.level:<[level]> if:<script[dspawners_upgradeconfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnSpawn]>
     ## Transformed entities from spawners are still from spawners
     on entity_flagged:from_spawner transforms:
       - flag <context.new_entities> from_spawner
@@ -189,7 +130,7 @@ dSpawners_SpawnerConfig:
       # For each upgrade, run its OnDeath action
       - foreach <context.entity.flag[Upgrades].keys> as:upgrade:
         - define level <context.entity.flag[Upgrades.<[upgrade]>]>
-        - inject <script> path:data.Upgrades.<[upgrade]>.Actions.OnDeath if:<script.list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnDeath]>
+        - inject <script[dspawners_upgradeconfig]> path:data.Upgrades.<[upgrade]>.Actions.OnDeath if:<script[dspawners_upgradeconfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnDeath]>
       - determine passively <tern[<[drops].is_empty>].pass[NO_DROPS].fail[<[drops]>]>
       - determine passively <tern[<[xp].equals[0]>].pass[NO_XP].fail[<[xp]>]>
     ## Listen for upgrade clicks
@@ -311,9 +252,9 @@ dSpawners_Spawners_getUpgradeItemSingle:
   debug: false
   definitions: location|player|id
   script:
-  - define item <script[dSpawners_SpawnerConfig].data_key[data.Upgrades.<[id]>.Material].as[item]>
-  - adjust def:item display_name:<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[id]>.Name]>
-  - adjust def:item lore:<script[dSpawners_SpawnerConfig].parsed_key[data.Upgrades.<[id]>.Description]>
+  - define item <script[dspawners_upgradeconfig].data_key[data.Upgrades.<[id]>.Material].as[item]>
+  - adjust def:item display_name:<script[dspawners_upgradeconfig].parsed_key[data.Upgrades.<[id]>.Name]>
+  - adjust def:item lore:<script[dspawners_upgradeconfig].parsed_key[data.Upgrades.<[id]>.Description]>
   - define maxlevel <[location].flag[script].as[script].data_key[data.Upgrades.<[id]>.MaxLevel]>
   - define currentlevel <[location].flag[Upgrades.<[id]>].if_null[0]>
   - adjust def:item lore:<[item].lore.include_single[<empty>]>
@@ -415,8 +356,8 @@ dSpawners_Spawners_reapplyUpgrades:
   - if <[location].has_flag[Upgrades]>:
     - foreach <[location].flag[Upgrades].keys> as:upgrade:
       - define level <[location].flag[Upgrades.<[upgrade]>]>
-      - if <script[dSpawners_SpawnerConfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnPlace]>:
-        - run <script[dSpawners_SpawnerConfig]> path:data.Upgrades.<[upgrade]>.Actions.OnPlace def.location:<[location]> def.level:<[level]> def.player:<[player]>
+      - if <script[dspawners_upgradeconfig].list_keys[data.Upgrades.<[upgrade]>.Actions].if_null[<list>].contains[OnPlace]>:
+        - run <script[dspawners_upgradeconfig]> path:data.Upgrades.<[upgrade]>.Actions.OnPlace def.location:<[location]> def.level:<[level]> def.player:<[player]>
 dSpawners_Spawners_registerShard:
   type: task
   debug: false

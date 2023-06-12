@@ -25,5 +25,5 @@ dSpawners_SpawnerShard_4_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerShard def:4|dSpawners_SpawnerShard_4
+    on custom event id:dspawners_register_shards:
+      - determine OUTPUT:<map[4=dSpawners_SpawnerShard_4]>

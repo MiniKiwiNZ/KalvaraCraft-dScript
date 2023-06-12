@@ -138,5 +138,5 @@ dSpawners_Spawner_Skeleton_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:SKELETON|dSpawners_Spawner_Skeleton
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[SKELETON=dSpawners_Spawner_Skeleton]>

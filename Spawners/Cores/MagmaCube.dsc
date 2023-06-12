@@ -20,9 +20,8 @@ dSpawners_SpawnerCore_MagmaCube_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:MAGMA_CUBE|dSpawners_SpawnerCore_MagmaCube
-      - run dSpawners_Spawners_registerCore def:MAGMACUBE|dSpawners_SpawnerCore_MagmaCube
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[MAGMACUBE=dSpawners_SpawnerCore_MagmaCube;MAGMA_CUBE=dSpawners_SpawnerCore_MagmaCube]>
     on MAGMA_CUBE spawns because SLIME_SPLIT:
       - flag <context.entity> from_spawner
     on MAGMA_CUBE dies by:player:

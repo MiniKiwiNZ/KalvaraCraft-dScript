@@ -143,7 +143,5 @@ dSpawners_Spawner_MushroomCow_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:MUSHROOM_COW|dSpawners_Spawner_MushroomCow
-      - run dSpawners_Spawners_registerSpawner def:MUSHROOMCOW|dSpawners_Spawner_MushroomCow
-      - run dSpawners_Spawners_registerSpawner def:MOOSHROOM|dSpawners_Spawner_MushroomCow
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[MOOSHROOM=dSpawners_Spawner_MushroomCow;MUSHROOM_COW=dSpawners_Spawner_MushroomCow;MUSHROOMCOW=dSpawners_Spawner_MushroomCow]>

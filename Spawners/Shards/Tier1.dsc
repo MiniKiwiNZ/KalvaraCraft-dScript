@@ -26,8 +26,8 @@ dSpawners_SpawnerShard_1_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerShard def:1|dSpawners_SpawnerShard_1
+    on custom event id:dspawners_register_shards:
+      - determine OUTPUT:<map[1=dSpawners_SpawnerShard_1]>
     on loot generates for:chest:
       - define id <context.loot_table_id.substring[<context.loot_table_id.last_index_of[/].add[1]>]>
       - stop if:<[id].equals[jungle_temple_dispenser]>

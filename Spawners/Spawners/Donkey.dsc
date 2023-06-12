@@ -138,5 +138,5 @@ dSpawners_Spawner_Donkey_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:DONKEY|dSpawners_Spawner_Donkey
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[DONKEY=dSpawners_Spawner_Donkey]>

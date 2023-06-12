@@ -149,5 +149,5 @@ dSpawners_Spawner_Shulker_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:SHULKER|dSpawners_Spawner_Shulker
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[SHULKER=dSpawners_Spawner_Shulker]>

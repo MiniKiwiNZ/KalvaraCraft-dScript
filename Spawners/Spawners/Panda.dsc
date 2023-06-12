@@ -134,5 +134,5 @@ dSpawners_Spawner_Panda_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:PANDA|dSpawners_Spawner_Panda
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[PANDA=dSpawners_Spawner_Panda]>

@@ -23,8 +23,8 @@ dSpawners_SpawnerCore_Parrot_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:PARROT|dSpawners_SpawnerCore_Parrot
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[PARROT=dSpawners_SpawnerCore_Parrot]>
     on player right clicks PARROT with:COOKIE:
       - flag <context.entity> cookied:<player>
     on PARROT dies:

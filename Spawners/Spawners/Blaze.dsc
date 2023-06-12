@@ -143,5 +143,5 @@ dSpawners_Spawner_Blaze_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:BLAZE|dSpawners_Spawner_Blaze
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[BLAZE=dSpawners_Spawner_Blaze]>

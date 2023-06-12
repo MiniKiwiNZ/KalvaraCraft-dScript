@@ -20,8 +20,8 @@ dSpawners_SpawnerCore_Slime_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:SLIME|dSpawners_SpawnerCore_Slime
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[SLIME=dSpawners_SpawnerCore_Slime]>
     on SLIME spawns because SLIME_SPLIT:
       - flag <context.entity> from_spawner
     on SLIME dies by:player:

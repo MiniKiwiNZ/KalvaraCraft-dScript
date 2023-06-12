@@ -21,8 +21,8 @@ dSpawners_SpawnerCore_Zombie_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:ZOMBIE|dSpawners_SpawnerCore_Zombie
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[ZOMBIE=dSpawners_SpawnerCore_Zombie]>
     on player breaks spawner:
       - stop if:<context.location.has_flag[spawner]>
       - stop if:<context.location.spawner_type.advanced_matches[ZOMBIE].not>

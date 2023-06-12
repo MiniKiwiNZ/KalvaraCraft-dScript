@@ -138,5 +138,5 @@ dSpawners_Spawner_Cow_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:COW|dSpawners_Spawner_Cow
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[COW=dSpawners_Spawner_Cow]>

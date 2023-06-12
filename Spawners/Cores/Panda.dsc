@@ -23,8 +23,8 @@ dSpawners_SpawnerCore_Panda_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:PANDA|dSpawners_SpawnerCore_Panda
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[PANDA=dSpawners_SpawnerCore_Panda]>
     on player kills PANDA:
       - stop if:<context.entity.has_flag[from_spawner]>
       - stop if:<context.breeder.exists.not>

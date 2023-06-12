@@ -23,10 +23,8 @@ dSpawners_SpawnerCore_MushroomCow_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:MUSHROOM_COW|dSpawners_SpawnerCore_MushroomCow
-      - run dSpawners_Spawners_registerCore def:MUSHROOMCOW|dSpawners_SpawnerCore_MushroomCow
-      - run dSpawners_Spawners_registerCore def:MOOSHROOM|dSpawners_SpawnerCore_MushroomCow
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[MOOSHROOM=dSpawners_SpawnerCore_MushroomCow;MUSHROOMCOW=dSpawners_SpawnerCore_MushroomCow;MUSHROOM_COW=dSpawners_SpawnerCore_MushroomCow]>
     on player shears MUSHROOM_COW:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[164]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:

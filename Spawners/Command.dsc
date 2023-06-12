@@ -64,15 +64,15 @@ dSpawners_Spawners_Command:
             - if <context.server> || <player.has_permission[ApeironSpawners.Admin]>:
               - define result <[result].include[<server.online_players.parse[name]>].include[-global]>
           - case recipe:
-            - define result <[result].include[<server.flag[dSpawners.SubModules.Spawner].keys>]>
+            - define result <[result].include[<server.flag[dSpawners.Spawners].keys>]>
       - case 3:
         - choose <context.args.get[1]>:
           - case give:
             - if <context.server> || <player.has_permission[ApeironSpawners.Admin]>:
-              - define result <[result].include[<server.flag[dSpawners.SubModules.Spawner].keys>]>
+              - define result <[result].include[<server.flag[dSpawners.Spawners].keys>]>
           - case giveshards:
             - if <context.server> || <player.has_permission[ApeironSpawners.Admin]>:
-              - define result <[result].include[<server.flag[dSpawners.SubModules.Shards].keys>]>
+              - define result <[result].include[<server.flag[dSpawners.Shards].keys>]>
           - case boost:
             - if <context.server> || <player.has_permission[ApeironSpawners.Admin]>:
               - define result <[result].include[cores|shards|all]>
@@ -117,7 +117,7 @@ dSpawners_Spawners_Command:
         - inject <script> path:data.Injects.InvalidPlayer
         - stop
       # Validate the spawner type
-      - define spawnerType <server.flag[dSpawners.SubModules.Spawner.<context.args.get[3].to_uppercase>]||null>
+      - define spawnerType <server.flag[dSpawners.Spawners.<context.args.get[3].to_uppercase>]||null>
       - if <[spawnerType]> == null:
         - if <context.source_type> == PLAYER:
           - narrate "<&c>The specified spawner type is not valid or has not been configured correctly"
@@ -148,7 +148,7 @@ dSpawners_Spawners_Command:
         - inject <script> path:data.Injects.InvalidPlayer
         - stop
       # Validate the shard type
-      - define shardScript <server.flag[dSpawners.SubModules.Shards.<context.args.get[3].if_null[1]>]||null>
+      - define shardScript <server.flag[dSpawners.Shards.<context.args.get[3].if_null[1]>]||null>
       - if <[shardScript]> == null:
         - if <context.source_type> == PLAYER:
           - narrate "<&c>The specified shard tier is not valid or has not been configured correctly"
@@ -240,7 +240,7 @@ dSpawners_Spawners_Command:
           - announce to_console "<&c>This command must be run by a player"
           - stop
       # Validate the spawner type
-      - define spawnerType <server.flag[dSpawners.SubModules.Spawner.<context.args.get[2].to_uppercase>].as[item].recipe_ids||<list>>
+      - define spawnerType <server.flag[dSpawners.Spawners.<context.args.get[2].to_uppercase>].as[item].recipe_ids||<list>>
       - if <[spawnerType].size> == 0:
         - narrate "<&c>The specified spawner type is not valid, has no recipe, or has not been configured correctly"
         - stop
@@ -253,20 +253,20 @@ dSpawners_Spawners_queueOrActivateBoost:
   debug: false
   definitions: type|duration|multiplier|player
   script:
-  # If this is a global boost...
+  # If this is a global boost..
   - if <[player]> == -global:
-    # And the type includes shards...
+    # And the type includes shards..
     - if <[type]> == all || <[type]> == shards:
-      # And the server has an active global shard boost with the same multiplier...
+      # And the server has an active global shard boost with the same multiplier..
       - if <server.has_flag[Spawners.ActiveBoosts.Shards]> && <server.flag[Spawners.ActiveBoosts.Shards].get[1]> == <[multiplier]>:
         # Extend the current boost
         - flag server Spawners.ActiveBoosts.Shards:<[multiplier]>|<server.flag[Spawners.ActiveBoosts.Shards].get[2].add[<[duration]>]> expire:<server.flag_expiration[Spawners.ActiveBoosts.Shards].from_now.add[<[duration]>]>
       - else:
         # Add the boost to the queue
         - flag server Spawners.QueuedBoosts.Shards.<[multiplier]>:<[duration].add[<server.flag[Spawners.QueuedBoosts.Shards.<[multiplier]>].if_null[0]>]>
-    # And the type includes cores...
+    # And the type includes cores..
     - if <[type]> == all || <[type]> == cores:
-      # And the server has an active global core boost with the same multiplier...
+      # And the server has an active global core boost with the same multiplier..
       - if <server.has_flag[Spawners.ActiveBoosts.Cores]> && <server.flag[Spawners.ActiveBoosts.Cores]> == <[multiplier]>:
         # Extend the current boost
         - flag server Spawners.ActiveBoosts.Cores:<[multiplier]> expire:<server.flag_expiration[Spawners.ActiveBoosts.Cores].from_now.add[<[duration]>]>

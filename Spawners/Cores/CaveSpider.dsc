@@ -23,9 +23,8 @@ dSpawners_SpawnerCore_CaveSpider_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:CAVE_SPIDER|dSpawners_SpawnerCore_CaveSpider
-      - run dSpawners_Spawners_registerCore def:CAVESPIDER|dSpawners_SpawnerCore_CaveSpider
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[CAVESPIDER=dSpawners_SpawnerCore_CaveSpider;CAVE_SPIDER=dSpawners_SpawnerCore_CaveSpider]>
     on player breaks spawner:
       - stop if:<context.location.has_flag[spawner]>
       - stop if:<context.location.spawner_type.advanced_matches[CAVE_SPIDER].not>

@@ -138,5 +138,5 @@ dSpawners_Spawner_Horse_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:HORSE|dSpawners_Spawner_Horse
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[HORSE=dSpawners_Spawner_Horse]>

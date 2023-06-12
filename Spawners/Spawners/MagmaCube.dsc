@@ -138,6 +138,5 @@ dSpawners_Spawner_MagmaCube_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:MAGMA_CUBE|dSpawners_Spawner_MagmaCube
-      - run dSpawners_Spawners_registerSpawner def:MAGMACUBE|dSpawners_Spawner_MagmaCube
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[MAGMA_CUBE=dSpawners_Spawner_MagmaCube;MAGMACUBE=dSpawners_Spawner_MagmaCube]>

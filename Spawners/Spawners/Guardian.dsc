@@ -143,5 +143,5 @@ dSpawners_Spawner_Guardian_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:GUARDIAN|dSpawners_Spawner_Guardian
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[GUARDIAN=dSpawners_Spawner_Guardian]>

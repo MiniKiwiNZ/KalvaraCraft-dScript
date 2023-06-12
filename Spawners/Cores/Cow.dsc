@@ -21,8 +21,8 @@ dSpawners_SpawnerCore_Cow_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:COW|dSpawners_SpawnerCore_Cow
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[COW=dSpawners_SpawnerCore_Cow]>
     on player kills cow:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[768]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:

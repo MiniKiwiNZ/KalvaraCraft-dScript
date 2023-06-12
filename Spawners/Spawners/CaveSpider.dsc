@@ -143,6 +143,5 @@ dSpawners_Spawner_CaveSpider_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:CAVE_SPIDER|dSpawners_Spawner_CaveSpider
-      - run dSpawners_Spawners_registerSpawner def:CAVESPIDER|dSpawners_Spawner_CaveSpider
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[CAVESPIDER=dSpawners_Spawner_CaveSpider;CAVE_SPIDER=dSpawners_Spawner_CaveSpider]>

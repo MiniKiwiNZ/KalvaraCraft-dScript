@@ -22,8 +22,8 @@ dSpawners_SpawnerCore_Enderman_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:ENDERMAN|dSpawners_SpawnerCore_Enderman
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[ENDERMAN=dSpawners_SpawnerCore_Enderman]>
     on player kills ENDERMAN:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[512]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:

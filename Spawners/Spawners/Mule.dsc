@@ -138,5 +138,5 @@ dSpawners_Spawner_Mule_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:MULE|dSpawners_Spawner_Mule
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[MULE=dSpawners_Spawner_Mule]>

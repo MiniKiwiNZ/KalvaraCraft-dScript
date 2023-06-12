@@ -140,3 +140,5 @@ dSpawners_Spawner_Chicken_Register:
   events:
     on custom event id:dspawners_register_spawner_modules:
       - run dSpawners_Spawners_registerSpawner def:CHICKEN|dSpawners_Spawner_Chicken
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[CHICKEN=dSpawners_Spawner_Chicken]>

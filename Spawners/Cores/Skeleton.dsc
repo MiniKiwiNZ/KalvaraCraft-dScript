@@ -19,8 +19,8 @@ dSpawners_SpawnerCore_Skeleton_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:SKELETON|dSpawners_SpawnerCore_Skeleton
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[SKELETON=dSpawners_SpawnerCore_Skeleton]>
     on player kills SKELETON:
       - stop if:<context.entity.has_flag[from_spawner]>
       - if <util.random.int[1].to[512]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:

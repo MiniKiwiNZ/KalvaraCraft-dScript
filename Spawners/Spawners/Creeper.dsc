@@ -143,5 +143,5 @@ dSpawners_Spawner_Creeper_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerSpawner def:CREEPER|dSpawners_Spawner_Creeper
+    on custom event id:dspawners_register_spawners:
+      - determine OUTPUT:<map[CREEPER=dSpawners_Spawner_Creeper]>

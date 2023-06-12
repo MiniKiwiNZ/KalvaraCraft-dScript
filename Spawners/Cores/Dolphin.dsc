@@ -20,8 +20,8 @@ dSpawners_SpawnerCore_Dolphin_Register:
   type: world
   debug: false
   events:
-    on custom event id:dspawners_register_spawner_modules:
-      - run dSpawners_Spawners_registerCore def:DOLPHIN|dSpawners_SpawnerCore_Dolphin
+    on custom event id:dspawners_register_cores:
+      - determine OUTPUT:<map[DOLPHIN=dSpawners_SpawnerCore_Dolphin]>
     on loot generates:
       - stop if:<context.loot_table_id.equals[minecraft:chests/buried_treasure].not>
       - if <util.random.int[1].to[160]> <= <proc[dSpawners_Spawners_BoostThreshold].context[1|Cores|<player>]>:
