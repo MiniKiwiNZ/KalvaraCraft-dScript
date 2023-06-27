@@ -10,7 +10,7 @@ dResPack_world:
       - if <player.has_flag[dResPack].not>:
         #- ratelimit <player> 12h
         - wait 5s
-        - narrate "<gold><bold>Want a better experience?<white><n>We use a resource pack to enhance our chat experience - it's completely optional and you can change your settings anytime using /resourcepack"
+        - narrate "<gold><bold>Want a better experience?<white><n>We use a resource pack to enhance our player experience - it's completely optional and you can change your settings anytime using /resourcepack"
         - narrate "<green><&click[/resourcepack true]><&hover[Woo! Let's party with the resource pack!]>[Yes please!]<&end_hover><&end_click> <red><&click[/resourcepack false]><&hover[It's okay - we understand! We'll be here if you change your mind!]>[No thank you!]<&end_hover><&end_click>"
       - else if <player.flag[dResPack]>:
         - ~webget https://github.com/JGMinimule/KalvaraCraft-ResourcePack/releases/download/latest/hash.txt save:hash
@@ -49,3 +49,8 @@ dResPack_command:
         - else:
           - narrate "You have chosen not to receive our resource pack"
 
+player_is_using_resource_pack:
+  type: procedure
+  definitions: player
+  script:
+  - determine <[player].if_null[<player>].flag[drespack].equals[active].if_null[false]>
