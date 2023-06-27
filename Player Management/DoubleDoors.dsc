@@ -1,3 +1,9 @@
+##########################################
+## dUtils:DoubleDoors              v1.0 ##
+## Created by MiniKiwiNZ                ##
+## Made available under the MIT License ##
+## Copyright 2023 MiniKiwiNZ            ##
+##########################################
 dDoubleDoors_world:
     type: world
     debug: false
