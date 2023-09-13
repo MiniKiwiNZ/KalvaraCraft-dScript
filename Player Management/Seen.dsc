@@ -11,10 +11,10 @@ dUtils_seen_command:
     name: seen
     description: Show when a player was last seen, or how long an online player has been online
     usage: /seen [<&lt>player<&gt>]
-    permission: dutils.seen
+    permission: dutils.command.seen
     script:
     # If there are no arguments, or the user doesn't have permission to view others seen time, show their own
-    - if <context.source_type> == player && ( <context.args.size> == 0 || <player.has_permission[dutils.seen.others].not> ):
+    - if <context.source_type> == player && ( <context.args.size> == 0 || <player.has_permission[dutils.command.seen.others].not> ):
         - narrate "You have been online for <player.flag[dUtils.lastSeenTime].from_now.formatted_words>"
         - stop
     # Otherwise find the player requested

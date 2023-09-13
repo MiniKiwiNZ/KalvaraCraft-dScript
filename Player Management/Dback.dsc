@@ -12,7 +12,7 @@ dUtils_dback_cmd:
     name: dback
     description: Return to the last place you died
     usage: /dback
-    permission: dutils.dback
+    permission: dutils.command.dback
     script:
     # Exit if this wasn't executed by a player
     - if <context.source_type> != PLAYER:

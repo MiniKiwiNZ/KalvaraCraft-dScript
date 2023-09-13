@@ -9,7 +9,7 @@ dutils_ride_cmd:
     name: ride
     description: Ride the targeted entity
     usage: /ride
-    permission: dutils.ride
+    permission: dutils.command.ride
     script:
     # This command can only be run by a player
     - if <context.source_type> != PLAYER:
@@ -43,7 +43,7 @@ dutils_shake_cmd:
     name: shake
     description: Shake your rider off
     usage: /shake
-    permission: dutils.shake
+    permission: dutils.command.shake
     script:
     # This command can only be run by a player
     - if <context.source_type> != PLAYER:
