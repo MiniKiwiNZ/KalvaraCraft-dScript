@@ -12,6 +12,10 @@ dutils_sit_cmd:
     permission: dutils.command.sit
     usage: /sit
     script:
+    # This command can only be run by a player
+    - if <context.source_type> != PLAYER:
+        - narrate "<red>This command cannot be run from the console"
+        - stop
     # Toggle the sitting flag
     - if <player.has_flag[dUtils.sitEnabled]>:
         - flag <player> dUtils.sitEnabled:!
