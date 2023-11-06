@@ -9,7 +9,7 @@ dUtils_patrol_cmd:
     name: patrol
     description: Cycle through all players to make sure they are behaving
     usage: /patrol
-    permission: dutils.patrol
+    permission: dutils.command.patrol
     script:
     # Find any online players that haven't been patrolled since they came online
     - define allEligible <server.online_players.filter_tag[<[filter_value].has_permission[dutils.patrol.exempt].not>]>

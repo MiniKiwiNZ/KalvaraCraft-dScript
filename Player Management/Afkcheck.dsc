@@ -10,7 +10,7 @@ dUtils_afkcheck_cmd:
     description: Check the afk status of players
     usage: /afkcheck [<&lt>name<&gt>]
     debug: false
-    permission: dutils.afkcheck
+    permission: dutils.command.afkcheck
     script:
     # If there aren't any players online, we can't do anything
     - if <server.online_players.size> == 0:
