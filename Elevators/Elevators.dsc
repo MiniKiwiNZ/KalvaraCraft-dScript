@@ -46,9 +46,10 @@ dElevators_world:
         on player steps on block flagged:dElevator:
         # If the player isn't standing on an elevator, or a carpet covered elevator, remove the bossbar
         - if !<context.location.has_flag[dElevator]>:
-            - if !<context.location.material.advanced_matches[*_carpet]> && !<context.location.below.has_flag[dElevator]>:
-                - bossbar remove dElevator-<player.uuid>
-                - flag <player> dElevator:!
+            - if <context.location.material.advanced_matches[*_carpet]> && <context.location.below.has_flag[dElevator]>:
+                - stop
+            - bossbar remove dElevator-<player.uuid>
+            - flag <player> dElevator:!
         ## Bossbar removal - player disconnects while standing on an elevator
         after player quits:
         # When a player quits, if they still have a bossbar, remove it
